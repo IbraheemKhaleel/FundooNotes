@@ -5,4 +5,4 @@ from .models import User
 class AccountDetailSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('id','first_name', 'last_name' , 'email' , 'password' , 'created')
+        fields = ('id','first_name', 'last_name' , 'email' , 'password' , 'date_joined')
