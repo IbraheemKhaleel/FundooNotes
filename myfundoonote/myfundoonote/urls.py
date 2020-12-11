@@ -13,10 +13,33 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from __future__ import absolute_import
+from django.contrib import admin
+from django.urls import path,include
+
+
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from myfundooNotes import views
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+router = routers.DefaultRouter()
+router.register('users', views.UserDetailsCrud)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('myapi.urls')),
+    path('', include(router.urls)),
+    path('login/', views.LoginAPIView.as_view()),
+    path('register/', views.RegisterView.as_view()),
+
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('request-reset-email/', views.RequestPasswordResetEmail.as_view(),
+         name="request-reset-email"),
+    path('password-reset/<uidb64>/<token>/',
+         views.PasswordTokenCheckAPI.as_view(), name='password-reset-confirm'),
+    path('password-reset-complete/', views.SetNewPasswordAPIView.as_view(),
+         name='password-reset-complete')
+
 ]
