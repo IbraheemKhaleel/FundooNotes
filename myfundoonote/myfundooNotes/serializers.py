@@ -15,6 +15,8 @@ class UserDetailsSerializer(ModelSerializer):
         fields = '__all__'
 
 
+
+
 class RegisterSerializer(ModelSerializer):
     password = serializers.CharField(
         max_length=68, min_length=6, write_only=True)
@@ -37,6 +39,18 @@ class RegisterSerializer(ModelSerializer):
 
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
+
+
+class EmailVerificationSerializer(serializers.ModelSerializer):
+    token = serializers.CharField(max_length=555)
+
+    class Meta:
+        model = User
+        fields = ['token']
+
+
+
+
 
 
 class LoginSerializer(ModelSerializer):
