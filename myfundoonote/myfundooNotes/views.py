@@ -29,6 +29,8 @@ logging.basicConfig(filename='log_myfundooNotes.log',level=logging.DEBUG, format
 class CustomRedirect(HttpResponsePermanentRedirect):
     allowed_schemes = [os.environ.get('APP_SCHEME'), 'http', 'https']
 
+# defining a general error message if any unknown errors occur
+default_error_message = {'error': 'Something went wrong', 'status' : status.HTTP_404_NOT_FOUND }
 
 class Login(generics.GenericAPIView):
     """
@@ -50,7 +52,7 @@ class Login(generics.GenericAPIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
             logging.debug('validated data: {}'.format(serializer.data))
         except Exception:
-            return Response({'error': 'Something went wrong'}, status=status.HTTP_404_NOT_FOUND)
+            return Response(default_error_message)
 
 
 class Registration(generics.GenericAPIView):
@@ -85,7 +87,7 @@ class Registration(generics.GenericAPIView):
             logging.debug('validated data: {}'.format(serializer.data))
             return Response(user_data, status=status.HTTP_201_CREATED)
         except Exception:
-            return Response({'error': 'Something went wrong'}, status=status.HTTP_404_NOT_FOUND)
+            return Response(default_error_message)
 
 class EmailVerification(views.APIView):
     """
@@ -121,7 +123,7 @@ class EmailVerification(views.APIView):
             return Response({'error': 'Invalid token'}, status=status.HTTP_400_BAD_REQUEST)
         except Exception:
             logging.exception('Exception due to other reasons')
-            return Response({'error': 'Something went wrong'}, status=status.HTTP_404_NOT_FOUND)
+            return Response(default_error_message)
 
 class PasswordResetRequestToEmail(generics.GenericAPIView):
     """
@@ -154,7 +156,7 @@ class PasswordResetRequestToEmail(generics.GenericAPIView):
             logging.debug('password link sent successfully')
             return Response({'success': 'We have sent you a link to reset your password'}, status=status.HTTP_200_OK)
         except Exception:
-            return Response({'error': 'Something went wrong'}, status=status.HTTP_404_NOT_FOUND)
+            return Response(default_error_message)
 
 class PasswordTokenCheckAPI(generics.GenericAPIView):
     """
@@ -200,10 +202,10 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
                 return Response({'error': 'Token is not valid, please request a new one'}, status=status.HTTP_400_BAD_REQUEST)
             except Exception:
                 logging.exception('Exception due to other reasons')
-                return Response({'error': 'Something went wrong'}, status=status.HTTP_404_NOT_FOUND)
+                return Response(default_error_message)
         except Exception:
             logging.exception('Exception due to other reasons')
-            return Response({'error': 'Something went wrong'}, status=status.HTTP_404_NOT_FOUND)
+            return Response(default_error_message)
 
 class SetNewPasswordAPIView(generics.GenericAPIView):
     """
@@ -228,4 +230,4 @@ class SetNewPasswordAPIView(generics.GenericAPIView):
             return Response({'success': True, 'message': 'Password reset success'}, status=status.HTTP_200_OK)
         except Exception:
             logging.exception('Exception due to other reasons')
-            return Response({'error': 'Something went wrong'}, status=status.HTTP_404_NOT_FOUND)
+        return Response(default_error_message)
