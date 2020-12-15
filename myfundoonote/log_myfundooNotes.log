@@ -9,3 +9,531 @@ DEBUG | validated data: {'first_name': 'Ibrahimji', 'last_name': 'Khaleelji', 'e
 INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundoonote\urls.py changed, reloading.
 DEBUG | Using proactor: IocpProactor
 DEBUG | Using proactor: IocpProactor
+DEBUG | Importing BlpImagePlugin
+DEBUG | Importing BmpImagePlugin
+DEBUG | Importing BufrStubImagePlugin
+DEBUG | Importing CurImagePlugin
+DEBUG | Importing DcxImagePlugin
+DEBUG | Importing DdsImagePlugin
+DEBUG | Importing EpsImagePlugin
+DEBUG | Importing FitsStubImagePlugin
+DEBUG | Importing FliImagePlugin
+DEBUG | Importing FpxImagePlugin
+DEBUG | Image: failed to import FpxImagePlugin: No module named 'olefile'
+DEBUG | Importing FtexImagePlugin
+DEBUG | Importing GbrImagePlugin
+DEBUG | Importing GifImagePlugin
+DEBUG | Importing GribStubImagePlugin
+DEBUG | Importing Hdf5StubImagePlugin
+DEBUG | Importing IcnsImagePlugin
+DEBUG | Importing IcoImagePlugin
+DEBUG | Importing ImImagePlugin
+DEBUG | Importing ImtImagePlugin
+DEBUG | Importing IptcImagePlugin
+DEBUG | Importing JpegImagePlugin
+DEBUG | Importing Jpeg2KImagePlugin
+DEBUG | Importing McIdasImagePlugin
+DEBUG | Importing MicImagePlugin
+DEBUG | Image: failed to import MicImagePlugin: No module named 'olefile'
+DEBUG | Importing MpegImagePlugin
+DEBUG | Importing MpoImagePlugin
+DEBUG | Importing MspImagePlugin
+DEBUG | Importing PalmImagePlugin
+DEBUG | Importing PcdImagePlugin
+DEBUG | Importing PcxImagePlugin
+DEBUG | Importing PdfImagePlugin
+DEBUG | Importing PixarImagePlugin
+DEBUG | Importing PngImagePlugin
+DEBUG | Importing PpmImagePlugin
+DEBUG | Importing PsdImagePlugin
+DEBUG | Importing SgiImagePlugin
+DEBUG | Importing SpiderImagePlugin
+DEBUG | Importing SunImagePlugin
+DEBUG | Importing TgaImagePlugin
+DEBUG | Importing TiffImagePlugin
+DEBUG | Importing WebPImagePlugin
+DEBUG | Importing WmfImagePlugin
+DEBUG | Importing XbmImagePlugin
+DEBUG | Importing XpmImagePlugin
+DEBUG | Importing XVThumbImagePlugin
+DEBUG | Using proactor: IocpProactor
+DEBUG | Importing BlpImagePlugin
+DEBUG | Importing BmpImagePlugin
+DEBUG | Importing BufrStubImagePlugin
+DEBUG | Importing CurImagePlugin
+DEBUG | Importing DcxImagePlugin
+DEBUG | Importing DdsImagePlugin
+DEBUG | Importing EpsImagePlugin
+DEBUG | Importing FitsStubImagePlugin
+DEBUG | Importing FliImagePlugin
+DEBUG | Importing FpxImagePlugin
+DEBUG | Image: failed to import FpxImagePlugin: No module named 'olefile'
+DEBUG | Importing FtexImagePlugin
+DEBUG | Importing GbrImagePlugin
+DEBUG | Importing GifImagePlugin
+DEBUG | Importing GribStubImagePlugin
+DEBUG | Importing Hdf5StubImagePlugin
+DEBUG | Importing IcnsImagePlugin
+DEBUG | Importing IcoImagePlugin
+DEBUG | Importing ImImagePlugin
+DEBUG | Importing ImtImagePlugin
+DEBUG | Importing IptcImagePlugin
+DEBUG | Importing JpegImagePlugin
+DEBUG | Importing Jpeg2KImagePlugin
+DEBUG | Importing McIdasImagePlugin
+DEBUG | Importing MicImagePlugin
+DEBUG | Image: failed to import MicImagePlugin: No module named 'olefile'
+DEBUG | Importing MpegImagePlugin
+DEBUG | Importing MpoImagePlugin
+DEBUG | Importing MspImagePlugin
+DEBUG | Importing PalmImagePlugin
+DEBUG | Importing PcdImagePlugin
+DEBUG | Importing PcxImagePlugin
+DEBUG | Importing PdfImagePlugin
+DEBUG | Importing PixarImagePlugin
+DEBUG | Importing PngImagePlugin
+DEBUG | Importing PpmImagePlugin
+DEBUG | Importing PsdImagePlugin
+DEBUG | Importing SgiImagePlugin
+DEBUG | Importing SpiderImagePlugin
+DEBUG | Importing SunImagePlugin
+DEBUG | Importing TgaImagePlugin
+DEBUG | Importing TiffImagePlugin
+DEBUG | Importing WebPImagePlugin
+DEBUG | Importing WmfImagePlugin
+DEBUG | Importing XbmImagePlugin
+DEBUG | Importing XpmImagePlugin
+DEBUG | Importing XVThumbImagePlugin
+WARNING | Not Found: /images/note_images/PIPI6214.JPG
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundoonote\settings.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\models.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Not Found: /
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\models.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\models.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | Importing BlpImagePlugin
+DEBUG | Importing BmpImagePlugin
+DEBUG | Importing BufrStubImagePlugin
+DEBUG | Importing CurImagePlugin
+DEBUG | Importing DcxImagePlugin
+DEBUG | Importing DdsImagePlugin
+DEBUG | Importing EpsImagePlugin
+DEBUG | Importing FitsStubImagePlugin
+DEBUG | Importing FliImagePlugin
+DEBUG | Importing FpxImagePlugin
+DEBUG | Image: failed to import FpxImagePlugin: No module named 'olefile'
+DEBUG | Importing FtexImagePlugin
+DEBUG | Importing GbrImagePlugin
+DEBUG | Importing GifImagePlugin
+DEBUG | Importing GribStubImagePlugin
+DEBUG | Importing Hdf5StubImagePlugin
+DEBUG | Importing IcnsImagePlugin
+DEBUG | Importing IcoImagePlugin
+DEBUG | Importing ImImagePlugin
+DEBUG | Importing ImtImagePlugin
+DEBUG | Importing IptcImagePlugin
+DEBUG | Importing JpegImagePlugin
+DEBUG | Importing Jpeg2KImagePlugin
+DEBUG | Importing McIdasImagePlugin
+DEBUG | Importing MicImagePlugin
+DEBUG | Image: failed to import MicImagePlugin: No module named 'olefile'
+DEBUG | Importing MpegImagePlugin
+DEBUG | Importing MpoImagePlugin
+DEBUG | Importing MspImagePlugin
+DEBUG | Importing PalmImagePlugin
+DEBUG | Importing PcdImagePlugin
+DEBUG | Importing PcxImagePlugin
+DEBUG | Importing PdfImagePlugin
+DEBUG | Importing PixarImagePlugin
+DEBUG | Importing PngImagePlugin
+DEBUG | Importing PpmImagePlugin
+DEBUG | Importing PsdImagePlugin
+DEBUG | Importing SgiImagePlugin
+DEBUG | Importing SpiderImagePlugin
+DEBUG | Importing SunImagePlugin
+DEBUG | Importing TgaImagePlugin
+DEBUG | Importing TiffImagePlugin
+DEBUG | Importing WebPImagePlugin
+DEBUG | Importing WmfImagePlugin
+DEBUG | Importing XbmImagePlugin
+DEBUG | Importing XpmImagePlugin
+DEBUG | Importing XVThumbImagePlugin
+WARNING | Not Found: /images/childhood.jpg
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\models.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundoonote\settings.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundoonote\settings.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | Importing BlpImagePlugin
+DEBUG | Importing BmpImagePlugin
+DEBUG | Importing BufrStubImagePlugin
+DEBUG | Importing CurImagePlugin
+DEBUG | Importing DcxImagePlugin
+DEBUG | Importing DdsImagePlugin
+DEBUG | Importing EpsImagePlugin
+DEBUG | Importing FitsStubImagePlugin
+DEBUG | Importing FliImagePlugin
+DEBUG | Importing FpxImagePlugin
+DEBUG | Image: failed to import FpxImagePlugin: No module named 'olefile'
+DEBUG | Importing FtexImagePlugin
+DEBUG | Importing GbrImagePlugin
+DEBUG | Importing GifImagePlugin
+DEBUG | Importing GribStubImagePlugin
+DEBUG | Importing Hdf5StubImagePlugin
+DEBUG | Importing IcnsImagePlugin
+DEBUG | Importing IcoImagePlugin
+DEBUG | Importing ImImagePlugin
+DEBUG | Importing ImtImagePlugin
+DEBUG | Importing IptcImagePlugin
+DEBUG | Importing JpegImagePlugin
+DEBUG | Importing Jpeg2KImagePlugin
+DEBUG | Importing McIdasImagePlugin
+DEBUG | Importing MicImagePlugin
+DEBUG | Image: failed to import MicImagePlugin: No module named 'olefile'
+DEBUG | Importing MpegImagePlugin
+DEBUG | Importing MpoImagePlugin
+DEBUG | Importing MspImagePlugin
+DEBUG | Importing PalmImagePlugin
+DEBUG | Importing PcdImagePlugin
+DEBUG | Importing PcxImagePlugin
+DEBUG | Importing PdfImagePlugin
+DEBUG | Importing PixarImagePlugin
+DEBUG | Importing PngImagePlugin
+DEBUG | Importing PpmImagePlugin
+DEBUG | Importing PsdImagePlugin
+DEBUG | Importing SgiImagePlugin
+DEBUG | Importing SpiderImagePlugin
+DEBUG | Importing SunImagePlugin
+DEBUG | Importing TgaImagePlugin
+DEBUG | Importing TiffImagePlugin
+DEBUG | Importing WebPImagePlugin
+DEBUG | Importing WmfImagePlugin
+DEBUG | Importing XbmImagePlugin
+DEBUG | Importing XpmImagePlugin
+DEBUG | Importing XVThumbImagePlugin
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Note\migrations\0002_auto_20201214_2150.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Note\migrations\0002_auto_20201214_2150.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+WARNING | Not Found: /
+WARNING | Not Found: /favicon.ico
+WARNING | Not Found: /
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundoonote\urls.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Method Not Allowed: /note-create/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\urls.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Method Not Allowed: /label-delete/1/
+WARNING | Method Not Allowed: /label-delete/1/
+WARNING | Method Not Allowed: /label-create/
+WARNING | Not Found: /node-create/
+WARNING | Method Not Allowed: /note-create/
+WARNING | Method Not Allowed: /note-update/1/
+WARNING | Not Found: /create-notes/
+WARNING | Method Not Allowed: /note-create/
+DEBUG | Importing BlpImagePlugin
+DEBUG | Importing BmpImagePlugin
+DEBUG | Importing BufrStubImagePlugin
+DEBUG | Importing CurImagePlugin
+DEBUG | Importing DcxImagePlugin
+DEBUG | Importing DdsImagePlugin
+DEBUG | Importing EpsImagePlugin
+DEBUG | Importing FitsStubImagePlugin
+DEBUG | Importing FliImagePlugin
+DEBUG | Importing FpxImagePlugin
+DEBUG | Image: failed to import FpxImagePlugin: No module named 'olefile'
+DEBUG | Importing FtexImagePlugin
+DEBUG | Importing GbrImagePlugin
+DEBUG | Importing GifImagePlugin
+DEBUG | Importing GribStubImagePlugin
+DEBUG | Importing Hdf5StubImagePlugin
+DEBUG | Importing IcnsImagePlugin
+DEBUG | Importing IcoImagePlugin
+DEBUG | Importing ImImagePlugin
+DEBUG | Importing ImtImagePlugin
+DEBUG | Importing IptcImagePlugin
+DEBUG | Importing JpegImagePlugin
+DEBUG | Importing Jpeg2KImagePlugin
+DEBUG | Importing McIdasImagePlugin
+DEBUG | Importing MicImagePlugin
+DEBUG | Image: failed to import MicImagePlugin: No module named 'olefile'
+DEBUG | Importing MpegImagePlugin
+DEBUG | Importing MpoImagePlugin
+DEBUG | Importing MspImagePlugin
+DEBUG | Importing PalmImagePlugin
+DEBUG | Importing PcdImagePlugin
+DEBUG | Importing PcxImagePlugin
+DEBUG | Importing PdfImagePlugin
+DEBUG | Importing PixarImagePlugin
+DEBUG | Importing PngImagePlugin
+DEBUG | Importing PpmImagePlugin
+DEBUG | Importing PsdImagePlugin
+DEBUG | Importing SgiImagePlugin
+DEBUG | Importing SpiderImagePlugin
+DEBUG | Importing SunImagePlugin
+DEBUG | Importing TgaImagePlugin
+DEBUG | Importing TiffImagePlugin
+DEBUG | Importing WebPImagePlugin
+DEBUG | Importing WmfImagePlugin
+DEBUG | Importing XbmImagePlugin
+DEBUG | Importing XpmImagePlugin
+DEBUG | Importing XVThumbImagePlugin
+ERROR | Internal Server Error: /note-create/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 202, in _get_response
+    response = response.render()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\response.py", line 70, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\renderers.py", line 724, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\renderers.py", line 680, in get_context
+    'content': self.get_content(renderer, data, accepted_media_type, renderer_context),
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\renderers.py", line 413, in get_content
+    content = renderer.render(data, accepted_media_type, renderer_context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+  File "c:\users\ibrahim khaleel\appdata\local\programs\python\python39\lib\json\__init__.py", line 234, in dumps
+    return cls(
+  File "c:\users\ibrahim khaleel\appdata\local\programs\python\python39\lib\json\encoder.py", line 201, in encode
+    chunks = list(chunks)
+  File "c:\users\ibrahim khaleel\appdata\local\programs\python\python39\lib\json\encoder.py", line 431, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "c:\users\ibrahim khaleel\appdata\local\programs\python\python39\lib\json\encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "c:\users\ibrahim khaleel\appdata\local\programs\python\python39\lib\json\encoder.py", line 439, in _iterencode
+    yield from _iterencode(o, _current_indent_level)
+  File "c:\users\ibrahim khaleel\appdata\local\programs\python\python39\lib\json\encoder.py", line 429, in _iterencode
+    yield from _iterencode_list(o, _current_indent_level)
+  File "c:\users\ibrahim khaleel\appdata\local\programs\python\python39\lib\json\encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "c:\users\ibrahim khaleel\appdata\local\programs\python\python39\lib\json\encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\encoders.py", line 50, in default
+    return obj.decode()
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+ERROR | Internal Server Error: /admin/Notes/note/1/change/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 202, in _get_response
+    response = response.render()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\defaultfilters.py", line 42, in _dec
+    args[0] = str(args[0])
+TypeError: __str__ returned non-string (type User)
+ERROR | Internal Server Error: /admin/Notes/note/2/change/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 202, in _get_response
+    response = response.render()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\defaultfilters.py", line 42, in _dec
+    args[0] = str(args[0])
+TypeError: __str__ returned non-string (type User)
+ERROR | Internal Server Error: /admin/Notes/note/2/change/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 202, in _get_response
+    response = response.render()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\template\defaultfilters.py", line 42, in _dec
+    args[0] = str(args[0])
+TypeError: __str__ returned non-string (type User)
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\models.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundoonote\settings.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundoonote\settings.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundoonote\settings.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
