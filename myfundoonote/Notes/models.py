@@ -17,16 +17,19 @@ class Note(models.Model):
     Created a model class for Notes to store respective fields
     
     """
-    user = models.ForeignKey(User , on_delete = models.CASCADE , related_name = 'author', null = True, blank = True) #name of user
+    user = models.ForeignKey(User , on_delete = models.CASCADE , related_name = 'author', null = True) #name of user
     title = models.CharField(max_length = 50, blank = True)
     description = models.TextField(blank = True)
     reminder = models.DateTimeField(null = True, blank = True)
     color = ColorField(default='#FFFFFF')
-    image = models.ImageField(default = None, upload_to='note_images/',null = True,blank = True)
+    image = models.ImageField(upload_to = 'notes/', null = True,blank = True)
     collaborators = models.ManyToManyField(User , related_name = 'collaborator',  blank = True)#It connects with User model class we defined in myfundooNotes file
-    labels = models.ManyToManyField(Label) #This connects Label model class we defined above 
+    labels = models.ManyToManyField(Label, blank=True) #This connects Label model class we defined above 
     is_archived = models.BooleanField(default = False, blank = True)
     is_deleted = models.BooleanField(default = False)
     is_pinned = models.BooleanField(default = False, blank = True, null = True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now = True)
+
+    def __str__(self):
+        return self.title
