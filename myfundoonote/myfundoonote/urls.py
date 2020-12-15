@@ -20,9 +20,8 @@ from rest_framework import routers
 from myfundooNotes import views
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-
-
 urlpatterns = [
+    path('',include('Notes.urls')),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),  
     path('login/', views.Login.as_view()),
@@ -31,11 +30,9 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('password-reset-request-to-email/', views.PasswordResetRequestToEmail.as_view(),
-         name="request-reset-email"),
+        name="request-reset-email"),
     path('password-reset/<uidb64>/<token>/',
-         views.PasswordTokenCheckAPI.as_view(), name='password-reset-confirm'),
+        views.PasswordTokenCheckAPI.as_view(), name='password-reset-confirm'),
     path('password-reset-complete/', views.SetNewPasswordAPIView.as_view(),
-         name='password-reset-complete')
-
-
+        name='password-reset-complete'),
 ]
