@@ -4,93 +4,78 @@ Created on: 15th December 20
 """
 
 import logging
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import NoteSerializer,LabelSerializer
-from .models import Note,Label
+from .serializers import NoteSerializer
+from .models import Note
+
+
 # Create your views here.
 
-default_error_response = {'message':'error', 'status':status.HTTP_400_BAD_REQUEST}
+default_error_response = {'message':'error', 'status':False}
+
 
 class NotesOverview(APIView):
     """
     Created a class for displaying overview of urls using in operations
 
     """
+    
     def get(self , request):
         """
         Created a method for displaying overview of urls 
 
         """
-        api_urls = {
-            'Note-List': '/note-list/',
-            'Note-Detail - View':'/note-detail/<int:pk>/',
-            'Note-Create':'/note-create/',
+        api_urls = {    
+            'Note-CreateAndRetrieve':'/note/',
             'Note-Update':'/note-update/<int:pk>/',
-            'Note-Delete':'/note-delete/<int:pk>/',
-            'Label-List': '/label-list/',
-            'Label-Create':'/label-create/',
-            'Label-Update':'/label-update/<int:pk>/',
-            'Label-Delete':'/label-delete/<int:pk>/',
+            'Label-CreateAndRetrieve': '/label/',
+            'Label-UpdateAndDelete':'/label-update/<int:pk>/',
         }
         return Response(api_urls)
 
-class NotesList(APIView):
+class Notes(APIView):
     """
     Created a class to display list of notes saved inside
     """
+    
     
     serializer_class = NoteSerializer
     def get(self , request):
         """
         Created a method to display list of notes saved in
         Returns:
-        json: list of notes with complete details
+        json: list of notes with complete notes
         """
+
         try:
-            notes = Note.objects.all() #accessing all the object details into a variable
+            notes = Note.objects.all() #accessing all the object notes into a variable
             serializer = NoteSerializer(notes, many=True) #serializing the variable using NoteSerializer
-            return Response(serializer.data)
+            success_message = {'message':'success', 'status':True, 'data' : serializer.data }
+            return Response(success_message, status=status.HTTP_202_ACCEPTED)
         except:
-            return Response(default_error_response)
-
-class NotesDetail(APIView):
-    """
-    Created a class for displaying a particular notes using id
-
-    Returns:
-        json: details of note with specified id
-    """
-    serializer_class = NoteSerializer
-    def get(self , request, pk):
-        try:
-            notes = Note.objects.get(id=pk) #accessing a particular note details using id 
-            serializer = NoteSerializer(notes, many=False)
-            return Response(serializer.data)
-        except:
-            return Response(default_error_response)
-
-class CreateNote(APIView):
-    """
-    Created a class to create new note
-    """
-
-    serializer_class = NoteSerializer
+            return Response(default_error_response, status.HTTP_400_BAD_REQUEST)
+    
     def post(self, request):
         """
         Created a method to create a new note
         Returns:
-        json: new note's saved details
+        json: new note's saved notes
         """
         try:
-            serializer = NoteSerializer(data=request.data) #serializing the input details given by user
-            if serializer.is_valid(): #Checks whether the given details are valid or not using in built is_valid function
+            serializer = NoteSerializer(data=request.data) #serializing the input notes given by user
+            if serializer.is_valid(): #Checks whether the given notes are valid or not using in built is_valid function
                 serializer.save() #saving into database
-            return Response(serializer.data)
+                success_message = {'message':'success', 'status': True, 'data' : serializer.data }
+                return Response(success_message, status=status.HTTP_201_CREATED)
+            return Response(default_error_response, status.HTTP_400_BAD_REQUEST)
         except:
-            return Response(default_error_response)
+            return Response(default_error_response, status.HTTP_400_BAD_REQUEST)
+
 
 class UpdateNote(APIView):
     """
@@ -98,121 +83,64 @@ class UpdateNote(APIView):
     
     """
     serializer_class = NoteSerializer
-    def post(self, request, pk):
+    def get_object(self, pk):
         """
-        Created a method to update a particular note using id provided
-        Returns:
-            json: updated note's saved details
+        Created a method to retrieve an object notes
 
+        parameter:  primary key given to retrieve notes of particular user
+
+        return: user notes of particular user
         """
         try:
-            note = Note.objects.get(id=pk)
-            serializer = NoteSerializer(instance=note, data=request.data)
-            if serializer.is_valid():
-                serializer.save()
-            return Response(serializer.data)
+            return Note.object.get(id = pk) #calls get method to retrieve a particular user notes
+        except Note.DoesNotExist:
+            default_error_response['message'] = 'Note does not exist'
+            return Response(default_error_response,status=status.HTTP_404_NOT_FOUND)
         except:
-            return Response(default_error_response)
+            return Response(default_error_response, status.HTTP_400_BAD_REQUEST)
+    def get(self, request, pk):
+        try:
+            notes = Note.objects.get(id = pk)
+            serializer = NoteSerializer(notes)
+            success_message = {'message':'success', 'status': True, 'data' : serializer.data }
+            return Response(success_message, status=status.HTTP_202_ACCEPTED)
+        except:
+            return Response(default_error_response, status.HTTP_400_BAD_REQUEST)
 
-class DeleteNote(APIView):
-    """
-    Created a class to delete a note
-    """
-    serializer_class = NoteSerializer
-    def delete(self , request , pk):
+    def put(self, request, pk):
         """
-        Created a method to delete a particular note using id
+        Created a put method to edit particular user notes
         Args:
-            pk ([int]): id
+            pk (integer): id of particular user to edit their notes
 
         Returns:
-           A String message with a status
+                Updated user notes with status message
         """
         try:
-            note = Note.objects.get(id=pk)
-            note.delete()
-            return Response('Note successfully deleted.')
-        except:
-            return Response(default_error_response)
-
-
-class LabelList(APIView):
-    """
-    Created a class to display labels
-
-   
-    """
-    serializer_class = LabelSerializer
-    def get(self , request):
-        """
-        Created a method to display list of labels used by user
-        Returns:
-            json: list of note labels saved
-        """
-        try:
-            labels = Label.objects.all()
-            serializer = LabelSerializer(labels, many=True)
-            return Response(serializer.data)
-        except:
-            return Response(default_error_response)
-
-
-class CreateLabel(APIView):
-    """
-    Created a class for creating labels
-   
-    """
-    serializer_class = LabelSerializer
-    def post(self, request):
-        """
-        Created a method to create new labels
-        Returns:
-            json: details of the created label
-        """
-        try:
-            serializer = LabelSerializer(data=request.data)
+            notes = self.get_object(pk)
+            serializer = NoteSerializer(notes, data=request.data, partial = True)
             if serializer.is_valid():
                 serializer.save()
-            return Response(serializer.data)
+                success_message = {'message':'success', 'status':True, 'data' : serializer.data }
+                return Response(success_message, status=status.HTTP_200_OK)
+            return Response(default_error_response, status=status.HTTP_400_BAD_REQUEST)
         except:
-            return Response(default_error_response)
-
-class UpdateLabel(APIView):
-    """
-    Created a class to update an existing label
-
-    """
-    serializer_class = LabelSerializer
-    def post(self, request, pk):
+            return Response(default_error_response, status.HTTP_400_BAD_REQUEST)
+            
+    def delete(self, request, pk):
         """
-        Created a method to update an existing label using id
+        Created a method to delete a particular user's note
+
+        Args:
+            pk (integer): id of particular user to delete their notes
+
         Returns:
-            json: [updated label's saved details]
+            Delete the user notes with status message
         """
         try:
-            label = Label.objects.get(id=pk)
-            serializer = LabelSerializer(instance=label, data=request.data)
-            if serializer.is_valid():
-                serializer.save()
-            return Response(serializer.data)
+            notes = Notes.get_object(id = pk)
+            notes.delete()
+            response_message = {'message' : 'successfully deleted', 'status' : True}
+            return Response(response_message, status=status.HTTP_404_NOT_FOUND)
         except:
-            return Response(default_error_response)
-
-class DeleteLabel(APIView):
-    """
-    Created a class to delete a label
-
-    """
-    serializer_class = LabelSerializer
-    def delete(self , request , pk):
-        """
-        Created a method to delete a particular with  id
-        Returns:
-            string: message with status
-        """
-        try:
-            label = Label.objects.get(id=pk) #accessing a particular label using id to delete
-            label.delete()
-            return Response('Label successfully deleted.')
-        except:
-            return Response(default_error_response)
+            return Response(default_error_response, status.HTTP_400_BAD_REQUEST)

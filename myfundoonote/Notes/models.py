@@ -2,15 +2,8 @@ from colorfield.fields import ColorField
 from django.db import models
 from django.utils import timezone
 from myfundooNotes.models import User
+from Label.models import Label
 
-class Label(models.Model):
-    """
-    Created a model class for labelling notes
-    """
-    name = models.CharField(max_length = 130, null = True , unique = True)
-
-    def __str__(self):
-        return self.name
 
 class Note(models.Model):
     """
@@ -18,6 +11,8 @@ class Note(models.Model):
     
     """
     user = models.ForeignKey(User , on_delete = models.CASCADE , related_name = 'author', null = True) #name of user
+    is_deleted = models.BooleanField(default=False)
+    deleted_at = models.DateTimeField(blank=True, null=True)
     title = models.CharField(max_length = 50, blank = True)
     description = models.TextField(blank = True)
     reminder = models.DateTimeField(null = True, blank = True)
@@ -33,3 +28,5 @@ class Note(models.Model):
 
     def __str__(self):
         return self.title
+
+    
