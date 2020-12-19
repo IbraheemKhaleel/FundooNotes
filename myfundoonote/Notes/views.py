@@ -53,7 +53,7 @@ class Notes(APIView):
         """
 
         try:
-            notes = Note.objects.all() #accessing all the object notes into a variable
+            notes = Note.objects.filter(is_deleted=False) #accessing all the object notes into a variable
             serializer = NoteSerializer(notes, many=True) #serializing the variable using NoteSerializer
             success_message = {'message':'success', 'status':True, 'data' : serializer.data }
             return Response(success_message, status=status.HTTP_202_ACCEPTED)
@@ -138,9 +138,10 @@ class UpdateNote(APIView):
             Delete the user notes with status message
         """
         try:
-            notes = Notes.get_object(id = pk)
-            notes.delete()
+            notes = Notes.get_object(pk)
+            notes.soft_delete()
             response_message = {'message' : 'successfully deleted', 'status' : True}
-            return Response(response_message, status=status.HTTP_404_NOT_FOUND)
+            return Response(response_message, status=status.HTTP_202_ACCEPTED)
         except:
-            return Response(default_error_response, status.HTTP_400_BAD_REQUEST)
+            return Response(default_error_response, status.HTTP_400_BAD_REQUEST) 
+
