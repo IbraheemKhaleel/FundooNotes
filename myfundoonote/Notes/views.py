@@ -53,7 +53,7 @@ class Notes(APIView):
         """
 
         try:
-            notes = Note.objects.filter(is_deleted=False) #accessing all the object notes into a variable
+            notes = Note.objects.all() #accessing all the object notes into a variable
             serializer = NoteSerializer(notes, many=True) #serializing the variable using NoteSerializer
             success_message = {'message':'success', 'status':True, 'data' : serializer.data }
             return Response(success_message, status=status.HTTP_202_ACCEPTED)
@@ -92,7 +92,7 @@ class UpdateNote(APIView):
         return: user notes of particular user
         """
         try:
-            return Note.object.get(id = pk) #calls get method to retrieve a particular user notes
+            return Note.objects.get(id = pk) #calls get method to retrieve a particular user notes
         except Note.DoesNotExist:
             default_error_response['message'] = 'Note does not exist'
             return Response(default_error_response,status=status.HTTP_404_NOT_FOUND)
@@ -100,7 +100,7 @@ class UpdateNote(APIView):
             return Response(default_error_response, status.HTTP_400_BAD_REQUEST)
     def get(self, request, pk):
         try:
-            notes = Note.objects.get(id = pk)
+            notes = self.get_object(pk=pk)
             serializer = NoteSerializer(notes)
             success_message = {'message':'success', 'status': True, 'data' : serializer.data }
             return Response(success_message, status=status.HTTP_202_ACCEPTED)
@@ -138,7 +138,7 @@ class UpdateNote(APIView):
             Delete the user notes with status message
         """
         try:
-            notes = Notes.get_object(pk)
+            notes = self.get_object(pk)
             notes.soft_delete()
             response_message = {'message' : 'successfully deleted', 'status' : True}
             return Response(response_message, status=status.HTTP_202_ACCEPTED)
