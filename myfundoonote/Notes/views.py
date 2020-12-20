@@ -12,6 +12,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import NoteSerializer
 from .models import Note
+from . import utils
 
 
 # Create your views here.
@@ -67,6 +68,12 @@ class Notes(APIView):
         json: new note's saved notes
         """
         try:
+            if request.data.get('user'):
+                utils.get_user(request)
+            if request.data.get('collaborators'):
+                utils.get_collaborator_list(request)
+            if request.data.get('labels'):
+                utils.get_label_list(request)
             serializer = NoteSerializer(data=request.data) #serializing the input notes given by user
             if serializer.is_valid(): #Checks whether the given notes are valid or not using in built is_valid function
                 serializer.save() #saving into database
