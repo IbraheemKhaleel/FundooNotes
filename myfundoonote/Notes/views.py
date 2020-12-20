@@ -72,7 +72,7 @@ class Notes(APIView):
                 serializer.save() #saving into database
                 success_message = {'message':'success', 'status': True, 'data' : serializer.data }
                 return Response(success_message, status=status.HTTP_201_CREATED)
-            return Response(default_error_response, status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
         except:
             return Response(default_error_response, status.HTTP_400_BAD_REQUEST)
 
