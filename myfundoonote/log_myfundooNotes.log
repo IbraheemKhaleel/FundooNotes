@@ -11,3 +11,5 @@ DEBUG | Using proactor: IocpProactor
 DEBUG | Using proactor: IocpProactor
 INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\migrations\0001_initial.py changed, reloading.
 DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\manage.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
