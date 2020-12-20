@@ -54,7 +54,7 @@ class Notes(APIView):
         """
 
         try:
-            notes = Note.objects.all() #accessing all the object notes into a variable
+            notes = Note.objects.filter(is_deleted=False) #accessing all the object notes into a variable
             serializer = NoteSerializer(notes, many=True) #serializing the variable using NoteSerializer
             success_message = {'message':'success', 'status':True, 'data' : serializer.data }
             return Response(success_message, status=status.HTTP_202_ACCEPTED)
