@@ -14,9 +14,6 @@ class UserDetailsSerializer(ModelSerializer):
         model = User
         fields = '__all__'
 
-
-
-
 class RegisterSerializer(ModelSerializer):
     password = serializers.CharField(
         max_length=68, min_length=6, write_only=True)
@@ -47,10 +44,6 @@ class EmailVerificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['token']
-
-
-
-
 
 
 class LoginSerializer(ModelSerializer):
@@ -114,3 +107,4 @@ class SetNewPasswordSerializer(serializers.Serializer):
             return user
         except Exception as e:
             raise AuthenticationFailed('The reset link is invalid', 401)
+

@@ -1,4 +1,4 @@
 from django.contrib import admin
-from Notes.models import Note
+from Label.models import Label
 # Register your models here.
-admin.site.register(Note)
+admin.site.register(Label)
