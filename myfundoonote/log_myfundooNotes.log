@@ -9,3 +9,5 @@ DEBUG | validated data: {'first_name': 'Ibrahimji', 'last_name': 'Khaleelji', 'e
 INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundoonote\urls.py changed, reloading.
 DEBUG | Using proactor: IocpProactor
 DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\migrations\0001_initial.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
