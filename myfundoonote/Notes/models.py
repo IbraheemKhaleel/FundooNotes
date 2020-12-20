@@ -11,7 +11,6 @@ class Note(models.Model):
     
     """
     user = models.ForeignKey(User , on_delete = models.CASCADE , related_name = 'author', null = True) #name of user
-    is_deleted = models.BooleanField(default=False)
     deleted_at = models.DateTimeField(blank=True, null=True)
     title = models.CharField(max_length = 50, blank = True)
     description = models.TextField(blank = True)
