@@ -1602,3 +1602,5 @@ DEBUG | Using proactor: IocpProactor
 WARNING | Bad Request: /note/
 INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Label\models.py changed, reloading.
 DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\models.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
