@@ -99,7 +99,7 @@ class UpdateNote(APIView):
         return: user notes of particular user
         """
         try:
-            return Note.objects.get(id = pk, is_deleted=False) #calls get method to retrieve a particular user notes
+            return Note.objects.get(id = pk) #calls get method to retrieve a particular user notes
         except Note.DoesNotExist:
             default_error_response['message'] = 'Note does not exist'
             return Response(default_error_response,status=status.HTTP_404_NOT_FOUND)
