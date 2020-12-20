@@ -20,7 +20,9 @@ from rest_framework import routers
 from myfundooNotes import views
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
+
 urlpatterns = [
+    path('',include('Label.urls')),
     path('',include('Notes.urls')),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),  

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'colorfield',
     'Notes',
+    'Label',
 ]
 
 SWAGGER_SETTINGS = {
@@ -107,7 +108,7 @@ DATABASES = {
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD' : config('DB_PASSWORD'),
-        'HOST' : config('DB_HOST')
+        'HOST' : config('DB_HOST'),
     }
 }
 
