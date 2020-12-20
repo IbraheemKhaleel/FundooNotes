@@ -1,0 +1,133 @@
+DEBUG | Using proactor: IocpProactor
+WARNING | Not Found: /favicon.ico
+DEBUG | Importing BlpImagePlugin
+DEBUG | Importing BmpImagePlugin
+DEBUG | Importing BufrStubImagePlugin
+DEBUG | Importing CurImagePlugin
+DEBUG | Importing DcxImagePlugin
+DEBUG | Importing DdsImagePlugin
+DEBUG | Importing EpsImagePlugin
+DEBUG | Importing FitsStubImagePlugin
+DEBUG | Importing FliImagePlugin
+DEBUG | Importing FpxImagePlugin
+DEBUG | Image: failed to import FpxImagePlugin: No module named 'olefile'
+DEBUG | Importing FtexImagePlugin
+DEBUG | Importing GbrImagePlugin
+DEBUG | Importing BlpImagePlugin
+DEBUG | Importing BmpImagePlugin
+DEBUG | Importing BufrStubImagePlugin
+DEBUG | Importing CurImagePlugin
+DEBUG | Importing DcxImagePlugin
+DEBUG | Importing DdsImagePlugin
+DEBUG | Importing EpsImagePlugin
+DEBUG | Importing FitsStubImagePlugin
+DEBUG | Importing FliImagePlugin
+DEBUG | Importing FpxImagePlugin
+DEBUG | Importing GifImagePlugin
+DEBUG | Importing GribStubImagePlugin
+DEBUG | Image: failed to import FpxImagePlugin: No module named 'olefile'
+DEBUG | Importing FtexImagePlugin
+DEBUG | Importing GbrImagePlugin
+DEBUG | Importing GifImagePlugin
+DEBUG | Importing GribStubImagePlugin
+DEBUG | Importing Hdf5StubImagePlugin
+DEBUG | Importing Hdf5StubImagePlugin
+DEBUG | Importing IcnsImagePlugin
+DEBUG | Importing IcnsImagePlugin
+DEBUG | Importing IcoImagePlugin
+DEBUG | Importing IcoImagePlugin
+DEBUG | Importing ImImagePlugin
+DEBUG | Importing ImImagePlugin
+DEBUG | Importing ImtImagePlugin
+DEBUG | Importing ImtImagePlugin
+DEBUG | Importing IptcImagePlugin
+DEBUG | Importing IptcImagePlugin
+DEBUG | Importing JpegImagePlugin
+DEBUG | Importing JpegImagePlugin
+DEBUG | Importing Jpeg2KImagePlugin
+DEBUG | Importing Jpeg2KImagePlugin
+DEBUG | Importing McIdasImagePlugin
+DEBUG | Importing McIdasImagePlugin
+DEBUG | Importing MicImagePlugin
+DEBUG | Importing MicImagePlugin
+DEBUG | Image: failed to import MicImagePlugin: No module named 'olefile'
+DEBUG | Importing MpegImagePlugin
+DEBUG | Image: failed to import MicImagePlugin: No module named 'olefile'
+DEBUG | Importing MpegImagePlugin
+DEBUG | Importing MpoImagePlugin
+DEBUG | Importing MpoImagePlugin
+DEBUG | Importing MspImagePlugin
+DEBUG | Importing MspImagePlugin
+DEBUG | Importing PalmImagePlugin
+DEBUG | Importing PalmImagePlugin
+DEBUG | Importing PcdImagePlugin
+DEBUG | Importing PcdImagePlugin
+DEBUG | Importing PcxImagePlugin
+DEBUG | Importing PcxImagePlugin
+DEBUG | Importing PdfImagePlugin
+DEBUG | Importing PdfImagePlugin
+DEBUG | Importing PixarImagePlugin
+DEBUG | Importing PixarImagePlugin
+DEBUG | Importing PngImagePlugin
+DEBUG | Importing PngImagePlugin
+DEBUG | Importing PpmImagePlugin
+DEBUG | Importing PpmImagePlugin
+DEBUG | Importing PsdImagePlugin
+DEBUG | Importing PsdImagePlugin
+DEBUG | Importing SgiImagePlugin
+DEBUG | Importing SgiImagePlugin
+DEBUG | Importing SpiderImagePlugin
+DEBUG | Importing SpiderImagePlugin
+DEBUG | Importing SunImagePlugin
+DEBUG | Importing SunImagePlugin
+DEBUG | Importing TgaImagePlugin
+DEBUG | Importing TgaImagePlugin
+DEBUG | Importing TiffImagePlugin
+DEBUG | Importing TiffImagePlugin
+DEBUG | Importing WebPImagePlugin
+DEBUG | Importing WebPImagePlugin
+DEBUG | Importing WmfImagePlugin
+DEBUG | Importing WmfImagePlugin
+DEBUG | Importing XbmImagePlugin
+DEBUG | Importing XbmImagePlugin
+DEBUG | Importing XpmImagePlugin
+DEBUG | Importing XpmImagePlugin
+DEBUG | Importing XVThumbImagePlugin
+DEBUG | Importing XVThumbImagePlugin
+ERROR | Internal Server Error: /note/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\rest_framework\views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\rest_framework\views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'NoneType'>`
+ERROR | Internal Server Error: /note/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\rest_framework\views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\envs\venv\lib\site-packages\rest_framework\views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'NoneType'>`
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
