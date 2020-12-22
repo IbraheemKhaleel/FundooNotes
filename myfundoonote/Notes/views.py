@@ -32,7 +32,7 @@ class NotesOverview(APIView):
         Created a method for displaying overview of urls 
 
         """
-        response= {'message':'Urls not found', 'status':False}
+        
 
         api_urls = {    
             'Note-CreateAndRetrieve':'/note/',
@@ -43,6 +43,7 @@ class NotesOverview(APIView):
         try:
             return Response(api_urls)
         except Exception as e:
+            response= {'message' : str(e), 'status' : False}
             return Response(response, status.HTTP_404_NOT_FOUND)
 
 
