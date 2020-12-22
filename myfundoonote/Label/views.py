@@ -39,7 +39,7 @@ class LabelsView(APIView):
         try:
             labels = Label.objects.filter(is_deleted=False) #accessing all the object labels into a variable
             serializer = LabelSerializer(labels, many=True) #serializing the variable using LabelSerializer
-            response['message'] = 'success' 
+            response['message'] = 'Labels retrieved successfully' 
             response['status'] = True 
             response['data'] = serializer.data
             return Response(response, status=status.HTTP_202_ACCEPTED)
@@ -63,11 +63,11 @@ class LabelsView(APIView):
             serializer = LabelSerializer(data=request.data) #serializing the input labels given by user
             if serializer.is_valid(): #Checks whether the given labels are valid or not using in built is_valid function
                 serializer.save() #saving into database
-                response['message'] = 'success'
+                response['message'] = 'Labels added successfully'
                 response['status'] = True
                 response['data'] = serializer.data
                 return Response(response, status=status.HTTP_201_CREATED)
-            response['message'] = 'Please fill valid entries'
+            response['message'] = 'Invalid entries'
             response['status']= False 
             return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
         except PermissionError:
@@ -112,7 +112,7 @@ class LabelView(APIView):
         try:
             labels = self.get_object(pk=pk)
             serializer = LabelSerializer(labels)
-            response['message'] = 'success'
+            response['message'] = 'Your Label retrieved successfully'
             response['status'] = True
             response['data']= serializer.data
             return Response(response, status=status.HTTP_202_ACCEPTED)
@@ -136,7 +136,7 @@ class LabelView(APIView):
             serializer = LabelSerializer(labels, data=request.data, partial = True)
             if serializer.is_valid():
                 serializer.save()
-                response['message'] = 'success'
+                response['message'] = 'Your Label updation has been successful'
                 response['status'] = True
                 response['data']= serializer.data
                 return Response(response, status=status.HTTP_200_OK)
@@ -166,7 +166,7 @@ class LabelView(APIView):
         try:
             labels = self.get_object(pk)
             labels.soft_delete() #soft deleteing particular label. it will be hidden for user to retirieve. #soft deleteing particular label. it will be hidden for user to retirieve.
-            response['message'] = 'success'
+            response['message'] = 'Your Label deletion has been successful'
             response['status'] = True
             return Response(response, status=status.HTTP_202_ACCEPTED)
         except PermissionError:
