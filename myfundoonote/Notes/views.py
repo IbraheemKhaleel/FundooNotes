@@ -18,6 +18,9 @@ from . import utils
 # Create your views here.
 
 #logging.basicConfig(filename='notes.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
+
+#TODO : Add Exceptions and messages
+
 class NotesOverview(APIView):
     """
     Created a class for displaying overview of urls using in operations
@@ -29,13 +32,19 @@ class NotesOverview(APIView):
         Created a method for displaying overview of urls 
 
         """
+        response= {'message':'Urls not found', 'status':False}
+
         api_urls = {    
             'Note-CreateAndRetrieve':'/note/',
             'Note-Update':'/note-update/<int:pk>/',
             'Label-CreateAndRetrieve': '/label/',
             'Label-UpdateAndDelete':'/label-update/<int:pk>/',
         }
-        return Response(api_urls)
+        try:
+            return Response(api_urls)
+        except Exception as e:
+            return Response(response, status.HTTP_404_NOT_FOUND)
+
 
 class NotesView(APIView):
     """
@@ -57,7 +66,7 @@ class NotesView(APIView):
             response['message'] = 'success' 
             response['status'] = True 
             response['data'] = serializer.data
-            return Response(response, status=status.HTTP_202_ACCEPTED)
+            return Response(response, status.HTTP_202_ACCEPTED)
         except FileNotFoundError:
             response['message'] = 'The notes does not exist. Please create a note'
             response['status'] = False
@@ -87,7 +96,7 @@ class NotesView(APIView):
                 response['message'] = 'success'
                 response['status'] = True
                 response['data'] = serializer.data
-                return Response(response, status=status.HTTP_201_CREATED)
+                return Response(response, status.HTTP_201_CREATED)
             response['message'] = 'Please fill valid entries'
             response['status']= False 
             return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
@@ -121,7 +130,7 @@ class NoteView(APIView):
         except Note.DoesNotExist:
             response['message'] = 'Note does not exists. Please create a note'
             response['status'] = False 
-            return Response(response, status=status.HTTP_404_NOT_FOUND)
+            return Response(response, status.HTTP_404_NOT_FOUND)
         except Exception as e:
             response['message'] = str(e)
             response['status'] = False 
@@ -135,7 +144,7 @@ class NoteView(APIView):
             response['message'] = 'success'
             response['status'] = True
             response['data']= serializer.data
-            return Response(response, status=status.HTTP_202_ACCEPTED)
+            return Response(response, status.HTTP_202_ACCEPTED)
         except Exception as e:
             response['message'] = str(e)
             response['status'] = False 
@@ -165,10 +174,10 @@ class NoteView(APIView):
                 response['message'] = 'success'
                 response['status'] = True
                 response['data']= serializer.data
-                return Response(response, status=status.HTTP_200_OK)
+                return Response(response, status.HTTP_200_OK)
             response['message'] = 'Please fill valid entries'
             response['status'] = False 
-            return Response(response, status=status.HTTP_400_BAD_REQUEST)
+            return Response(response, status.HTTP_400_BAD_REQUEST)
         except PermissionError:
             response['message'] = 'Please login to carryout request'
             response['status'] = False 
@@ -195,7 +204,7 @@ class NoteView(APIView):
             notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
             response['message'] = 'success'
             response['status'] = True
-            return Response(response, status=status.HTTP_202_ACCEPTED)
+            return Response(response, status.HTTP_202_ACCEPTED)
         except PermissionError:
             response['message'] = 'Please login to carryout request'
             response['status'] = False
