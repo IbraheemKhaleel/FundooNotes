@@ -18,7 +18,7 @@ class Note(models.Model):
     color = ColorField(default='#FFFFFF')
     image = models.ImageField(upload_to = 'notes/', null = True,blank = True)
     collaborators = models.ManyToManyField(User , related_name = 'collaborator',  blank = True)#It connects with User model class we defined in myfundooNotes file
-    labels = models.ManyToManyField(Label, blank=True) #This connects Label model class we defined above 
+    labels = models.ManyToManyField(Label, blank= True) #This connects Label model class we defined above 
     is_archived = models.BooleanField(default = False, blank = True)
     is_deleted = models.BooleanField(default = False)
     is_pinned = models.BooleanField(default = False, blank = True, null = True)
