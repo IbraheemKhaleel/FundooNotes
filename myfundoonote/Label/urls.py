@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('label/', views.Labels.as_view()),
-    path('label-update/<int:pk>/', views.UpdateLabel.as_view())
+    path('label/', views.LabelsView.as_view(), name = 'label_create_retrieve'),
+    path('label-update/<int:pk>/', views.LabelView.as_view(), name = 'label_put_delete')
     ]
