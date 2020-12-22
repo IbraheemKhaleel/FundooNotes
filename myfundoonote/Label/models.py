@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Label(models.Model):
     """
@@ -9,5 +10,7 @@ class Label(models.Model):
 
     def __str__(self):
         return self.name
+
+       
 
   
