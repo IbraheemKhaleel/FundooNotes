@@ -63,7 +63,7 @@ class NotesView(APIView):
         try:
             notes = Note.objects.filter(is_deleted=False) #accessing all the object notes into a variable
             serializer = NoteSerializer(notes, many=True) #serializing the variable using NoteSerializer
-            response['message'] = 'success' 
+            response['message'] = 'Note retrieved successfully' 
             response['status'] = True 
             response['data'] = serializer.data
             return Response(response, status.HTTP_202_ACCEPTED)
@@ -84,22 +84,23 @@ class NotesView(APIView):
         """
         response= {'message':'error', 'status':False}
         try:
-            if request.data.get('user'):
+            notes_details = request.data
+            if notes_details.get('user'):
                 utils.get_user(request)
-            if request.data.get('collaborators'):
+            if notes_details.get('collaborators'):
                 utils.get_collaborator_list(request)
-            if request.data.get('labels'):
+            if notes_details.get('labels'):
                 utils.get_label_list(request)
             serializer = NoteSerializer(data=request.data) #serializing the input notes given by user
             if serializer.is_valid(): #Checks whether the given notes are valid or not using in built is_valid function
                 serializer.save() #saving into database
-                response['message'] = 'success'
+                response['message'] = 'Note added successfully'
                 response['status'] = True
                 response['data'] = serializer.data
                 return Response(response, status.HTTP_201_CREATED)
-            response['message'] = 'Please fill valid entries'
+            response['message'] = serializer.errors
             response['status']= False 
-            return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
+            return Response(response, status.HTTP_400_BAD_REQUEST)
         except PermissionError:
             response['message'] = 'Please login to carryout request'
             response['status'] = False 
@@ -141,7 +142,7 @@ class NoteView(APIView):
         try:
             notes = self.get_object(pk=pk)
             serializer = NoteSerializer(notes)
-            response['message'] = 'success'
+            response['message'] = 'Respective Note retrieved successfully'
             response['status'] = True
             response['data']= serializer.data
             return Response(response, status.HTTP_202_ACCEPTED)
@@ -162,20 +163,21 @@ class NoteView(APIView):
         response= {'message':'error', 'status':False}
         try:
             notes = self.get_object(pk)
-            if request.data.get('user'): # fetching the details of particular email provided
+            notes_details = request.data
+            if notes_details.get('user'): # fetching the details of particular email provided
                 utils.get_user(request)
-            if request.data.get('collaborators'): # fetching the details of particular collaborator provided
+            if notes_details.get('collaborators'): # fetching the details of particular collaborator provided
                 utils.get_collaborator_list(request)
-            if request.data.get('labels'): # fetching the details of particular label provided
+            if notes_details.get('labels'): # fetching the details of particular label provided
                 utils.get_label_list(request)
             serializer = NoteSerializer(notes, data=request.data, partial = True)
             if serializer.is_valid():
                 serializer.save()
-                response['message'] = 'success'
+                response['message'] = 'Note updated successfully'
                 response['status'] = True
                 response['data']= serializer.data
                 return Response(response, status.HTTP_200_OK)
-            response['message'] = 'Please fill valid entries'
+            response['message'] = serializer.errors
             response['status'] = False 
             return Response(response, status.HTTP_400_BAD_REQUEST)
         except PermissionError:
@@ -202,7 +204,7 @@ class NoteView(APIView):
         try:
             notes = self.get_object(pk)
             notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
-            response['message'] = 'success'
+            response['message'] = 'Note deleted successfully'
             response['status'] = True
             return Response(response, status.HTTP_202_ACCEPTED)
         except PermissionError:
