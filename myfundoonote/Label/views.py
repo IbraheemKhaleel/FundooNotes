@@ -19,6 +19,9 @@ from .models import Label
 
 #logging.basicConfig(filename='labels.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
 
+
+#TODO : Add Exceptions and messages
+
 class LabelsView(APIView):
     """
     Created a class to display list of Labels saved inside
@@ -34,7 +37,7 @@ class LabelsView(APIView):
         response= {'message':'error', 'status':False}
 
         try:
-            labels = Label.objects.all() #accessing all the object labels into a variable
+            labels = Label.objects.filter(is_deleted=False) #accessing all the object labels into a variable
             serializer = LabelSerializer(labels, many=True) #serializing the variable using LabelSerializer
             response['message'] = 'success' 
             response['status'] = True 
@@ -93,7 +96,7 @@ class LabelView(APIView):
         """
         response= {'message':'error', 'status':False}
         try:
-            return Label.objects.get(id = pk) #calls get method to retrieve a particular user labels
+            return Label.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user labels
         except Label.DoesNotExist:
             response['message'] = 'Label does not exists. Please create a Label'
             response['status'] = False 
@@ -158,12 +161,11 @@ class LabelView(APIView):
 
         Returns:
             Delete the user Labels with status message
-        """
-
+        """ 
         response= {'message':'error', 'status':False}
         try:
             labels = self.get_object(pk)
-            labels.delete() #soft deleteing particular label. it will be hidden for user to retirieve.
+            labels.soft_delete() #soft deleteing particular label. it will be hidden for user to retirieve. #soft deleteing particular label. it will be hidden for user to retirieve.
             response['message'] = 'success'
             response['status'] = True
             return Response(response, status=status.HTTP_202_ACCEPTED)
