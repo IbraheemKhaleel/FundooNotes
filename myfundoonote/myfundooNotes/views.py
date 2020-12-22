@@ -5,6 +5,7 @@ Created :  25 November 2020
 """
 
 import os, jwt, logging
+
 from django.shortcuts import render
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
@@ -14,12 +15,15 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
+
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import generics, status, views, permissions
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
+
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+
 from .models import User
 from .serializers import RegisterSerializer, SetNewPasswordSerializer, ResetPasswordEmailRequestSerializer, EmailVerificationSerializer, LoginSerializer,UserDetailsSerializer
 from .utils import Util
