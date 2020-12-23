@@ -17,16 +17,37 @@ from .models import Label
 
 # Create your views here.
 
-#logging.basicConfig(filename='labels.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
-
+#logging.basicConfig(filename='Labels.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
 
 #TODO : Add Exceptions and messages
 
-class LabelsView(APIView):
+response= {'message':'error', 'status':False}
+
+class LabelsOverview(APIView):
     """
-    Created a class to display list of Labels saved inside
+    Created a class for displaying overview of urls using in operations
+
     """
     
+    def get(self , request):
+        """
+        Created a method for displaying overview of urls 
+
+        """
+        api_urls = {    
+            'label-CreateAndRetrieve':'/label/',
+            'label-Update':'/label-update/<int:pk>/',
+            'Label-CreateAndRetrieve': '/label/',
+            'Label-UpdateAndDelete':'/label-update/<int:pk>/',
+        }
+        return Response(api_urls)
+       
+
+class LabelsView(APIView):
+    """
+    Created a class to creating and retrieving  labels saved inside
+    """
+    serializer_class = LabelSerializer
     
     def get(self , request):
         """
@@ -34,58 +55,54 @@ class LabelsView(APIView):
         Returns:
         json: list of labels with complete labels
         """
-        response= {'message':'error', 'status':False}
-
+        
+        status_code = status.HTTP_400_BAD_REQUEST
         try:
-            labels = Label.objects.filter(is_deleted=False) #accessing all the object labels into a variable
+            labels = Label.objects.filter(is_deleted=False) #accessing all the object Labels into a variable
             serializer = LabelSerializer(labels, many=True) #serializing the variable using LabelSerializer
-            response['message'] = 'Labels retrieved successfully' 
+            response['message'] = 'label retrieved successfully' 
             response['status'] = True 
             response['data'] = serializer.data
-            return Response(response, status=status.HTTP_202_ACCEPTED)
-        except FileNotFoundError:
-            response['message'] = 'The labels does not exist. Please create a Label'
-            response['status'] = False
-            return Response(response, status.HTTP_400_BAD_REQUEST)
+            status_code = status.HTTP_202_ACCEPTED
+        except Label.DoesNotExist:
+            response['message'] = 'The Labels does not exist. Please create a Label'  
         except Exception as e:
-            response['message'] = str(e)
-            response['status'] = False
-            return Response(response, status.HTTP_400_BAD_REQUEST)
+            response['message'] = str(e)    
+        finally:
+            return Response(response, status_code)
+        
     
     def post(self, request):
         """
         Created a method to create a new Label
         Returns:
-        json: new Label's saved labels
+        json: new Label's saved Labels
         """
-        response= {'message':'error', 'status':False}
+        
+        status_code = status.HTTP_400_BAD_REQUEST
         try:
             serializer = LabelSerializer(data=request.data) #serializing the input labels given by user
             if serializer.is_valid(): #Checks whether the given labels are valid or not using in built is_valid function
                 serializer.save() #saving into database
-                response['message'] = 'Labels added successfully'
+                response['message'] = 'label added successfully'
                 response['status'] = True
                 response['data'] = serializer.data
-                return Response(response, status=status.HTTP_201_CREATED)
-            response['message'] = 'Invalid entries'
-            response['status']= False 
-            return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
+                status_code = status.HTTP_201_CREATED
+            response['message'] = serializer.errors   
         except PermissionError:
-            response['message'] = 'Please login to carryout request'
-            response['status'] = False 
-            return Response(response, status.HTTP_400_BAD_REQUEST)
+            response['message'] = 'Please login to carryout request' 
         except Exception as e:
             response['message'] = str(e)
-            response['status'] = False 
-            return Response(response, status.HTTP_400_BAD_REQUEST)
+        finally:
+            return Response(response, status_code)
 
 
 class LabelView(APIView):
     """
-    Created a class to update a Label
+    Created a class to update and delete a label
     
     """
-    
+    serializer_class = LabelSerializer
     def get_object(self, pk):
         """
         Created a method to retrieve an object labels
@@ -94,85 +111,89 @@ class LabelView(APIView):
 
         return: user labels of particular user
         """
-        response= {'message':'error', 'status':False}
+        
+        status_code = status.HTTP_400_BAD_REQUEST
         try:
-            return Label.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user labels
+            return Label.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user Labels
         except Label.DoesNotExist:
             response['message'] = 'Label does not exists. Please create a Label'
-            response['status'] = False 
-            return Response(response, status=status.HTTP_404_NOT_FOUND)
+            return Response(response, status_code)
+        except TypeError:
+            response['message'] = 'Please enter an integer'  
+            return Response(response, status_code) 
         except Exception as e:
             response['message'] = str(e)
-            response['status'] = False 
-            return Response(response, status.HTTP_400_BAD_REQUEST)
+            return Response(response, status_code)  
+            
 
     def get(self, request, pk):
-        response= {'message':'error', 'status':False}
-
+        
+        status_code = status.HTTP_400_BAD_REQUEST
         try:
             labels = self.get_object(pk=pk)
             serializer = LabelSerializer(labels)
-            response['message'] = 'Your Label retrieved successfully'
+            response['message'] = 'Respective label retrieved successfully'
             response['status'] = True
             response['data']= serializer.data
-            return Response(response, status=status.HTTP_202_ACCEPTED)
+            status_code = status.HTTP_202_ACCEPTED
+        except TypeError:
+            response['message'] = 'Please enter an integer'  
         except Exception as e:
-            response['message'] = str(e)
-            response['status'] = False 
-            return Response(response, status.HTTP_400_BAD_REQUEST)
+            response['message'] = str(e)    
+        finally:
+            return Response(response, status_code)
 
     def put(self, request, pk):
         """
-        Created a put method to edit particular user Labels
+        Created a put method to edit particular user labels
         Args:
-            pk (integer): id of particular user to edit their Labels
+            pk (integer): id of particular user to edit their labels
 
         Returns:
-                Updated user Labels with status message
+                Updated user labels with status message
         """
-        response= {'message':'error', 'status':False}
+        
+        status_code = status.HTTP_400_BAD_REQUEST
         try:
             labels = self.get_object(pk)
             serializer = LabelSerializer(labels, data=request.data, partial = True)
             if serializer.is_valid():
                 serializer.save()
-                response['message'] = 'Your Label updation has been successful'
+                response['message'] = 'label updated successfully'
                 response['status'] = True
                 response['data']= serializer.data
-                return Response(response, status=status.HTTP_200_OK)
-            response['message'] = 'Please fill valid entries'
-            response['status'] = False 
-            return Response(response, status=status.HTTP_400_BAD_REQUEST)
+                status_code = status.HTTP_200_OK
+            response['message'] = serializer.errors
+        except TypeError:
+            response['message'] = 'Please enter an integer'  
         except PermissionError:
-            response['message'] = 'Please login to carryout request'
-            response['status'] = False 
-            return Response(response, status.HTTP_400_BAD_REQUEST)
+            response['message'] = 'Please login to carryout request'   
         except Exception as e:
-            response['message'] = str(e)
-            response['status'] = False 
-            return Response(response, status.HTTP_400_BAD_REQUEST)
+            response['message'] = str(e) 
+        finally:
+            return Response(response, status_code)
+
             
     def delete(self, request, pk):
         """
-        Created a method to delete a particular user's Label
+        Created a method to delete a particular user's label
 
         Args:
-            pk (integer): id of particular user to delete their Labels
+            pk (integer): id of particular user to delete their labels
 
         Returns:
-            Delete the user Labels with status message
-        """ 
-        response= {'message':'error', 'status':False}
+            Delete the user labels with status message
+        """
+        status_code = status.HTTP_400_BAD_REQUEST
         try:
             labels = self.get_object(pk)
-            labels.soft_delete() #soft deleteing particular label. it will be hidden for user to retirieve. #soft deleteing particular label. it will be hidden for user to retirieve.
-            response['message'] = 'Your Label deletion has been successful'
+            labels.soft_delete() #soft deleteing particular label. it will be hidden for user to retirieve.
+            response['message'] = 'label deleted successfully'
             response['status'] = True
-            return Response(response, status=status.HTTP_202_ACCEPTED)
+            status_code = status.HTTP_200_OK
         except PermissionError:
             response['message'] = 'Please login to carryout request'
-            response['status'] = False
         except Exception as e:
             response['message'] = str(e)
-            response['status'] = False 
-            return Response(response, status.HTTP_400_BAD_REQUEST) 
+        finally:
+            return Response(response, status_code)
