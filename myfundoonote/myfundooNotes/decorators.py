@@ -9,6 +9,7 @@ from rest_framework import status
 
 
 def user_login_required(view_func):
+    
     def wrapper(request, *args, **kwargs):
         
         if request.session:
@@ -16,10 +17,10 @@ def user_login_required(view_func):
             if user.is_authenticated:
                 return view_func(request, *args, **kwargs)
             else:
-                response = {'success': False, 'message': 'Users credential not provided..!!'}
+                response = {'success': False, 'message': 'User is not authenticated'}
                 return HttpResponse(json.dumps(response), status=status.HTTP_400_BAD_REQUEST)
         else:
-            response = {'success': False, 'message': 'Users credential not provided..!!'}
+            response = {'success': False, 'message': 'User must be logged in'}
             return HttpResponse(json.dumps(response), status=status.HTTP_400_BAD_REQUEST)
 
     return wrapper
