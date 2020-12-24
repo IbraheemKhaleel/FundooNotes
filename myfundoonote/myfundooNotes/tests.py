@@ -1,15 +1,17 @@
 from rest_framework import status
 from rest_framework.test import APITestCase
-from django.contrib.auth.models import User
+from myfundooNotes.models import User
 from django.contrib.auth import get_user_model
+from django.urls import  reverse
+
 
 User = get_user_model()
 
 
 class Data(APITestCase):
     def setUp(self):
-        self.register_url = 'http://127.0.0.1:8000/register/'
-        self.login_url = 'http://127.0.0.1:8000/login/'
+        self.register_url = reverse('register')
+        self.login_url = reverse('login')
         self.valid_registration_data = {'first_name': "Ibraheem",
                                         'last_name': "Khaleel",
                                         'email': "ibrah@gmail.com",

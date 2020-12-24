@@ -30,6 +30,8 @@ psycopg2==2.8.6
 pycodestyle==2.6.0
 PyJWT==1.7.1
 pylint==2.6.0
+pylint-django==2.3.0
+pylint-plugin-utils==0.6
 pyparsing==2.4.7
 python-decouple==3.3
 pytz==2020.4
