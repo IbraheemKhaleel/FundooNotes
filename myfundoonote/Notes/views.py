@@ -22,7 +22,16 @@ from myfundooNotes.decorators import user_login_required
 
 #TODO : Add Exceptions and messages
 
-response= {'message':'error', 'status':False}
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(levelname)s | %(message)s')
+
+file_handler = logging.FileHandler('log_notes.log')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+
 
 class NotesOverview(APIView):
     """
@@ -56,21 +65,16 @@ class NotesView(APIView):
         Returns:
         json: list of notes with complete notes
         """
-        
-        status_code = status.HTTP_400_BAD_REQUEST
         try:
             notes = Note.objects.filter(is_deleted=False) #accessing all the object notes into a variable
             serializer = NoteSerializer(notes, many=True) #serializing the variable using NoteSerializer
-            response['message'] = 'Note retrieved successfully' 
-            response['status'] = True 
-            response['data'] = serializer.data
-            status_code = status.HTTP_202_ACCEPTED
-        except Note.DoesNotExist:
-            response['message'] = 'The notes does not exist. Please create a note'  
+            result = utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+            logger.debug('validated note list: {}'.format(serializer.data))
+            return Response(result, status.HTTP_200_OK)
         except Exception as e:
-            response['message'] = str(e)    
-        finally:
-            return Response(response, status_code)
+            logger.exception('Something went wrong')
+            result = utils.manage_response(status=False,message='something wrong')
+            return Response(result,status.HTTP_400_BAD_REQUEST)
         
     
     def post(self, request):
@@ -80,7 +84,7 @@ class NotesView(APIView):
         json: new note's saved notes
         """
         
-        status_code = status.HTTP_400_BAD_REQUEST
+        
         try:
             notes_data = request.data
             if notes_data.get('user'):
@@ -91,18 +95,21 @@ class NotesView(APIView):
                 utils.get_label_list(request)
             serializer = NoteSerializer(data=request.data) #serializing the input notes given by user
             if serializer.is_valid(): #Checks whether the given notes are valid or not using in built is_valid function
-                serializer.save() #saving into database
-                response['message'] = 'Note added successfully'
-                response['status'] = True
-                response['data'] = serializer.data
-                status_code = status.HTTP_201_CREATED
-            response['message'] = serializer.errors   
-        except PermissionError:
-            response['message'] = 'Please login to carryout request' 
+                result = utils.manage_response(status=True,message='created successfully',data=serializer.data)
+                logger.debug('validated new note details: {}'.format(serializer.data))
+                return Response(result,status.HTTP_201_CREATED)
+            else:
+                logger.error('Invalid note details entered')
+                result = utils.manage_response(status=False,message=serializer.errors)
+                return Response(result,status.HTTP_400_BAD_REQUEST)
+        except Note.DoesNotExist as e:
+            logger.exception('Requested note does not exist')
+            result = utils.manage_response(status=False,message='note not found')
+            return Response(result,status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            response['message'] = str(e)
-        finally:
-            return Response(response, status_code)
+            logger.exception('Something went wrong')
+            result = utils.manage_response(status=False,message='something wrong')
+            return Response(result,status.HTTP_400_BAD_REQUEST)
 
 @method_decorator(user_login_required, name='dispatch')
 class NoteView(APIView):
@@ -119,37 +126,31 @@ class NoteView(APIView):
 
         return: user notes of particular user
         """
-        
-        status_code = status.HTTP_400_BAD_REQUEST
         try:
             return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
         except Note.DoesNotExist:
-            response['message'] = 'Note does not exists. Please create a note'
-            return Response(response, status_code)
-        except TypeError:
-            response['message'] = 'Please enter an integer'  
-            return Response(response, status_code) 
+            logger.exception('Requested note does not exist')
+            result=utils.manage_response(status=False,message='note not found')
+            return Response(result,status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            response['message'] = str(e)
-            return Response(response, status_code)  
+            logger.exception('Something went wrong')
+            result=utils.manage_response(status=False,message='something wrong')
+            return Response(result,status.HTTP_400_BAD_REQUEST)
             
 
     def get(self, request, pk):
         
-        status_code = status.HTTP_400_BAD_REQUEST
+        
         try:
             notes = self.get_object(pk=pk)
             serializer = NoteSerializer(notes)
-            response['message'] = 'Respective Note retrieved successfully'
-            response['status'] = True
-            response['data']= serializer.data
-            status_code = status.HTTP_202_ACCEPTED
-        except TypeError:
-            response['message'] = 'Please enter an integer'  
+            result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+            logger.debug('validated note detail: {}'.format(serializer.data))
+            return Response(result , status.HTTP_200_OK)
         except Exception as e:
-            response['message'] = str(e)    
-        finally:
-            return Response(response, status_code)
+            logger.exception('Something went wrong')
+            result=utils.manage_response(status=False,message='something wrong')
+            return Response(result,status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, pk):
         """
@@ -161,7 +162,7 @@ class NoteView(APIView):
                 Updated user notes with status message
         """
         
-        status_code = status.HTTP_400_BAD_REQUEST
+        
         try:
             notes = self.get_object(pk)
             notes_data = request.data
@@ -174,19 +175,21 @@ class NoteView(APIView):
             serializer = NoteSerializer(notes, data=request.data, partial = True)
             if serializer.is_valid():
                 serializer.save()
-                response['message'] = 'Note updated successfully'
-                response['status'] = True
-                response['data']= serializer.data
-                status_code = status.HTTP_200_OK
-            response['message'] = serializer.errors
-        except TypeError:
-            response['message'] = 'Please enter an integer'  
-        except PermissionError:
-            response['message'] = 'Please login to carryout request'   
+                logger.debug('validated updated note data: {}'.format(serializer.data))
+                result=utils.manage_response(status=True,message='updated successfully',data=serializer.data)
+                return Response(result, status.HTTP_200_OK)
+            logger.error('Invalid note details entered')
+            result=utils.manage_response(status=False,message=serializer.errors)
+            return Response(result,status.HTTP_400_BAD_REQUEST)
+        except Note.DoesNotExist:
+            logger.exception('Requested note does not exist')
+            result=utils.manage_response(status=False,message='note not found')
+            return Response(result,status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            response['message'] = str(e) 
-        finally:
-            return Response(response, status_code)
+            logger.exception('Something went wrong')
+            result=utils.manage_response(status=False,message='something wrong')
+            return Response(result,status.HTTP_400_BAD_REQUEST)
+
 
             
     def delete(self, request, pk):
@@ -199,17 +202,19 @@ class NoteView(APIView):
         Returns:
             Delete the user notes with status message
         """
-        status_code = status.HTTP_400_BAD_REQUEST
+       
         try:
             notes = self.get_object(pk)
             notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
-            response['message'] = 'Note deleted successfully'
-            response['status'] = True
-            status_code = status.HTTP_200_OK
-        except PermissionError:
-            response['message'] = 'Please login to carryout request'
+            logger.debug('deleted note with id: {}'.format(pk))
+            result=utils.manage_response(status=True,message='deleted successfully')
+            return Response(result,status.HTTP_204_NO_CONTENT)
+        except Note.DoesNotExist:
+            logger.exception('Requested note does not exist')
+            result=utils.manage_response(status=False,message='note not found')
+            return Response(result,status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            response['message'] = str(e)
-        finally:
-            return Response(response, status_code)
+            logger.exception('Something went wrong')
+            result=utils.manage_response(status=False,message='something wrong')
+            return Response(result,status.HTTP_400_BAD_REQUEST)
 
