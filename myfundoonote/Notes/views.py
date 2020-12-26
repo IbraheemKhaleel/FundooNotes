@@ -4,13 +4,15 @@ Created on: 15th December 20
 """
 
 import logging
+
 from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
 from .serializers import NoteSerializer
+
 from .models import Note
 from . import utils
 from myfundooNotes.decorators import user_login_required
