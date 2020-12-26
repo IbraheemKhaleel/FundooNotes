@@ -53,16 +53,20 @@ class NotesTest(Data):
         self.client.post(self.note_create_url, self.valid_note_data, format='json')
         
         response = self.client.get(self.note_create_url, format='json')
-        self.assertEqual(response.status_code, status.HTTP_202_ACCEPTED)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
         response = self.client.post(self.note_create_url, self.valid_note_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
+        response = self.client.delete(self.note_update_url, format='json')
+        print(response)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
         response = self.client.put(self.note_update_url, self.valid_note_put_data, format='json')
+        print(response)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-        response = self.client.delete(self.note_update_url, format='json')
-        self.assertEqual(response.status_code, status.HTTP_202_ACCEPTED)
+       
 
 
     def test_given_invalid_note_details_for_crud(self):
