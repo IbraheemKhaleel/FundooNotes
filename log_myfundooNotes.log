@@ -131,3 +131,7 @@ AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse`
 WARNING | Bad Request: /note/
 INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
 DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor

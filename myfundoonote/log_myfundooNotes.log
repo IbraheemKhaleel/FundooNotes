@@ -3898,3 +3898,1696 @@ DEBUG | Using proactor: IocpProactor
 INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
 DEBUG | Using proactor: IocpProactor
 DEBUG | Using proactor: IocpProactor
+WARNING | Bad Request: /note-update/1/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note-update/1/
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Bad Request: /note-update/1/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note-update/1/
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+WARNING | Bad Request: /note-update/1/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note-update/1/
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+DEBUG | Using proactor: IocpProactor
+WARNING | Bad Request: /note-update/1/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note-update/1/
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 145, in get
+    notes = self.get_object(pk=pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+ERROR | Internal Server Error: /note-update/1/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 145, in get
+    notes = self.get_object(pk=pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 152, in get
+    result=utils.manage_response(status=False,message='something wrong')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 167, in put
+    notes = self.get_object(pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+ERROR | Internal Server Error: /note-update/1/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 167, in put
+    notes = self.get_object(pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 190, in put
+    result=utils.manage_response(status=False,message='something wrong')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 5), ('deleted_at', None), ('title', 'Photos'), ('description', 'sadsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:45:53.952707Z'), ('updated_at', '2020-12-19T06:45:53.952707Z'), ('user', 2), ('collaborators', [2]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 7), ('deleted_at', None), ('title', 'Never'), ('description', 'nbghfghft'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:45.310426Z'), ('updated_at', '2020-12-19T06:46:45.310426Z'), ('user', 2), ('collaborators', [3]), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-22T12:22:44.144189Z'), ('user', 1), ('collaborators', [2]), ('labels', [])])]
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 5), ('deleted_at', None), ('title', 'Photos'), ('description', 'sadsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:45:53.952707Z'), ('updated_at', '2020-12-19T06:45:53.952707Z'), ('user', 2), ('collaborators', [2]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 7), ('deleted_at', None), ('title', 'Never'), ('description', 'nbghfghft'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:45.310426Z'), ('updated_at', '2020-12-19T06:46:45.310426Z'), ('user', 2), ('collaborators', [3]), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-22T12:22:44.144189Z'), ('user', 1), ('collaborators', [2]), ('labels', [])])]
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 145, in get
+    notes = self.get_object(pk=pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+ERROR | Internal Server Error: /note-update/1/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 145, in get
+    notes = self.get_object(pk=pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 18, in wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 152, in get
+    result=utils.manage_response(status=False,message='something wrong')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+DEBUG | validated note detail: {'id': 2, 'deleted_at': None, 'title': 'Challenge', 'description': 'Going to be challenging', 'reminder': None, 'color': '#FFFFFF', 'image': None, 'is_archived': False, 'is_deleted': False, 'is_pinned': False, 'created_at': '2020-12-17T05:57:51.256928Z', 'updated_at': '2020-12-22T12:22:44.144189Z', 'user': 1, 'collaborators': [2], 'labels': []}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 145, in get
+    notes = self.get_object(pk=pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+ERROR | Internal Server Error: /note-update/1/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 145, in get
+    notes = self.get_object(pk=pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 18, in wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 152, in get
+    result=utils.manage_response(status=False,message='something wrong')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Bad Request: /note-update/1/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note-update/1/
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+WARNING | Bad Request: /note-update/1/
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note-update/1/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 177, in put
+    serializer.save()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 200, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 970, in update
+    info = model_meta.get_field_info(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\model_meta.py", line 35, in get_field_info
+    opts = model._meta.concrete_model._meta
+AttributeError: 'Response' object has no attribute '_meta'
+WARNING | Bad Request: /note-update/1/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+WARNING | Bad Request: /note-update/1/
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note-update/1/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 177, in put
+    serializer.save()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 200, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 970, in update
+    info = model_meta.get_field_info(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\model_meta.py", line 35, in get_field_info
+    opts = model._meta.concrete_model._meta
+AttributeError: 'Response' object has no attribute '_meta'
+WARNING | Bad Request: /note-update/1/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+WARNING | Bad Request: /note-update/1/
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note-update/1/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 177, in put
+    serializer.save()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 200, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 970, in update
+    info = model_meta.get_field_info(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\model_meta.py", line 35, in get_field_info
+    opts = model._meta.concrete_model._meta
+AttributeError: 'Response' object has no attribute '_meta'
+WARNING | Bad Request: /note-update/1/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+WARNING | Bad Request: /note-update/1/
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note-update/1/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 177, in put
+    serializer.save()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 200, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 970, in update
+    info = model_meta.get_field_info(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\model_meta.py", line 35, in get_field_info
+    opts = model._meta.concrete_model._meta
+AttributeError: 'Response' object has no attribute '_meta'
+WARNING | Bad Request: /note-update/1/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+WARNING | Bad Request: /note-update/1/
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note-update/1/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 177, in put
+    serializer.save()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 200, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 970, in update
+    info = model_meta.get_field_info(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\model_meta.py", line 35, in get_field_info
+    opts = model._meta.concrete_model._meta
+AttributeError: 'Response' object has no attribute '_meta'
+WARNING | Bad Request: /note-update/1/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+WARNING | Bad Request: /note-update/1/
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note-update/1/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+WARNING | Bad Request: /note-update/1/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = True) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+WARNING | Bad Request: /note-update/1/
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = True) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+WARNING | Bad Request: /note-update/1/
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = True) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'IbraheemKhaleel'}
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = True) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+WARNING | Bad Request: /note-update/1/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 5), ('deleted_at', None), ('title', 'Photos'), ('description', 'sadsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:45:53.952707Z'), ('updated_at', '2020-12-19T06:45:53.952707Z'), ('user', 2), ('collaborators', [2]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 7), ('deleted_at', None), ('title', 'Never'), ('description', 'nbghfghft'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:45.310426Z'), ('updated_at', '2020-12-19T06:46:45.310426Z'), ('user', 2), ('collaborators', [3]), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-22T12:22:44.144189Z'), ('user', 1), ('collaborators', [2]), ('labels', [])])]
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+WARNING | Bad Request: /note-update/1/
+DEBUG | validated note detail: {'id': 2, 'deleted_at': None, 'title': 'Challenge', 'description': 'Going to be challenging', 'reminder': None, 'color': '#FFFFFF', 'image': None, 'is_archived': False, 'is_deleted': False, 'is_pinned': False, 'created_at': '2020-12-17T05:57:51.256928Z', 'updated_at': '2020-12-22T12:22:44.144189Z', 'user': 1, 'collaborators': [2], 'labels': []}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+WARNING | Bad Request: /note-update/3/
+DEBUG | validated note detail: {'id': 4, 'deleted_at': None, 'title': 'New thing', 'description': 'eqwewqdasdsa', 'reminder': None, 'color': '#FFFFFF', 'image': '/media/notes/g2_DRNhieD.jpg', 'is_archived': False, 'is_deleted': False, 'is_pinned': False, 'created_at': '2020-12-19T05:24:24.222149Z', 'updated_at': '2020-12-19T05:24:24.222149Z', 'user': 1, 'collaborators': [3], 'labels': [1]}
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 5), ('deleted_at', None), ('title', 'Photos'), ('description', 'sadsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:45:53.952707Z'), ('updated_at', '2020-12-19T06:45:53.952707Z'), ('user', 2), ('collaborators', [2]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 7), ('deleted_at', None), ('title', 'Never'), ('description', 'nbghfghft'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:45.310426Z'), ('updated_at', '2020-12-19T06:46:45.310426Z'), ('user', 2), ('collaborators', [3]), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-22T12:22:44.144189Z'), ('user', 1), ('collaborators', [2]), ('labels', [])])]
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Internal Server Error: /note/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 19, in wrapper
+    value = values.split(" ")[2]
+IndexError: list index out of range
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Internal Server Error: /note/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 19, in wrapper
+    value = values.split(" ")[1]
+IndexError: list index out of range
+WARNING | Not Found: /note/2/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Internal Server Error: /note/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 19, in wrapper
+    value = values.split("")[2]
+ValueError: empty separator
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Internal Server Error: /note/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 20, in wrapper
+    new_tokens = value.encode()
+AttributeError: 'list' object has no attribute 'encode'
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Internal Server Error: /note/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 19, in wrapper
+    value = values.split(" ")[2]
+IndexError: list index out of range
+ERROR | Internal Server Error: /note/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 19, in wrapper
+    value = values.split(" ")[2]
+IndexError: list index out of range
+ERROR | Internal Server Error: /note/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 19, in wrapper
+    value = values.split(" ")[2]
+IndexError: list index out of range
+DEBUG | Using proactor: IocpProactor
+WARNING | Not Found: /api-token/
+WARNING | Method Not Allowed: /api/token/
+ERROR | Internal Server Error: /note/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 19, in wrapper
+    value = values.split(" ")[2]
+IndexError: list index out of range
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Internal Server Error: /note/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 21, in wrapper
+    encoded_token = jwt.decode(new_tokens, "secret", algorithms=["HS256"])
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\jwt\api_jwt.py", line 91, in decode
+    decoded = super(PyJWT, self).decode(
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\jwt\api_jws.py", line 155, in decode
+    self._verify_signature(payload, signing_input, header, signature,
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\jwt\api_jws.py", line 223, in _verify_signature
+    raise InvalidSignatureError('Signature verification failed')
+jwt.exceptions.InvalidSignatureError: Signature verification failed
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 5), ('deleted_at', None), ('title', 'Photos'), ('description', 'sadsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:45:53.952707Z'), ('updated_at', '2020-12-19T06:45:53.952707Z'), ('user', 2), ('collaborators', [2]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 7), ('deleted_at', None), ('title', 'Never'), ('description', 'nbghfghft'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:45.310426Z'), ('updated_at', '2020-12-19T06:46:45.310426Z'), ('user', 2), ('collaborators', [3]), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-22T12:22:44.144189Z'), ('user', 1), ('collaborators', [2]), ('labels', [])])]
+DEBUG | validated note detail: {'id': 2, 'deleted_at': None, 'title': 'Challenge', 'description': 'Going to be challenging', 'reminder': None, 'color': '#FFFFFF', 'image': None, 'is_archived': False, 'is_deleted': False, 'is_pinned': False, 'created_at': '2020-12-17T05:57:51.256928Z', 'updated_at': '2020-12-22T12:22:44.144189Z', 'user': 1, 'collaborators': [2], 'labels': []}
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Method Not Allowed: /api/token/
+WARNING | Unauthorized: /login/
+WARNING | Unauthorized: /login/
+WARNING | Unauthorized: /login/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Method Not Allowed: /login/
+WARNING | Unauthorized: /login/
+ERROR | Exception due to expired signature
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py", line 117, in get
+    payload = jwt.decode(token, settings.SECRET_KEY)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\jwt\api_jwt.py", line 104, in decode
+    self._validate_claims(payload, merged_options, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\jwt\api_jwt.py", line 134, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\jwt\api_jwt.py", line 175, in _validate_exp
+    raise ExpiredSignatureError('Signature has expired')
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+WARNING | Bad Request: /email-verify/
+WARNING | Method Not Allowed: /register/
+WARNING | Bad Request: /register/
+DEBUG | validated data: {'first_name': 'Ibraheem', 'last_name': 'Khaleel', 'email': 'ikhaleelem@gmail.com', 'user_name': 'ibrahimkhaleel'}
+WARNING | Bad Request: /register/
+DEBUG | user activation successful
+ERROR | Exception due to error in decoding
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py", line 117, in get
+    payload = jwt.decode(token, settings.SECRET_KEY)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\jwt\api_jwt.py", line 84, in decode
+    payload, _, _, _ = self._load(jwt)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\jwt\api_jws.py", line 176, in _load
+    raise DecodeError("Invalid token type. Token must be a {0}".format(
+jwt.exceptions.DecodeError: Invalid token type. Token must be a <class 'bytes'>
+WARNING | Bad Request: /email-verify/
+WARNING | Method Not Allowed: /login/
+WARNING | Unauthorized: /login/
+WARNING | Method Not Allowed: /api/token/
+WARNING | Method Not Allowed: /api/token/
+WARNING | Unauthorized: /login/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Method Not Allowed: /api/token/
+WARNING | Unauthorized: /login/
+WARNING | Unauthorized: /login/
+WARNING | Unauthorized: /login/
+WARNING | Unauthorized: /login/
+WARNING | Unauthorized: /login/
+WARNING | Unauthorized: /login/
+WARNING | Unauthorized: /login/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Bad Request: /note/
+WARNING | Not Found: /note/2
+ERROR | Internal Server Error: /note-update/2
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/note-update/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Internal Server Error: /note-update/2
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/note-update/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR | Internal Server Error: /note-update/2
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/note-update/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Internal Server Error: /note-update/2
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/note-update/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR | Internal Server Error: /note-update/2
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/note-update/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Internal Server Error: /note-update/2
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/note-update/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR | Internal Server Error: /note-update/2
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/note-update/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR | Internal Server Error: /note-update/2/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 22, in wrapper
+    user = User.objects.get(id=id)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 187, in __get__
+    raise AttributeError(
+AttributeError: Manager isn't available; 'auth.User' has been swapped for 'myfundooNotes.User'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 31, in wrapper
+    return HttpResponse(json.dumps(response), status=status.HTTP_400_BAD_REQUEST)
+UnboundLocalError: local variable 'response' referenced before assignment
+ERROR | Internal Server Error: /note-update/2/
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 20, in wrapper
+    encoded_token = jwt.decode(token, "secret", algorithms=["HS256"])
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\jwt\api_jwt.py", line 84, in decode
+    payload, _, _, _ = self._load(jwt)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\jwt\api_jws.py", line 176, in _load
+    raise DecodeError("Invalid token type. Token must be a {0}".format(
+jwt.exceptions.DecodeError: Invalid token type. Token must be a <class 'bytes'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py", line 31, in wrapper
+    return HttpResponse(json.dumps(response), status=status.HTTP_400_BAD_REQUEST)
+UnboundLocalError: local variable 'response' referenced before assignment
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Bad Request: /note-update/2/
+WARNING | Bad Request: /note-update/2/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', []), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', []), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-25T05:34:06.847981Z'), ('user', 4), ('collaborators', []), ('labels', [])])]
+DEBUG | validated note detail: {'id': 2, 'deleted_at': None, 'title': 'Challenge', 'description': 'Going to be challenging', 'reminder': None, 'color': '#FFFFFF', 'image': None, 'is_archived': False, 'is_deleted': False, 'is_pinned': False, 'created_at': '2020-12-17T05:57:51.256928Z', 'updated_at': '2020-12-25T05:34:06.847981Z', 'user': 4, 'collaborators': [], 'labels': []}
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Method Not Allowed: /login/
+ERROR | Internal Server Error: /note-update/2
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/note-update/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR | Internal Server Error: /note-update/3
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/note-update/3/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Internal Server Error: /note-update/3
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/note-update/3/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR | Internal Server Error: /note-update/2
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/note-update/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+WARNING | Bad Request: /note-update/2/
+WARNING | Method Not Allowed: /login/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note-update/2/
+WARNING | Bad Request: /note-update/2/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+ERROR | Internal Server Error: /login
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\utils\deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Method Not Allowed: /login/
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | validated data: {'email': 'keyboardwarrior@gmail.com', 'user_name': 'keyboardwarrior'}
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Method Not Allowed: /login/
+WARNING | Method Not Allowed: /login/
+DEBUG | validated data: {'email': 'keyboardwarrior@gmail.com', 'user_name': 'keyboardwarrior'}
+WARNING | Bad Request: /note/
+ERROR | Invalid HTTP_HOST header: 'Khaleel-PC:8000'. You may need to add 'khaleel-pc' to ALLOWED_HOSTS.
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Method Not Allowed: /login/
+DEBUG | validated data: {'email': 'keyboardwarrior@gmail.com', 'user_name': 'keyboardwarrior'}
+DEBUG | validated data: {'email': 'keyboardwarrior@gmail.com', 'user_name': 'keyboardwarrior'}
+DEBUG | validated data: {'email': 'keyboardwarrior@gmail.com', 'user_name': 'keyboardwarrior'}
+DEBUG | validated data: {'email': 'keyboardwarrior@gmail.com', 'user_name': 'keyboardwarrior'}
+WARNING | Bad Request: /note/
+DEBUG | validated data: {'email': 'keyboardwarrior@gmail.com', 'user_name': 'keyboardwarrior'}
+ERROR | Invalid HTTP_HOST header: 'Khaleel-PC:8000'. You may need to add 'khaleel-pc' to ALLOWED_HOSTS.
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+DEBUG | validated data: {'email': 'keyboardwarrior@gmail.com', 'user_name': 'keyboardwarrior'}
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+WARNING | Bad Request: /note/
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', []), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', []), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-25T05:34:06.847981Z'), ('user', 4), ('collaborators', []), ('labels', [])])]
+DEBUG | Using proactor: IocpProactor

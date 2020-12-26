@@ -392,3 +392,758 @@ Traceback (most recent call last):
   File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
     if kwargs['data']:
 KeyError: 'data'
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 145, in get
+    notes = self.get_object(pk=pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 167, in put
+    notes = self.get_object(pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 5), ('deleted_at', None), ('title', 'Photos'), ('description', 'sadsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:45:53.952707Z'), ('updated_at', '2020-12-19T06:45:53.952707Z'), ('user', 2), ('collaborators', [2]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 7), ('deleted_at', None), ('title', 'Never'), ('description', 'nbghfghft'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:45.310426Z'), ('updated_at', '2020-12-19T06:46:45.310426Z'), ('user', 2), ('collaborators', [3]), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-22T12:22:44.144189Z'), ('user', 1), ('collaborators', [2]), ('labels', [])])]
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 5), ('deleted_at', None), ('title', 'Photos'), ('description', 'sadsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:45:53.952707Z'), ('updated_at', '2020-12-19T06:45:53.952707Z'), ('user', 2), ('collaborators', [2]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 7), ('deleted_at', None), ('title', 'Never'), ('description', 'nbghfghft'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:45.310426Z'), ('updated_at', '2020-12-19T06:46:45.310426Z'), ('user', 2), ('collaborators', [3]), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-22T12:22:44.144189Z'), ('user', 1), ('collaborators', [2]), ('labels', [])])]
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 145, in get
+    notes = self.get_object(pk=pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+DEBUG | validated note detail: {'id': 2, 'deleted_at': None, 'title': 'Challenge', 'description': 'Going to be challenging', 'reminder': None, 'color': '#FFFFFF', 'image': None, 'is_archived': False, 'is_deleted': False, 'is_pinned': False, 'created_at': '2020-12-17T05:57:51.256928Z', 'updated_at': '2020-12-22T12:22:44.144189Z', 'user': 1, 'collaborators': [2], 'labels': []}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 145, in get
+    notes = self.get_object(pk=pk)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 133, in get_object
+    result=utils.manage_response(status=False,message='note not found')
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 65, in manage_response
+    if kwargs['data']:
+KeyError: 'data'
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 177, in put
+    serializer.save()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 200, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 970, in update
+    info = model_meta.get_field_info(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\model_meta.py", line 35, in get_field_info
+    opts = model._meta.concrete_model._meta
+AttributeError: 'Response' object has no attribute '_meta'
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 177, in put
+    serializer.save()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 200, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 970, in update
+    info = model_meta.get_field_info(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\model_meta.py", line 35, in get_field_info
+    opts = model._meta.concrete_model._meta
+AttributeError: 'Response' object has no attribute '_meta'
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 177, in put
+    serializer.save()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 200, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 970, in update
+    info = model_meta.get_field_info(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\model_meta.py", line 35, in get_field_info
+    opts = model._meta.concrete_model._meta
+AttributeError: 'Response' object has no attribute '_meta'
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 177, in put
+    serializer.save()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 200, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 970, in update
+    info = model_meta.get_field_info(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\model_meta.py", line 35, in get_field_info
+    opts = model._meta.concrete_model._meta
+AttributeError: 'Response' object has no attribute '_meta'
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 177, in put
+    serializer.save()
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 200, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 970, in update
+    info = model_meta.get_field_info(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\utils\model_meta.py", line 35, in get_field_info
+    opts = model._meta.concrete_model._meta
+AttributeError: 'Response' object has no attribute '_meta'
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = True) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 91, in post
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = True) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 170, in put
+    utils.get_user(request)
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\utils.py", line 19, in get_user
+    raise User.DoesNotExist('No such account exists')
+myfundooNotes.models.User.DoesNotExist: No such account exists
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = True) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+DEBUG | validated note list: []
+DEBUG | validated new note details: {'deleted_at': None, 'title': 'test note1', 'description': 'test description1', 'reminder': None, 'image': None, 'is_pinned': None, 'user': 1, 'collaborators': [1], 'labels': [1]}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = True) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 208, in delete
+    notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
+AttributeError: 'Response' object has no attribute 'soft_delete'
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 5), ('deleted_at', None), ('title', 'Photos'), ('description', 'sadsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:45:53.952707Z'), ('updated_at', '2020-12-19T06:45:53.952707Z'), ('user', 2), ('collaborators', [2]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 7), ('deleted_at', None), ('title', 'Never'), ('description', 'nbghfghft'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:45.310426Z'), ('updated_at', '2020-12-19T06:46:45.310426Z'), ('user', 2), ('collaborators', [3]), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-22T12:22:44.144189Z'), ('user', 1), ('collaborators', [2]), ('labels', [])])]
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+DEBUG | validated note detail: {'id': 2, 'deleted_at': None, 'title': 'Challenge', 'description': 'Going to be challenging', 'reminder': None, 'color': '#FFFFFF', 'image': None, 'is_archived': False, 'is_deleted': False, 'is_pinned': False, 'created_at': '2020-12-17T05:57:51.256928Z', 'updated_at': '2020-12-22T12:22:44.144189Z', 'user': 1, 'collaborators': [2], 'labels': []}
+ERROR | Requested note does not exist
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 130, in get_object
+    return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Notes.models.Note.DoesNotExist: Note matching query does not exist.
+ERROR | Something went wrong
+Traceback (most recent call last):
+  File "C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py", line 147, in get
+    result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 548, in data
+    ret = super().data
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 246, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\serializers.py", line 502, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\relations.py", line 536, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "C:\Users\Ibrahim Khaleel\Envs\venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'collaborators'
+DEBUG | validated note detail: {'id': 4, 'deleted_at': None, 'title': 'New thing', 'description': 'eqwewqdasdsa', 'reminder': None, 'color': '#FFFFFF', 'image': '/media/notes/g2_DRNhieD.jpg', 'is_archived': False, 'is_deleted': False, 'is_pinned': False, 'created_at': '2020-12-19T05:24:24.222149Z', 'updated_at': '2020-12-19T05:24:24.222149Z', 'user': 1, 'collaborators': [3], 'labels': [1]}
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 5), ('deleted_at', None), ('title', 'Photos'), ('description', 'sadsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:45:53.952707Z'), ('updated_at', '2020-12-19T06:45:53.952707Z'), ('user', 2), ('collaborators', [2]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 7), ('deleted_at', None), ('title', 'Never'), ('description', 'nbghfghft'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:45.310426Z'), ('updated_at', '2020-12-19T06:46:45.310426Z'), ('user', 2), ('collaborators', [3]), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-22T12:22:44.144189Z'), ('user', 1), ('collaborators', [2]), ('labels', [])])]
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 5), ('deleted_at', None), ('title', 'Photos'), ('description', 'sadsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:45:53.952707Z'), ('updated_at', '2020-12-19T06:45:53.952707Z'), ('user', 2), ('collaborators', [2]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 7), ('deleted_at', None), ('title', 'Never'), ('description', 'nbghfghft'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:45.310426Z'), ('updated_at', '2020-12-19T06:46:45.310426Z'), ('user', 2), ('collaborators', [3]), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [2, 3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', [2]), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-22T12:22:44.144189Z'), ('user', 1), ('collaborators', [2]), ('labels', [])])]
+DEBUG | validated note detail: {'id': 2, 'deleted_at': None, 'title': 'Challenge', 'description': 'Going to be challenging', 'reminder': None, 'color': '#FFFFFF', 'image': None, 'is_archived': False, 'is_deleted': False, 'is_pinned': False, 'created_at': '2020-12-17T05:57:51.256928Z', 'updated_at': '2020-12-22T12:22:44.144189Z', 'user': 1, 'collaborators': [2], 'labels': []}
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', []), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', []), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-25T05:34:06.847981Z'), ('user', 4), ('collaborators', []), ('labels', [])])]
+DEBUG | validated note detail: {'id': 2, 'deleted_at': None, 'title': 'Challenge', 'description': 'Going to be challenging', 'reminder': None, 'color': '#FFFFFF', 'image': None, 'is_archived': False, 'is_deleted': False, 'is_pinned': False, 'created_at': '2020-12-17T05:57:51.256928Z', 'updated_at': '2020-12-25T05:34:06.847981Z', 'user': 4, 'collaborators': [], 'labels': []}
+DEBUG | validated note list: [OrderedDict([('id', 4), ('deleted_at', None), ('title', 'New thing'), ('description', 'eqwewqdasdsa'), ('reminder', None), ('color', '#FFFFFF'), ('image', '/media/notes/g2_DRNhieD.jpg'), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T05:24:24.222149Z'), ('updated_at', '2020-12-19T05:24:24.222149Z'), ('user', 1), ('collaborators', [3]), ('labels', [1])]), OrderedDict([('id', 6), ('deleted_at', None), ('title', 'qwerty'), ('description', 'xsweyu'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-19T06:46:19.596480Z'), ('updated_at', '2020-12-19T06:46:19.596480Z'), ('user', None), ('collaborators', []), ('labels', [])]), OrderedDict([('id', 8), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-20T02:20:18.506890Z'), ('updated_at', '2020-12-20T02:20:18.506890Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 9), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-21T06:10:49.749691Z'), ('updated_at', '2020-12-21T06:10:49.749691Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 10), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:09:14.526489Z'), ('updated_at', '2020-12-22T05:09:14.526489Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 11), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:40.755289Z'), ('updated_at', '2020-12-22T05:10:40.755289Z'), ('user', 1), ('collaborators', [3]), ('labels', [1, 3])]), OrderedDict([('id', 12), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:10:50.382446Z'), ('updated_at', '2020-12-22T05:10:50.382446Z'), ('user', 1), ('collaborators', []), ('labels', [1, 3])]), OrderedDict([('id', 13), ('deleted_at', None), ('title', 'gretest'), ('description', 'if you inspire, easy'), ('reminder', '2020-12-15T12:00:00Z'), ('color', '#16703F'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-22T05:11:59.248205Z'), ('updated_at', '2020-12-22T05:11:59.248205Z'), ('user', 1), ('collaborators', []), ('labels', [1, 3])]), OrderedDict([('id', 2), ('deleted_at', None), ('title', 'Challenge'), ('description', 'Going to be challenging'), ('reminder', None), ('color', '#FFFFFF'), ('image', None), ('is_archived', False), ('is_deleted', False), ('is_pinned', False), ('created_at', '2020-12-17T05:57:51.256928Z'), ('updated_at', '2020-12-25T05:34:06.847981Z'), ('user', 4), ('collaborators', []), ('labels', [])])]
