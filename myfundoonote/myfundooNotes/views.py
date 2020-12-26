@@ -53,8 +53,12 @@ class Login(generics.GenericAPIView):
         try:
             serializer = self.serializer_class(data=request.data)
             serializer.is_valid(raise_exception=True)
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            # print(serializer['id'])
+            user = User.objects.get(email=serializer.data['email'])
+            token = jwt.encode({"id" : user.id}, "secret", algorithm="HS256").decode('utf-8')
+            response = {'message' : 'Login is successful', 'status' : True, 'token' : token }
             logging.debug('validated data: {}'.format(serializer.data))
+            return Response(response, status=status.HTTP_200_OK)  
         except Exception:
             return Response(default_error_message, status=status.HTTP_401_UNAUTHORIZED)
 
