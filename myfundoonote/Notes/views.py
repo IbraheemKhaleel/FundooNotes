@@ -20,9 +20,6 @@ from myfundooNotes.decorators import user_login_required
 
 # Create your views here.
 
-#logging.basicConfig(filename='notes.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
-
-#TODO : Add Exceptions and messages
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
