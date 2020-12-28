@@ -6,13 +6,8 @@ from rest_framework.exceptions import AuthenticationFailed
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.encoding import smart_str, force_str, smart_bytes, DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
-import json
+import json,jwt
 
-
-class UserDetailsSerializer(ModelSerializer):
-    class Meta:
-        model = User
-        fields = '__all__'
 
 class RegisterSerializer(ModelSerializer):
     password = serializers.CharField(
@@ -26,6 +21,10 @@ class RegisterSerializer(ModelSerializer):
         fields = ['first_name', 'last_name', 'email', 'user_name', 'password']
 
     def validate(self, attrs):
+        """
+        it verifies credentials, if credentials are in correct format then after email verification it will create account for user
+        :rtype: user data and its status if credentials are valid
+        """
         email = attrs.get('email', '')
         user_name = attrs.get('user_name', '')
 
@@ -58,6 +57,10 @@ class LoginSerializer(ModelSerializer):
         fields = ['email', 'password', 'user_name']
 
     def validate(self, attrs):
+        """
+        it verifies the credentials, if credentials were matched then returns data in json format, else throws exception
+        :return: return json data if credentials are matched
+        """
         email = attrs.get('email', '')
         password = attrs.get('password', '')
         user = auth.authenticate(email=email, password=password)
@@ -67,8 +70,10 @@ class LoginSerializer(ModelSerializer):
             raise AuthenticationFailed('Account disabled, contact admin')
 
         return {
-            'user_name': user.user_name, 'email': user.email,
+            'email': user.email
         }
+
+
 
 class ResetPasswordEmailRequestSerializer(serializers.Serializer):
     email = serializers.EmailField(min_length=2)
@@ -91,6 +96,10 @@ class SetNewPasswordSerializer(serializers.Serializer):
         fields = ['password', 'token', 'uidb64']
 
     def validate(self, attrs):
+        """
+        it take new password and confirm password and if the password matches all criteria then it will set new password
+        :rtype: data of the user and its success status
+        """
         try:
             password = attrs.get('password')
             token = attrs.get('token')
@@ -107,4 +116,3 @@ class SetNewPasswordSerializer(serializers.Serializer):
             return user
         except Exception as e:
             raise AuthenticationFailed('The reset link is invalid', 401)
-
