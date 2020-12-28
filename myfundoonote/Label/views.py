@@ -12,6 +12,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import LabelSerializer
 from .models import Label
+from myfundooNotes.decorators import user_login_required
 
 
 
@@ -22,7 +23,7 @@ from .models import Label
 #TODO : Add Exceptions and messages
 
 response= {'message':'error', 'status':False}
-
+@method_decorator(user_login_required, name='dispatch')
 class LabelsOverview(APIView):
     """
     Created a class for displaying overview of urls using in operations
@@ -42,7 +43,7 @@ class LabelsOverview(APIView):
         }
         return Response(api_urls)
        
-
+@method_decorator(user_login_required, name='dispatch')
 class LabelsView(APIView):
     """
     Created a class to creating and retrieving  labels saved inside
