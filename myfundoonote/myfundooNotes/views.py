@@ -25,8 +25,12 @@ from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
 from .models import User
-from .serializers import RegisterSerializer, SetNewPasswordSerializer, ResetPasswordEmailRequestSerializer, EmailVerificationSerializer, LoginSerializer,UserDetailsSerializer
+from .serializers import RegisterSerializer, SetNewPasswordSerializer, ResetPasswordEmailRequestSerializer, EmailVerificationSerializer, LoginSerializer
 from .utils import Util
+from Notes import utils
+from services.cache import Cache
+from services.encrypt import Encrypt
+from rest_framework.exceptions import AuthenticationFailed
 
 logging.basicConfig(filename='log_myfundooNotes.log',level=logging.DEBUG, format='%(levelname)s | %(message)s')
 
@@ -50,15 +54,21 @@ class Login(generics.GenericAPIView):
             The serialized user details in JSON format if successful.
             Else it returns user does not exist message
         """
+        default_error_message = {'error': 'Something went wrong', 'status' : False }
+        #Use redis cache to set the token, unique key.
+        #seperate class for jwt encode decode
         try:
             serializer = self.serializer_class(data=request.data)
             serializer.is_valid(raise_exception=True)
-            # print(serializer['id'])
             user = User.objects.get(email=serializer.data['email'])
-            token = jwt.encode({"id" : user.id}, "secret", algorithm="HS256").decode('utf-8')
+            token = Encrypt.encode(user.id)
+            Cache.set_cache("TOKEN_"+str(user.id)+"_AUTH", token)
             response = {'message' : 'Login is successful', 'status' : True, 'token' : token }
             logging.debug('validated data: {}'.format(serializer.data))
             return Response(response, status=status.HTTP_200_OK)  
+        except AuthenticationFailed as e:
+            default_error_message= {'status' : False, 'message' : str(e)}
+            return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
         except Exception:
             return Response(default_error_message, status=status.HTTP_401_UNAUTHORIZED)
 
@@ -92,7 +102,8 @@ class Registration(generics.GenericAPIView):
             data = {'email_body': email_body, 'to_email': user.email,
                     'email_subject': 'Verify your email'}
             Util.send_email(data)
-            logging.debug('validated data: {}'.format(serializer.data))
+            if settings.DEBUG:
+                logging.debug('validated data: {}'.format(serializer.data))
             return Response(user_data, status=status.HTTP_201_CREATED)
         except Exception:
             return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
