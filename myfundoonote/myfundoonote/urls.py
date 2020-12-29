@@ -15,6 +15,7 @@ Including another URLconf
 """
 from __future__ import absolute_import
 from django.contrib import admin
+from django.views.decorators.cache import cache_page
 from django.urls import path, include
 from rest_framework import routers
 from myfundooNotes import views
@@ -26,7 +27,7 @@ urlpatterns = [
     path('',include('Notes.urls')),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),  
-    path('login/', views.Login.as_view(), name='login'),
+    path('login/', cache_page(40)(views.Login.as_view()), name='login'),
     path('register/', views.Registration.as_view(), name = 'register'),
     path('email-verify/', views.EmailVerification.as_view(), name="email-verify"),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
