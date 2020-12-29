@@ -22,7 +22,7 @@ from myfundooNotes.decorators import user_login_required
 
 #TODO : Add Exceptions and messages
 
-response= {'message':'error', 'status':False}
+
 @method_decorator(user_login_required, name='dispatch')
 class LabelsOverview(APIView):
     """
@@ -56,7 +56,7 @@ class LabelsView(APIView):
         Returns:
         json: list of labels with complete labels
         """
-        
+        response= {'message':'error', 'status':False}
         status_code = status.HTTP_400_BAD_REQUEST
         try:
             labels = Label.objects.filter(is_deleted=False) #accessing all the object Labels into a variable
@@ -79,7 +79,7 @@ class LabelsView(APIView):
         Returns:
         json: new Label's saved Labels
         """
-        
+        response= {'message':'error', 'status':False}
         status_code = status.HTTP_400_BAD_REQUEST
         try:
             serializer = LabelSerializer(data=request.data) #serializing the input labels given by user
@@ -112,7 +112,7 @@ class LabelView(APIView):
 
         return: user labels of particular user
         """
-        
+        response= {'message':'error', 'status':False}
         status_code = status.HTTP_400_BAD_REQUEST
         try:
             return Label.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user Labels
@@ -128,7 +128,8 @@ class LabelView(APIView):
             
 
     def get(self, request, pk):
-        
+
+        response= {'message':'error', 'status':False}
         status_code = status.HTTP_400_BAD_REQUEST
         try:
             labels = self.get_object(pk=pk)
@@ -153,7 +154,7 @@ class LabelView(APIView):
         Returns:
                 Updated user labels with status message
         """
-        
+        response= {'message':'error', 'status':False}
         status_code = status.HTTP_400_BAD_REQUEST
         try:
             labels = self.get_object(pk)
@@ -185,6 +186,7 @@ class LabelView(APIView):
         Returns:
             Delete the user labels with status message
         """
+        response= {'message':'error', 'status':False}
         status_code = status.HTTP_400_BAD_REQUEST
         try:
             labels = self.get_object(pk)
