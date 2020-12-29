@@ -16,6 +16,7 @@ from django.urls import reverse
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
 
+
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import generics, status, views, permissions
 from rest_framework.viewsets import ModelViewSet
@@ -40,12 +41,15 @@ class CustomRedirect(HttpResponsePermanentRedirect):
 # defining a general error message if any unknown errors occur
 default_error_message = {'error': 'Something went wrong', 'status' : False }
 
+
 class Login(generics.GenericAPIView):
     """
     A Login class which inherited from inbuilt django GenericAPIView class
     It helps to login the user with the right credentials
     """
     serializer_class = LoginSerializer
+
+    
     def post(self, request):
         """
         Declared post method to insert login details of user  
@@ -62,7 +66,8 @@ class Login(generics.GenericAPIView):
             serializer.is_valid(raise_exception=True)
             user = User.objects.get(email=serializer.data['email'])
             token = Encrypt.encode(user.id)
-            Cache.set_cache("TOKEN_"+str(user.id)+"_AUTH", token)
+            cache = Cache()
+            cache.set_cache("TOKEN_"+str(user.id)+"_AUTH", token)
             response = {'message' : 'Login is successful', 'status' : True, 'token' : token }
             logging.debug('validated data: {}'.format(serializer.data))
             return Response(response, status=status.HTTP_200_OK)  
@@ -114,10 +119,7 @@ class EmailVerification(views.APIView):
 
     """
     serializer_class = EmailVerificationSerializer
-    token_param_config = openapi.Parameter(
-        'token', in_=openapi.IN_QUERY, description='Description', type=openapi.TYPE_STRING)
-
-    @swagger_auto_schema(manual_parameters=[token_param_config])
+    
     def get(self, request):
         """
         Created method for verifying email and successfully registering the user
