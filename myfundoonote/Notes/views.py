@@ -59,10 +59,8 @@ class NotesView(APIView):
             notes = Note.objects.filter(is_deleted=False) #accessing all the object notes into a variable
             serializer = NoteSerializer(notes, many=True) #serializing the variable using NoteSerializer
             result = utils.manage_response(status=True,message='retrieved successfully',data=serializer.data, log= serializer.data)
-            #logger.debug('validated note list: {}'.format())
             return Response(result, status.HTTP_200_OK)
         except Exception as e:
-            #logger.exception('Something went wrong')
             result = utils.manage_response(status=False,message='something wrong', log = str(e))
             return Response(result,status.HTTP_400_BAD_REQUEST)
         
@@ -120,7 +118,6 @@ class NoteView(APIView):
         """
         try:
             note = self.get_object(pk)
-            #print(note.user_id)
             if kwargs['userid'] == note.user_id:
                 serializer = NoteSerializer(note)
                 result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data,log=serializer.data)
