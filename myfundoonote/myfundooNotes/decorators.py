@@ -12,7 +12,7 @@ import jwt
 from services.cache import Cache
 from services.encrypt import Encrypt
 import logging
-from .utils import TokenRetrieve
+
 
 
 def user_login_required(view_func):
@@ -33,11 +33,8 @@ def user_login_required(view_func):
                 print("hi")
                 kwargs['userid'] = decoded_token['id']
                 print(kwargs['userid'])
-                return view_func(request, *args , **kwargs)
-                
-        
-            else:    
-                return HttpResponse('UnauThorized',status.HTTP_403_FORBIDDEN)
+                return view_func(request, *args , **kwargs)   
+            return HttpResponse('UnauThorized',status.HTTP_403_FORBIDDEN)
             #result = utils.manage_response(status=False,message='User must be logged in')
             #return HttpResponse(json.dumps(result), status=status.HTTP_400_BAD_REQUEST)
         except jwt.ExpiredSignatureError as e:
