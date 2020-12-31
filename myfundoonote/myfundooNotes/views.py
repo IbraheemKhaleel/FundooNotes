@@ -43,24 +43,18 @@ default_error_message = {'error': 'Something went wrong', 'status' : False }
 
 
 class Login(generics.GenericAPIView):
-    """
-    A Login class which inherited from inbuilt django GenericAPIView class
-    It helps to login the user with the right credentials
+    """[allows user login after verification and activation]
+
+    Returns:
+        [Response]: [username , email and status code]
     """
     serializer_class = LoginSerializer
-
     
     def post(self, request):
-        """
-        Declared post method to insert login details of user  
-
+        """[validates user email and password, sets user id in cache]
         Returns:
-            The serialized user details in JSON format if successful.
-            Else it returns user does not exist message
+            [dictionary]: [token]
         """
-        default_error_message = {'error': 'Something went wrong', 'status' : False }
-        #Use redis cache to set the token, unique key.
-        #seperate class for jwt encode decode
         try:
             serializer = self.serializer_class(data=request.data)
             serializer.is_valid(raise_exception=True)
@@ -68,14 +62,17 @@ class Login(generics.GenericAPIView):
             token = Encrypt.encode(user.id)
             cache = Cache()
             cache.set_cache("TOKEN_"+str(user.id)+"_AUTH", token)
-            response = {'message' : 'Login is successful', 'status' : True, 'token' : token }
-            logging.debug('validated data: {}'.format(serializer.data))
-            return Response(response, status=status.HTTP_200_OK)  
+            result = utils.manage_response(status=True ,message = 'Token generated',data = token ,log = serializer.data)
+            return Response(result, status=status.HTTP_200_OK)
+        except User.DoesNotExist as e:
+            result = utils.manage_response(status=False,message = 'Account does not exist',log=str(e))
+            return Response(result, status.HTTP_400_BAD_REQUEST)
         except AuthenticationFailed as e:
-            default_error_message= {'status' : False, 'message' : str(e)}
-            return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
-        except Exception:
-            return Response(default_error_message, status=status.HTTP_401_UNAUTHORIZED)
+            result = utils.manage_response(status=False,message = 'Please enter a valid token' ,log=str(e))
+            return Response(result, status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            result = utils.manage_response(status=False,message = 'some other issue.Please try again' ,log=str(e))
+            return Response(result, status.HTTP_400_BAD_REQUEST)
 
 
 class Registration(generics.GenericAPIView):
