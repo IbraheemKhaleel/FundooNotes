@@ -132,7 +132,6 @@ class NoteView(APIView):
             result=utils.manage_response(status=False,message='Something went wrong.Please try again.',log=str(e))
             return Response(result,status.HTTP_400_BAD_REQUEST)
 
-
     def put(self, request, pk,**kwargs):
         """[updates existing note]
         Returns:
