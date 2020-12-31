@@ -129,7 +129,13 @@ class LabelView(APIView):
 
     def get(self, request, pk):
 
-        response= {'message':'error', 'status':False}
+        """
+        Created a method to display list of labels saved in
+        Returns:
+        json: list of labels with complete labels
+        """
+
+        response= {'message':'error', 'status':False }
         status_code = status.HTTP_400_BAD_REQUEST
         try:
             labels = self.get_object(pk=pk)
