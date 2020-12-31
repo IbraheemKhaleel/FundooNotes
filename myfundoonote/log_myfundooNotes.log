@@ -6998,3 +6998,17 @@ DEBUG | Using proactor: IocpProactor
 INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
 DEBUG | Using proactor: IocpProactor
 DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\myfundooNotes\decorators.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+INFO | C:\Users\Ibrahim Khaleel\VisualStudioProjects\djangoprojects\fundoonote\myfundoonote\Notes\views.py changed, reloading.
+DEBUG | Using proactor: IocpProactor
+DEBUG | validated data: {'id': 2, 'deleted_at': None, 'title': 'Next big thing again', 'description': 'new description', 'reminder': None, 'color': '#17803F', 'image': None, 'is_archived': False, 'is_deleted': False, 'is_pinned': False, 'created_at': '2020-12-17T05:57:51.256928Z', 'updated_at': '2020-12-31T03:18:39.331370Z', 'user': 4, 'collaborators': [4], 'labels': [3]}
+DEBUG | Using proactor: IocpProactor
