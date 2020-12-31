@@ -18,7 +18,6 @@ from . import utils
 from myfundooNotes.models import User
 from myfundooNotes.decorators import user_login_required
 from services.cache import Cache
-from myfundooNotes.utils import TokenRetrieve
 
 
 # Create your views here.
@@ -108,7 +107,6 @@ class NoteView(APIView):
         try:
             return Note.objects.get(id = pk, is_deleted = False) 
         except Note.DoesNotExist as e:
-
             result=utils.manage_response(status=False,message='note not found',log=str(e))
             return Response(result,status.HTTP_404_NOT_FOUND)
         except Exception as e:
@@ -122,17 +120,15 @@ class NoteView(APIView):
         """
         try:
             note = self.get_object(pk)
-            user_id = User.objects.get(email = note.user).id
-            if kwargs['userid'] == user_id:
+            #print(note.user_id)
+            if kwargs['userid'] == note.user_id:
                 serializer = NoteSerializer(note)
                 result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data,log=serializer.data)
-
                 return Response(result , status.HTTP_200_OK)
             else:
                 result=utils.manage_response(status=False,message='no such user for this note',log= 'bad request')
                 return Response(result,status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            
             result=utils.manage_response(status=False,message='Something went wrong.Please try again.',log=str(e))
             return Response(result,status.HTTP_400_BAD_REQUEST)
 
@@ -144,8 +140,7 @@ class NoteView(APIView):
         """
         try:
             note = self.get_object(pk)
-            user_id = User.objects.get(email = note.user).id
-            if kwargs['userid'] == user_id:
+            if kwargs['userid'] == note.user_id:
                 data = request.data
                 if data.get('collaborators'):
                     utils.get_collaborator_list(request)
@@ -176,8 +171,7 @@ class NoteView(APIView):
         """
         try:
             note = self.get_object(pk)
-            user_id = User.objects.get(email = note.user).id
-            if kwargs['userid'] == user_id:
+            if kwargs['userid'] == note.user_id:
                 note.soft_delete()
                 result=utils.manage_response(status=True,message='deleted successfully',log=('deleted note with id: {}'.format(pk)))
                 return Response(result,status.HTTP_204_NO_CONTENT)
