@@ -15,21 +15,13 @@ from .serializers import NoteSerializer
 
 from .models import Note
 from . import utils
+from myfundooNotes.models import User
 from myfundooNotes.decorators import user_login_required
+from services.cache import Cache
+from myfundooNotes.utils import TokenRetrieve
 
 
 # Create your views here.
-
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-
-formatter = logging.Formatter('%(levelname)s | %(message)s')
-
-file_handler = logging.FileHandler('log_notes.log')
-file_handler.setFormatter(formatter)
-
-logger.addHandler(file_handler)
 
 
 class NotesOverview(APIView):
@@ -58,7 +50,7 @@ class NotesView(APIView):
     """
     serializer_class = NoteSerializer
     
-    def get(self , request):
+    def get(self , request, **kwargs):
         """
         Created a method to display list of notes saved in
         Returns:
@@ -67,47 +59,38 @@ class NotesView(APIView):
         try:
             notes = Note.objects.filter(is_deleted=False) #accessing all the object notes into a variable
             serializer = NoteSerializer(notes, many=True) #serializing the variable using NoteSerializer
-            result = utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
-            logger.debug('validated note list: {}'.format(serializer.data))
+            result = utils.manage_response(status=True,message='retrieved successfully',data=serializer.data, log= serializer.data)
+            #logger.debug('validated note list: {}'.format())
             return Response(result, status.HTTP_200_OK)
         except Exception as e:
-            logger.exception('Something went wrong')
-            result = utils.manage_response(status=False,message='something wrong')
+            #logger.exception('Something went wrong')
+            result = utils.manage_response(status=False,message='something wrong', log = str(e))
             return Response(result,status.HTTP_400_BAD_REQUEST)
         
-    
-    def post(self, request):
-        """
-        Created a method to create a new note
+    def post(self, request , **kwargs):
+        """[creates new note]
         Returns:
-        json: new note's saved notes
+            [Response]: [result data and status]
         """
-        
-        
         try:
-            notes_data = request.data
-            if notes_data.get('user'):
-                utils.get_user(request)
-            if notes_data.get('collaborators'):
+            data = request.data
+            utils.set_user(request,kwargs['userid'])
+            if data.get('collaborators'):
                 utils.get_collaborator_list(request)
-            if notes_data.get('labels'):
+            if data.get('labels'):
                 utils.get_label_list(request)
-            serializer = NoteSerializer(data=request.data) #serializing the input notes given by user
-            if serializer.is_valid(): #Checks whether the given notes are valid or not using in built is_valid function
-                result = utils.manage_response(status=True,message='created successfully',data=serializer.data)
-                logger.debug('validated new note details: {}'.format(serializer.data))
+            serializer = NoteSerializer(data=request.data)
+            if serializer.is_valid(raise_exception=True):              
+                serializer.save()
+                result = utils.manage_response(status=True,message='created successfully',data=serializer.data,log=serializer.data)
                 return Response(result,status.HTTP_201_CREATED)
-            else:
-                logger.error('Invalid note details entered')
-                result = utils.manage_response(status=False,message=serializer.errors)
-                return Response(result,status.HTTP_400_BAD_REQUEST)
+            result = utils.manage_response(status=False,message=serializer.errors , log=serializer.errors)
+            return Response(result,status.HTTP_400_BAD_REQUEST)
         except Note.DoesNotExist as e:
-            logger.exception('Requested note does not exist')
-            result = utils.manage_response(status=False,message='note not found')
+            result = utils.manage_response(status=False,message='note not found',log=str(e))
             return Response(result,status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            logger.exception('Something went wrong')
-            result = utils.manage_response(status=False,message='something wrong')
+            result = utils.manage_response(status=False,message=str(e),log=str(e))
             return Response(result,status.HTTP_400_BAD_REQUEST)
 
 @method_decorator(user_login_required, name='dispatch')
@@ -117,103 +100,94 @@ class NoteView(APIView):
     
     """
     serializer_class = NoteSerializer
-    def get_object(self, pk):
-        """
-        Created a method to retrieve an object notes
-
-        parameter:  primary key given to retrieve notes of particular user
-
-        return: user notes of particular user
+    def get_object(self , pk):
+        """[fetches and returns specific note]
+        Args:
+            pk ([int]): [id]
         """
         try:
-            return Note.objects.get(id = pk, is_deleted = False) #calls get method to retrieve a particular user notes
-        except Note.DoesNotExist:
-            logger.exception('Requested note does not exist')
-            result=utils.manage_response(status=False,message='note not found')
+            return Note.objects.get(id = pk, is_deleted = False) 
+        except Note.DoesNotExist as e:
+
+            result=utils.manage_response(status=False,message='note not found',log=str(e))
             return Response(result,status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            logger.exception('Something went wrong')
-            result=utils.manage_response(status=False,message='something wrong')
-            return Response(result,status.HTTP_400_BAD_REQUEST)
-            
-
-    def get(self, request, pk):
-        
-        
-        try:
-            notes = self.get_object(pk=pk)
-            serializer = NoteSerializer(notes)
-            result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data)
-            logger.debug('validated note detail: {}'.format(serializer.data))
-            return Response(result , status.HTTP_200_OK)
-        except Exception as e:
-            logger.exception('Something went wrong')
-            result=utils.manage_response(status=False,message='something wrong')
+            result=utils.manage_response(status=False,message='Something went wrong.Please try again.',log=str(e))
             return Response(result,status.HTTP_400_BAD_REQUEST)
 
-    def put(self, request, pk):
-        """
-        Created a put method to edit particular user notes
-        Args:
-            pk (integer): id of particular user to edit their notes
-
+    def get(self,request,pk,**kwargs):
+        """[displays specific note]
         Returns:
-                Updated user notes with status message
+            [Response]: [note details]
         """
-        
-        
         try:
-            notes = self.get_object(pk)
-            notes_data = request.data
-            if notes_data.get('user'): # fetching the details of particular email provided
-                utils.get_user(request)
-            if notes_data.get('collaborators'): # fetching the details of particular collaborator provided
-                utils.get_collaborator_list(request)
-            if notes_data.get('labels'): # fetching the details of particular label provided
-                utils.get_label_list(request)
-            serializer = NoteSerializer(notes, data=request.data, partial = True)
-            if serializer.is_valid():
-                serializer.save()
-                logger.debug('validated updated note data: {}'.format(serializer.data))
-                result=utils.manage_response(status=True,message='updated successfully',data=serializer.data)
+            note = self.get_object(pk)
+            user_id = User.objects.get(email = note.user).id
+            if kwargs['userid'] == user_id:
+                serializer = NoteSerializer(note)
+                result=utils.manage_response(status=True,message='retrieved successfully',data=serializer.data,log=serializer.data)
+
+                return Response(result , status.HTTP_200_OK)
+            else:
+                result=utils.manage_response(status=False,message='no such user for this note',log= 'bad request')
+                return Response(result,status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            
+            result=utils.manage_response(status=False,message='Something went wrong.Please try again.',log=str(e))
+            return Response(result,status.HTTP_400_BAD_REQUEST)
+
+
+    def put(self, request, pk,**kwargs):
+        """[updates existing note]
+        Returns:
+            [Response]: [updated details and status]
+        """
+        try:
+            note = self.get_object(pk)
+            user_id = User.objects.get(email = note.user).id
+            if kwargs['userid'] == user_id:
+                data = request.data
+                if data.get('collaborators'):
+                    utils.get_collaborator_list(request)
+                if data.get('labels'):
+                    utils.get_label_list(request)
+                serializer = NoteSerializer(note, data=request.data , partial=True)
+                if serializer.is_valid(raise_exception=True):
+                    serializer.save()
+                else:
+                    result=utils.manage_response(status=False,message=serializer.errors,log= serializer.errors)
+                    return Response(result,status.HTTP_400_BAD_REQUEST)
+                result=utils.manage_response(status=True,message='updated successfully',data=serializer.data,log=serializer.data)
                 return Response(result, status.HTTP_200_OK)
-            logger.error('Invalid note details entered')
-            result=utils.manage_response(status=False,message=serializer.errors)
-            return Response(result,status.HTTP_400_BAD_REQUEST)
-        except Note.DoesNotExist:
-            logger.exception('Requested note does not exist')
-            result=utils.manage_response(status=False,message='note not found')
+            else:
+                result=utils.manage_response(status=False,message='no such user for this note',log= 'bad request')
+                return Response(result,status.HTTP_400_BAD_REQUEST)
+        except Note.DoesNotExist as e:
+            result=utils.manage_response(status=False,message='note not found',log=str(e))
             return Response(result,status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            logger.exception('Something went wrong')
-            result=utils.manage_response(status=False,message='something wrong')
+            result=utils.manage_response(status=False,message='Something went wrong.Please try again.',log=str(e))
             return Response(result,status.HTTP_400_BAD_REQUEST)
-
-
-            
-    def delete(self, request, pk):
-        """
-        Created a method to delete a particular user's note
-
-        Args:
-            pk (integer): id of particular user to delete their notes
-
-        Returns:
-            Delete the user notes with status message
-        """
        
+    def delete(self,request,pk,**kwargs):
+        """[soft deletes existing note]
+        Returns:
+            [Response]: [confirmation message and status]
+        """
         try:
-            notes = self.get_object(pk)
-            notes.soft_delete() #soft deleteing particular note. it will be hidden for user to retirieve.
-            logger.debug('deleted note with id: {}'.format(pk))
-            result=utils.manage_response(status=True,message='deleted successfully')
-            return Response(result,status.HTTP_204_NO_CONTENT)
-        except Note.DoesNotExist:
-            logger.exception('Requested note does not exist')
-            result=utils.manage_response(status=False,message='note not found')
+            note = self.get_object(pk)
+            user_id = User.objects.get(email = note.user).id
+            if kwargs['userid'] == user_id:
+                note.soft_delete()
+                result=utils.manage_response(status=True,message='deleted successfully',log=('deleted note with id: {}'.format(pk)))
+                return Response(result,status.HTTP_204_NO_CONTENT)
+            else:
+                result=utils.manage_response(status=False,message='no such user for this note',log= 'bad request')
+                return Response(result,status.HTTP_400_BAD_REQUEST)
+        except Note.DoesNotExist as e:
+            result=utils.manage_response(status=False,message='note not found',log=str(e))
             return Response(result,status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            logger.exception('Something went wrong')
-            result=utils.manage_response(status=False,message='something wrong')
+            result=utils.manage_response(status=False,message='Something went wrong.Please try again.',log=str(e))
             return Response(result,status.HTTP_400_BAD_REQUEST)
 
