@@ -17,7 +17,7 @@ from .serializers import NoteSerializer
 # Create your views here.
 from services.cache import Cache
 
-from services.Exceptions import LengthError, ValidationError, EmptyFieldError, NoSearchFoundError
+from services.exceptions import LengthError, ValidationError, EmptyFieldError, NoSearchFoundError
 
 
 class NotesOverview(APIView):
@@ -60,9 +60,6 @@ class ManageNotes(APIView):
         """
 
         try:
-            pk = kwargs['pk']
-            if not isinstance(pk, int):
-                raise TypeError('Primary key must be an integer')
             current_user = kwargs['userid']
             cache = Cache()
             if kwargs.get('pk'):
@@ -73,24 +70,21 @@ class ManageNotes(APIView):
                     return Response(result, status.HTTP_200_OK)
                 else:
                     note = Note.objects.get(Q(id=kwargs.get('pk')), Q(is_archived=False), Q(is_trashed=False),
-                                            Q(is_deleted=False),
                                             Q(user=current_user) | Q(
                                                 collaborators=current_user))  # retrieving data from database
                     serializer = NoteSerializer(note)
                     cache.set_cache("NOTE_" + str(note.id) + "_DETAIL",
                                     str(serializer.data))  # saving notes to redis cache
             else:
-                notes = Note.objects.filter(Q(user=kwargs['userid']) | Q(collaborators=kwargs['userid']),
-                                            Q(is_deleted=False),
-                                            Q(is_trashed=False)).exclude(
-                    is_archived=True)
+                notes = Note.objects.filter(Q(user=kwargs['userid']) | Q(collaborators=kwargs['userid']), Q(is_archived=False)).exclude(
+                    is_trashed=True).distinct()
                 serializer = NoteSerializer(notes, many=True)
 
             result = utils.manage_response(status=True, message='retrieved successfully', data=serializer.data,
                                            log=serializer.data)
             return Response(result, status.HTTP_200_OK)
         except TypeError as e:
-            result = utils.manage_response(status=False, message=str(e), log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Note.DoesNotExist as e:
             result = utils.manage_response(status=False, message='note not found', log=str(e))
@@ -129,14 +123,14 @@ class ManageNotes(APIView):
                                            log=str(e))
             return Response(result, status.HTTP_404_NOT_FOUND)
         except ValidationError as e:
-            result = utils.manage_response(status=False, message=str(e),
+            result = utils.manage_response(status=False, message='Please provide valid details',
                                            log=str(e))
             return Response(result, status.HTTP_404_NOT_FOUND)
         except EmptyFieldError as e:
             result = utils.manage_response(status=False, message='Empty field. Type something', log=str(e))
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            result = utils.manage_response(status=False, message=str(e), log=str(e))
+            result = utils.manage_response(status=False, message='Something went wrong. Try again', log=str(e))
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, pk, **kwargs):
@@ -145,21 +139,21 @@ class ManageNotes(APIView):
             [Response]: [updated details and status]
         """
         try:
-            if not isinstance(pk, int):
-                raise TypeError('The primary key should be an integer')
+            # if not isinstance(pk, int):
+            #     raise TypeError('The primary key should be an integer')
             data = request.data
             if data.get('collaborators'):
                 utils.get_collaborator_list(request)
             if data.get('labels'):
                 utils.get_label_list(request)
 
-            note = Note.objects.get(id=pk, is_archived=False, is_trashed=False, is_deleted=False,
-                                    user=kwargs['userid'])
-
+            note = Note.objects.get(Q(id=pk), Q(is_trashed=False),
+                                    Q(user=kwargs['userid']))
             serializer = NoteSerializer(note, data=request.data, partial=True)
-
+            cache = Cache()
             if serializer.is_valid(raise_exception=True):
                 serializer.save()
+                cache.set_cache("NOTE_" + str(note.id) + "_DETAIL", str(serializer.data))
             else:
                 result = utils.manage_response(status=False, message=serializer.errors, log=serializer.errors)
                 return Response(result, status.HTTP_400_BAD_REQUEST)
@@ -167,11 +161,14 @@ class ManageNotes(APIView):
             result = utils.manage_response(status=True, message='updated successfully', data=serializer.data,
                                            log=serializer.data)
             return Response(result, status.HTTP_200_OK)
+        except ValidationError as e:
+            result = utils.manage_response(status=False, message='Please enter proper details for each field', log=str(e))
+            return Response(result, status.HTTP_404_NOT_FOUND)
         except TypeError as e:
-            result = utils.manage_response(status=False, message=str(e), log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Note.DoesNotExist as e:
-
+            print(e)
             result = utils.manage_response(status=False, message='note not found', log=str(e))
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
@@ -185,8 +182,10 @@ class ManageNotes(APIView):
             [Response]: [confirmation message and status]
         """
         try:
-            note = Note.objects.get(id=pk, is_deleted=False, is_trashed=False, user=kwargs['userid'])
+            cache = Cache()
+            note = Note.objects.get(id=pk, is_trashed=False, user=kwargs['userid'])
             note.trashed()
+            cache.delete_cache("NOTE_" + str(note.id) + "_DETAIL")
             result = utils.manage_response(status=True, message='note archived successfully',
                                            log=('archived note with id: {}'.format(pk)))
             return Response(result, status.HTTP_204_NO_CONTENT)
@@ -215,9 +214,9 @@ class ManageArchivedNote(APIView):
             pk ([int]): [id of required note]
         """
         try:
-            pk = kwargs['pk']
-            if not isinstance(pk, int):
-                raise TypeError('Primary key must be an integer')
+            # pk = kwargs['pk']
+            # if not isinstance(pk, int):
+            #     raise TypeError('Primary key must be an integer')
             current_user = kwargs['userid']
             if kwargs.get('pk'):
                 note = Note.objects.get(Q(id=kwargs.get('pk')), Q(is_archived=True), Q(is_trashed=False),
@@ -235,7 +234,7 @@ class ManageArchivedNote(APIView):
             result = utils.manage_response(status=False, message='note not found', log=str(e))
             return Response(result, status.HTTP_404_NOT_FOUND)
         except TypeError as e:
-            result = utils.manage_response(status=False, message=str(e), log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
             result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e))
@@ -258,9 +257,9 @@ class ManagePinnedNotes(APIView):
             pk ([int]): [id of required note]
         """
         try:
-            pk = kwargs['pk']
-            if not isinstance(pk, int):
-                raise TypeError('Primary key must be an integer')
+            # pk = kwargs['pk']
+            # if not isinstance(pk, int):
+            #     raise TypeError('Primary key must be an integer')
             current_user = kwargs['userid']
             if kwargs.get('pk'):
                 note = Note.objects.get(Q(id=kwargs.get('pk')), Q(is_archived=False), Q(is_trashed=False),
@@ -282,7 +281,7 @@ class ManagePinnedNotes(APIView):
             result = utils.manage_response(status=False, message='note not found', log=str(e))
             return Response(result, status.HTTP_404_NOT_FOUND)
         except TypeError as e:
-            result = utils.manage_response(status=False, message=str(e), log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
             result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e))
@@ -305,9 +304,9 @@ class ManageTrashedNotes(APIView):
             pk ([int]): [id of required note]
         """
         try:
-            pk = kwargs['pk']
-            if not isinstance(pk, int):
-                raise TypeError('Primary key must be an integer')
+            # pk = kwargs['pk']
+            # if not isinstance(pk, int):
+            #     raise TypeError('Primary key must be an integer')
             current_user = kwargs['userid']
             if kwargs.get('pk'):
                 note = Note.objects.get(id=kwargs.get('pk'), is_trashed=True, user=current_user)
@@ -321,7 +320,7 @@ class ManageTrashedNotes(APIView):
                                            log=serializer.data)
             return Response(result, status.HTTP_200_OK)
         except TypeError as e:
-            result = utils.manage_response(status=False, message=str(e), log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Note.DoesNotExist as e:
             result = utils.manage_response(status=False, message='note not found', log=str(e))
@@ -343,7 +342,7 @@ class ManageTrashedNotes(APIView):
                                            log=('deleted note with id: {}'.format(pk)))
             return Response(result, status.HTTP_204_NO_CONTENT)
         except TypeError as e:
-            result = utils.manage_response(status=False, message=str(e), log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
             return Response(result, status.HTTP_404_NOT_FOUND)
 
         except Note.DoesNotExist as e:
@@ -389,7 +388,7 @@ class SearchNote(APIView):
                                            log='retrieved searched note')
             return Response(result, status.HTTP_200_OK)
         except NoSearchFoundError as e:
-            result = utils.manage_response(status=False, message=str(e),
+            result = utils.manage_response(status=False, message='Your searched note is nowhere in the notes',
                                            log=str(e))
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except Note.DoesNotExist as e:
