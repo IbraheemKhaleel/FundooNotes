@@ -6,8 +6,6 @@ Created :  25 November 2020
 
 import os, jwt, logging
 
-from django.shortcuts import render
-from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.encoding import smart_str, force_str, smart_bytes, DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
@@ -16,30 +14,30 @@ from django.urls import reverse
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
 
-
+from .tasks import send_email
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework import generics, status, views, permissions
-from rest_framework.viewsets import ModelViewSet
+from rest_framework import generics, status, views
+
 from rest_framework.response import Response
 
-from drf_yasg.utils import swagger_auto_schema
-from drf_yasg import openapi
-
 from .models import User
-from .serializers import RegisterSerializer, SetNewPasswordSerializer, ResetPasswordEmailRequestSerializer, EmailVerificationSerializer, LoginSerializer
-from .utils import Util
+from .serializers import RegisterSerializer, SetNewPasswordSerializer, ResetPasswordEmailRequestSerializer, \
+    EmailVerificationSerializer, LoginSerializer
+from services.exceptions import EmptyFieldError, ValidationError
 from Notes import utils
 from services.cache import Cache
 from services.encrypt import Encrypt
 from rest_framework.exceptions import AuthenticationFailed
 
-logging.basicConfig(filename='log_myfundooNotes.log',level=logging.DEBUG, format='%(levelname)s | %(message)s')
+logging.basicConfig(filename='log_myfundooNotes.log', level=logging.DEBUG, format='%(levelname)s | %(message)s')
+
 
 class CustomRedirect(HttpResponsePermanentRedirect):
     allowed_schemes = [os.environ.get('APP_SCHEME'), 'http', 'https']
 
+
 # defining a general error message if any unknown errors occur
-default_error_message = {'error': 'Something went wrong', 'status' : False }
+default_error_message = {'error': 'Something went wrong', 'status': False}
 
 
 class Login(generics.GenericAPIView):
@@ -49,7 +47,7 @@ class Login(generics.GenericAPIView):
         [Response]: [username , email and status code]
     """
     serializer_class = LoginSerializer
-    
+
     def post(self, request):
         """[validates user email and password, sets user id in cache]
         Returns:
@@ -61,17 +59,17 @@ class Login(generics.GenericAPIView):
             user = User.objects.get(email=serializer.data['email'])
             token = Encrypt.encode(user.id)
             cache = Cache()
-            cache.set_cache("TOKEN_"+str(user.id)+"_AUTH", token)
-            result = utils.manage_response(status=True ,message = 'Token generated',data = token ,log = serializer.data)
+            cache.set_cache("TOKEN_" + str(user.id) + "_AUTH", token)
+            result = utils.manage_response(status=True, message='Token generated', data=token, log=serializer.data)
             return Response(result, status=status.HTTP_200_OK)
         except User.DoesNotExist as e:
-            result = utils.manage_response(status=False,message = 'Account does not exist',log=str(e))
+            result = utils.manage_response(status=False, message='Account does not exist', log=str(e))
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except AuthenticationFailed as e:
-            result = utils.manage_response(status=False,message = 'Please enter a valid token' ,log=str(e))
+            result = utils.manage_response(status=False, message='Please enter a valid token', log=str(e))
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            result = utils.manage_response(status=False,message = 'some other issue.Please try again' ,log=str(e))
+            result = utils.manage_response(status=False, message='some other issue.Please try again', log=str(e))
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
 
@@ -81,6 +79,7 @@ class Registration(generics.GenericAPIView):
         
     """
     serializer_class = RegisterSerializer
+
     def post(self, request):
         """
         Defined post method which register users with valid email and oher inputs.
@@ -98,17 +97,24 @@ class Registration(generics.GenericAPIView):
             token = RefreshToken.for_user(user).access_token
             current_site = get_current_site(request).domain
             relativeLink = reverse('email-verify')
-            absurl = 'http://'+ current_site + relativeLink + "?token="+str(token)
-            email_body = 'Hi '+user.user_name + \
-                ' Use the link below to verify your email \n' + absurl
+            absurl = 'http://' + current_site + relativeLink + "?token=" + str(token)
+            email_body = 'Hi ' + user.user_name + \
+                         ' Use the link below to verify your email \n' + absurl
             data = {'email_body': email_body, 'to_email': user.email,
                     'email_subject': 'Verify your email'}
-            Util.send_email(data)
-            if settings.DEBUG:
-                logging.debug('validated data: {}'.format(serializer.data))
+            send_email.delay(data)
+            logging.debug('validated data: {}'.format(serializer.data))
             return Response(user_data, status=status.HTTP_201_CREATED)
+        except ValidationError as e:
+            result = utils.manage_response(status=False, message='Please enter proper details for each field',
+                                           log=str(e))
+            return Response(result, status.HTTP_400_BAD_REQUEST)
+        except EmptyFieldError as e:
+            result = utils.manage_response(status=False, message='Please dont leave the field empty', log=str(e))
+            return Response(result, status.HTTP_400_BAD_REQUEST)
         except Exception:
             return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
+
 
 class EmailVerification(views.APIView):
     """
@@ -116,14 +122,14 @@ class EmailVerification(views.APIView):
 
     """
     serializer_class = EmailVerificationSerializer
-    
+
     def get(self, request):
         """
         Created method for verifying email and successfully registering the user
         Returns:
            response message with status code
         """
-        token = request.GET.get('token')
+        token = request.GET.get('token')  # retrieving query params token
         try:
             payload = jwt.decode(token, settings.SECRET_KEY)
             user = User.objects.get(id=payload['user_id'])
@@ -143,11 +149,12 @@ class EmailVerification(views.APIView):
             logging.exception('Exception due to other reasons')
             return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
 
+
 class PasswordResetRequestToEmail(generics.GenericAPIView):
     """
     Created class for sending request to email for password reset 
     """
-   
+
     serializer_class = ResetPasswordEmailRequestSerializer
 
     def post(self, request):
@@ -170,15 +177,23 @@ class PasswordResetRequestToEmail(generics.GenericAPIView):
                 absurl = 'http://' + current_site + relativeLink
                 email_body = 'Hello, \n Use link below to reset your password  \n' + absurl + "?redirect_url=" + redirect_url
                 data = {'email_body': email_body, 'to_email': user.email, 'email_subject': 'Reset your passsword'}
-                Util.send_email(data)
+                send_email.delay(data)
             logging.debug('password link sent successfully')
             return Response({'success': 'We have sent you a link to reset your password'}, status=status.HTTP_200_OK)
+        except ValidationError as e:
+            result = utils.manage_response(status=False, message='Please enter proper details for each field',
+                                           log=str(e))
+            return Response(result, status.HTTP_400_BAD_REQUEST)
+        except EmptyFieldError as e:
+            result = utils.manage_response(status=False, message='Please dont leave the field empty', log=str(e))
+            return Response(result, status.HTTP_400_BAD_REQUEST)
         except Exception:
             return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
 
+
 class PasswordTokenCheckAPI(generics.GenericAPIView):
     """
-    Created class for genrating  token for successful reset of password
+    Created class for generating  token for successful reset of password
 
     """
     serializer_class = SetNewPasswordSerializer
@@ -217,7 +232,8 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
                     return CustomRedirect(redirect_url + '?token_valid=False')
             except UnboundLocalError as e:
                 logging.exception('Exception due to variable being referenced before assignment')
-                return Response({'error': 'Token is not valid, please request a new one'}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({'error': 'Token is not valid, please request a new one'},
+                                status=status.HTTP_400_BAD_REQUEST)
             except Exception:
                 logging.exception('Exception due to other reasons')
                 return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
@@ -225,12 +241,14 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
             logging.exception('Exception due to other reasons')
             return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
 
+
 class SetNewPasswordAPIView(generics.GenericAPIView):
     """
     Created class to set new password the respective user
 
     """
     serializer_class = SetNewPasswordSerializer
+
     def patch(self, request):
         """
         Created a method to set a new password for existing user
@@ -246,6 +264,13 @@ class SetNewPasswordAPIView(generics.GenericAPIView):
             serializer.is_valid(raise_exception=True)
             logging.debug('password reset successful')
             return Response({'success': True, 'message': 'Password reset success'}, status=status.HTTP_200_OK)
+        except ValidationError as e:
+            result = utils.manage_response(status=False, message='Please enter proper details for each field',
+                                           log=str(e))
+            return Response(result, status.HTTP_400_BAD_REQUEST)
+        except EmptyFieldError as e:
+            result = utils.manage_response(status=False, message='Please dont leave the field empty', log=str(e))
+            return Response(result, status.HTTP_400_BAD_REQUEST)
         except Exception:
             logging.exception('Exception due to other reasons')
-        return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
+            return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
