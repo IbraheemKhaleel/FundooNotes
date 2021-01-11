@@ -2,6 +2,7 @@
 Author: Ibraheem Khaleel
 Created on: 15th December 2020 
 """
+import logging
 
 from django.db.models import Q
 from django.utils.decorators import method_decorator
@@ -19,6 +20,17 @@ from services.cache import Cache
 
 from services.exceptions import LengthError, ValidationError, EmptyFieldError, NoSearchFoundError
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(levelname)s | %(message)s')
+
+file_handler = logging.FileHandler('log_notes.log')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+
+cache = Cache()
 
 class NotesOverview(APIView):
     """
@@ -60,37 +72,41 @@ class ManageNotes(APIView):
         """
 
         try:
-            current_user = kwargs['userid']
-            cache = Cache()
+            #current_user = kwargs['userid']
             if kwargs.get('pk'):
                 if cache.get_cache(
                         "NOTE_" + str(kwargs.get('pk')) + "_DETAIL") is not None:  # retrieving notes from cache
                     note = cache.get_cache("NOTE_" + str(kwargs.get('pk')) + "_DETAIL")
-                    result = utils.manage_response(status=True, message='retrieved successfully', data=note, log=note)
+                    result = utils.manage_response(status=True, message='retrieved successfully', data=note, log=note, logger_obj=logger)
                     return Response(result, status.HTTP_200_OK)
                 else:
-                    note = Note.objects.get(Q(id=kwargs.get('pk')), Q(is_archived=False), Q(is_trashed=False),
-                                            Q(user=current_user) | Q(
-                                                collaborators=current_user))  # retrieving data from database
-                    serializer = NoteSerializer(note)
-                    cache.set_cache("NOTE_" + str(note.id) + "_DETAIL",
-                                    str(serializer.data))  # saving notes to redis cache
+                    raise EmptyFieldError('There is no note field exists')
+                    # note = Note.objects.get(Q(id=kwargs.get('pk')), Q(is_archived=False), Q(is_trashed=False),
+                    #                         Q(user=current_user) | Q(
+                    #                             collaborators=current_user))  # retrieving data from database
+                    # serializer = NoteSerializer(note)
+                    # cache.set_cache("NOTE_" + str(note.id) + "_DETAIL",
+                    #                 str(serializer.data))  # saving notes to redis cache
             else:
                 notes = Note.objects.filter(Q(user=kwargs['userid']) | Q(collaborators=kwargs['userid']), Q(is_archived=False)).exclude(
                     is_trashed=True).distinct()
                 serializer = NoteSerializer(notes, many=True)
 
             result = utils.manage_response(status=True, message='retrieved successfully', data=serializer.data,
-                                           log=serializer.data)
+                                           log=serializer.data, logger_obj=logger)
             return Response(result, status.HTTP_200_OK)
+        except EmptyFieldError as e:
+            result = utils.manage_response(status=False, message='No notes exists', log=str(e),
+                                           logger_obj=logger)
+            return Response(result, status.HTTP_404_NOT_FOUND)
         except TypeError as e:
-            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Note.DoesNotExist as e:
-            result = utils.manage_response(status=False, message='note not found', log=str(e))
+            result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e))
+            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
     def post(self, request, **kwargs):
@@ -108,29 +124,31 @@ class ManageNotes(APIView):
                 utils.get_collaborator_list(request)
             if data.get('labels'):
                 utils.get_label_list(request)
-
+            #TODO:setting redis
             serializer = NoteSerializer(data=request.data)
             if serializer.is_valid(raise_exception=True):  # Return a 400 response if the data was invalid.
                 serializer.save()
+                cache.set_cache(("NOTE_" + str(serializer.data['id'])) + "_DETAIL",str(serializer.data) ) # saving notes to redis cache
+
                 result = utils.manage_response(status=True, message='created successfully', data=serializer.data,
-                                               log=serializer.data)
+                                               log=serializer.data, logger_obj=logger)
                 return Response(result, status.HTTP_201_CREATED)
             else:
-                result = utils.manage_response(status=False, message=serializer.errors, log=serializer.errors)
+                result = utils.manage_response(status=False, message=serializer.errors, log=serializer.errors, logger_obj=logger)
                 return Response(result, status.HTTP_400_BAD_REQUEST)
         except LengthError as e:
             result = utils.manage_response(status=False, message='title length should be between 3 to 50 characters',
-                                           log=str(e))
+                                           log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except ValidationError as e:
             result = utils.manage_response(status=False, message='Please provide valid details',
-                                           log=str(e))
+                                           log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except EmptyFieldError as e:
-            result = utils.manage_response(status=False, message='Empty field. Type something', log=str(e))
+            result = utils.manage_response(status=False, message='Empty field. Type something', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            result = utils.manage_response(status=False, message='Something went wrong. Try again', log=str(e))
+            result = utils.manage_response(status=False, message='Something went wrong. Try again', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, pk, **kwargs):
@@ -139,8 +157,6 @@ class ManageNotes(APIView):
             [Response]: [updated details and status]
         """
         try:
-            # if not isinstance(pk, int):
-            #     raise TypeError('The primary key should be an integer')
             data = request.data
             if data.get('collaborators'):
                 utils.get_collaborator_list(request)
@@ -150,30 +166,30 @@ class ManageNotes(APIView):
             note = Note.objects.get(Q(id=pk), Q(is_trashed=False),
                                     Q(user=kwargs['userid']))
             serializer = NoteSerializer(note, data=request.data, partial=True)
-            cache = Cache()
+
             if serializer.is_valid(raise_exception=True):
                 serializer.save()
                 cache.set_cache("NOTE_" + str(note.id) + "_DETAIL", str(serializer.data))
             else:
-                result = utils.manage_response(status=False, message=serializer.errors, log=serializer.errors)
+                result = utils.manage_response(status=False, message=serializer.errors, log=serializer.errors, logger_obj=logger)
                 return Response(result, status.HTTP_400_BAD_REQUEST)
 
             result = utils.manage_response(status=True, message='updated successfully', data=serializer.data,
-                                           log=serializer.data)
+                                           log=serializer.data, logger_obj=logger)
             return Response(result, status.HTTP_200_OK)
         except ValidationError as e:
-            result = utils.manage_response(status=False, message='Please enter proper details for each field', log=str(e))
+            result = utils.manage_response(status=False, message='Please enter proper details for each field', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except TypeError as e:
-            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Note.DoesNotExist as e:
             print(e)
-            result = utils.manage_response(status=False, message='note not found', log=str(e))
+            result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
 
-            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e))
+            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, **kwargs):
@@ -182,19 +198,18 @@ class ManageNotes(APIView):
             [Response]: [confirmation message and status]
         """
         try:
-            cache = Cache()
             note = Note.objects.get(id=pk, is_trashed=False, user=kwargs['userid'])
             note.trashed()
             cache.delete_cache("NOTE_" + str(note.id) + "_DETAIL")
             result = utils.manage_response(status=True, message='note archived successfully',
-                                           log=('archived note with id: {}'.format(pk)))
+                                           log='note archived sucessfully', logger_obj=logger)
             return Response(result, status.HTTP_204_NO_CONTENT)
 
         except Note.DoesNotExist as e:
-            result = utils.manage_response(status=False, message='note not found', log=str(e))
+            result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e))
+            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
 
@@ -214,9 +229,6 @@ class ManageArchivedNote(APIView):
             pk ([int]): [id of required note]
         """
         try:
-            # pk = kwargs['pk']
-            # if not isinstance(pk, int):
-            #     raise TypeError('Primary key must be an integer')
             current_user = kwargs['userid']
             if kwargs.get('pk'):
                 note = Note.objects.get(Q(id=kwargs.get('pk')), Q(is_archived=True), Q(is_trashed=False),
@@ -228,16 +240,16 @@ class ManageArchivedNote(APIView):
                 serializer = NoteSerializer(notes, many=True)
 
             result = utils.manage_response(status=True, message='retrieved successfully', data=serializer.data,
-                                           log=serializer.data)
+                                           log=serializer.data, logger_obj=logger)
             return Response(result, status.HTTP_200_OK)
         except Note.DoesNotExist as e:
-            result = utils.manage_response(status=False, message='note not found', log=str(e))
+            result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except TypeError as e:
-            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e))
+            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
 
@@ -257,9 +269,6 @@ class ManagePinnedNotes(APIView):
             pk ([int]): [id of required note]
         """
         try:
-            # pk = kwargs['pk']
-            # if not isinstance(pk, int):
-            #     raise TypeError('Primary key must be an integer')
             current_user = kwargs['userid']
             if kwargs.get('pk'):
                 note = Note.objects.get(Q(id=kwargs.get('pk')), Q(is_archived=False), Q(is_trashed=False),
@@ -274,17 +283,17 @@ class ManagePinnedNotes(APIView):
                 serializer = NoteSerializer(notes, many=True)
 
             result = utils.manage_response(status=True, message='retrieved successfully', data=serializer.data,
-                                           log=serializer.data)
+                                           log=serializer.data, logger_obj=logger)
             type(serializer.data)
             return Response(result, status.HTTP_200_OK)
         except Note.DoesNotExist as e:
-            result = utils.manage_response(status=False, message='note not found', log=str(e))
+            result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except TypeError as e:
-            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e))
+            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
 
@@ -304,9 +313,6 @@ class ManageTrashedNotes(APIView):
             pk ([int]): [id of required note]
         """
         try:
-            # pk = kwargs['pk']
-            # if not isinstance(pk, int):
-            #     raise TypeError('Primary key must be an integer')
             current_user = kwargs['userid']
             if kwargs.get('pk'):
                 note = Note.objects.get(id=kwargs.get('pk'), is_trashed=True, user=current_user)
@@ -317,16 +323,16 @@ class ManageTrashedNotes(APIView):
                 serializer = NoteSerializer(notes, many=True)
 
             result = utils.manage_response(status=True, message='retrieved successfully', data=serializer.data,
-                                           log=serializer.data)
+                                           log=serializer.data, logger_obj=logger)
             return Response(result, status.HTTP_200_OK)
         except TypeError as e:
-            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Note.DoesNotExist as e:
-            result = utils.manage_response(status=False, message='note not found', log=str(e))
+            result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e))
+            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, **kwargs):
@@ -339,17 +345,17 @@ class ManageTrashedNotes(APIView):
 
             note.soft_delete()
             result = utils.manage_response(status=True, message='note deleted successfully',
-                                           log=('deleted note with id: {}'.format(pk)))
+                                           log=('deleted note with id: {}'.format(pk)), logger_obj=logger)
             return Response(result, status.HTTP_204_NO_CONTENT)
         except TypeError as e:
-            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e))
+            result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
 
         except Note.DoesNotExist as e:
-            result = utils.manage_response(status=False, message='note not found', log=str(e))
+            result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e))
+            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
 
@@ -367,34 +373,32 @@ class SearchNote(APIView):
         """
         try:
             current_user = kwargs['userid']
-            search_terms = request.data.get('search_term')
+            search_terms = request.query_params.get('search_term')
+            if search_terms is '':
+                raise EmptyFieldError('Please enter a seach term')
             search_term_list = search_terms.split(' ')
 
             notes = Note.objects.filter(Q(user=current_user) | Q(collaborators=current_user), is_trashed=False,
                                         is_deleted=False)
-
             search_query = Q(title__icontains=search_term_list[0]) | Q(description__icontains=search_term_list[0])
-
             for term in search_term_list[1:]:
                 search_query.add((Q(title__icontains=term) | Q(description__icontains=term)),
                                  search_query.connector)
-
             notes = notes.filter(search_query)
             serializer = NoteSerializer(notes, many=True)
             if serializer.data.__eq__([]):
                 raise NoSearchFoundError('The value you searched have no match in title and description')
             result = utils.manage_response(status=True, message='retrieved notes on the basis of search terms',
                                            data=serializer.data,
-                                           log='retrieved searched note')
+                                           log='retrieved searched note', logger_obj=logger)
             return Response(result, status.HTTP_200_OK)
         except NoSearchFoundError as e:
             result = utils.manage_response(status=False, message='Your searched note is nowhere in the notes',
-                                           log=str(e))
+                                           log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except Note.DoesNotExist as e:
-            result = utils.manage_response(status=False, message='note not found', log=str(e))
+            result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
-
         except Exception as e:
-            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e))
+            result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
