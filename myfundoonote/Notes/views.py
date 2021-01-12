@@ -40,8 +40,8 @@ class NotesOverview(APIView):
 
     def get(self, request):
         """
-        Created a method for displaying overview of urls 
-
+        Created a method for displaying overview of urls
+        @return: All the note and label APIs
         """
         api_urls = {
             'Note-CreateAndRetrieve': '/note/',
@@ -67,8 +67,10 @@ class ManageNotes(APIView):
 
     def get(self, request, **kwargs):
         """[displays specific note and all notes depends on user input]
+        args: kwargs[userid]: user id of the user decoded from token
         Returns:
-            [Response]: [notes result data and status]
+            Response: status , message and data
+            @type: status: Boolean, message:str, data: list
         """
 
         try:
@@ -110,11 +112,23 @@ class ManageNotes(APIView):
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
     def post(self, request, **kwargs):
-        """[creates new note]
-        Returns:
-            [Response]: [result data and status]
         """
+        A method to post notes of the user
+        @param request: title: title of note (mandatory)
+                        @type:str
+                        description: description the note (mandatory)
+                        @type:str
+                        collaborators: any collaborator work in same note
+                        @type:list
+                        labels: label for the note
+                        @type:list
 
+        @param kwargs[userid]: user id of the user decoded from token
+        @type kwargs[userid]: int
+
+        @return: status, message and status code
+        @rtype: status: boolean, message: str
+        """
         try:
             data = request.data
             if data is None:
@@ -152,9 +166,23 @@ class ManageNotes(APIView):
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, pk, **kwargs):
-        """[updates existing note]
-        Returns:
-            [Response]: [updated details and status]
+        """
+        A method to post notes of the user
+        @param request: title: title of note (mandatory)
+                        @type:str
+                        description: description the note (mandatory)
+                        @type:str
+                        collaborators: any collaborator work in same note
+                        @type:list
+                        labels: label for the note
+                        @type:list
+        @param pk: primary key of the note id
+        @type:int
+        @param kwargs[userid]: user id of the user decoded from token
+        @type kwargs[userid]: int
+
+        @return: status, message,data and status code
+        @rtype: status: boolean, message: str, data:list
         """
         try:
             data = request.data
@@ -193,7 +221,7 @@ class ManageNotes(APIView):
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, **kwargs):
-        """[soft deletes existing note]
+        """[trash deletes existing note]
         Returns:
             [Response]: [confirmation message and status]
         """
@@ -201,8 +229,8 @@ class ManageNotes(APIView):
             note = Note.objects.get(id=pk, is_trashed=False, user=kwargs['userid'])
             note.trashed()
             cache.delete_cache("NOTE_" + str(note.id) + "_DETAIL")
-            result = utils.manage_response(status=True, message='note archived successfully',
-                                           log='note archived sucessfully', logger_obj=logger)
+            result = utils.manage_response(status=True, message='note trashed successfully',
+                                           log='note trashed successfully', logger_obj=logger)
             return Response(result, status.HTTP_204_NO_CONTENT)
 
         except Note.DoesNotExist as e:
@@ -222,11 +250,11 @@ class ManageArchivedNote(APIView):
     """
 
     def get(self, request, **kwargs):
-        """[shows all notes or specific note if pk is passed]
-
-        Args:
-            request ([type]): [description]
-            pk ([int]): [id of required note]
+        """[displays archived notes on user input]
+        args: kwargs[userid]: user id of the user decoded from token
+        Returns:
+            Response: status , message and data
+            @type: status: Boolean, message:str, data: list
         """
         try:
             current_user = kwargs['userid']
@@ -257,16 +285,14 @@ class ManageArchivedNote(APIView):
 class ManagePinnedNotes(APIView):
     """[shows all pinned notes or specific note if pk is passed]
 
-    Args:
-        APIView ([type]): [description]
     """
 
     def get(self, request, **kwargs):
-        """[shows all pinned notes or specific note if pk is passed]
-
-        Args:
-            request ([type]): [description]
-            pk ([int]): [id of required note]
+        """[displays pinned notes and all notes depends on user input]
+        args: kwargs[userid]: user id of the user decoded from token
+        Returns:
+            Response: status , message and data
+            @type: status: Boolean, message:str, data: list
         """
         try:
             current_user = kwargs['userid']
@@ -306,11 +332,11 @@ class ManageTrashedNotes(APIView):
     """
 
     def get(self, request, **kwargs):
-        """[shows all trashed notes or specific note if pk is passed]
-
-        Args:
-            request ([type]): [description]
-            pk ([int]): [id of required note]
+        """[displays trashed note note on user input]
+        args: kwargs[userid]: user id of the user decoded from token
+        Returns:
+            Response: status , message and data
+            @type: status: Boolean, message:str, data: list
         """
         try:
             current_user = kwargs['userid']
@@ -336,7 +362,7 @@ class ManageTrashedNotes(APIView):
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, **kwargs):
-        """[soft deletes archived note]
+        """[soft deletes trashed note]
         Returns:
             [Response]: [confirmation message and status]
         """
@@ -367,6 +393,7 @@ class SearchNote(APIView):
 
     def get(self, request, **kwargs):
         """
+        created a method ;to obtain the notes,if searched by any of its words inside it.
         @param kwargs: user id of the respective user
         @return: The notes with the searched text
         @rtype: string
