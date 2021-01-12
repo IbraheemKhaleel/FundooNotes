@@ -31,3 +31,14 @@ def send_email(data):
         subject=data['email_subject'], body=data['email_body'], to=[data['to_email']])
     EmailThread(email).start()  # asking run() thread to execute
 
+
+@shared_task
+def reminder_email():
+    """
+    created a method to send email to respective user
+    @param data: email body, subject and email of the reciever
+    @type data: string
+    """
+    email = EmailMessage(
+        subject='This is a reminder', body='Reminder', to=['ikhaleelem@gmail.com', ])
+    EmailThread(email).start()  # asking run() thread to execute
