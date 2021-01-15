@@ -29,7 +29,15 @@ from services.cache import Cache
 from services.encrypt import Encrypt
 from rest_framework.exceptions import AuthenticationFailed
 
-logging.basicConfig(filename='log_myfundooNotes.log', level=logging.DEBUG, format='%(levelname)s | %(message)s')
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(levelname)s | %(message)s')
+
+file_handler = logging.FileHandler(os.path.abspath("loggers/myfundooNotes.log"))
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 
 class CustomRedirect(HttpResponsePermanentRedirect):
@@ -60,16 +68,20 @@ class Login(generics.GenericAPIView):
             token = Encrypt.encode(user.id)
             cache = Cache()
             cache.set_cache("TOKEN_" + str(user.id) + "_AUTH", token)
-            result = utils.manage_response(status=True, message='Token generated', data=token, log=serializer.data)
+            result = utils.manage_response(status=True, message='Token generated', data=token, log=serializer.data,
+                                           logger_obj=logger)
             return Response(result, status=status.HTTP_200_OK)
         except User.DoesNotExist as e:
-            result = utils.manage_response(status=False, message='Account does not exist', log=str(e))
+            result = utils.manage_response(status=False, message='Account does not exist', log=str(e),
+                                           logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except AuthenticationFailed as e:
-            result = utils.manage_response(status=False, message='Please enter a valid token', log=str(e))
+            result = utils.manage_response(status=False, message='Please enter a valid token', log=str(e),
+                                           logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            result = utils.manage_response(status=False, message='some other issue.Please try again', log=str(e))
+            result = utils.manage_response(status=False, message='some other issue.Please try again', log=str(e),
+                                           logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
 
@@ -103,14 +115,17 @@ class Registration(generics.GenericAPIView):
             data = {'email_body': email_body, 'to_email': user.email,
                     'email_subject': 'Verify your email'}
             send_email.delay(data)
-            logging.debug('validated data: {}'.format(serializer.data))
-            return Response(user_data, status=status.HTTP_201_CREATED)
+            result = utils.manage_response(status=True, message='An email has been sent for verification',
+                                           data=serializer.data, log='User registration request has been recieved',
+                                           logger_obj=logger)
+            return Response(result, status=status.HTTP_201_CREATED)
         except ValidationError as e:
             result = utils.manage_response(status=False, message='Please enter proper details for each field',
-                                           log=str(e))
+                                           log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except EmptyFieldError as e:
-            result = utils.manage_response(status=False, message='Please dont leave the field empty', log=str(e))
+            result = utils.manage_response(status=False, message='Please dont leave the field empty', log=str(e),
+                                           logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except Exception:
             return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
@@ -137,8 +152,10 @@ class EmailVerification(views.APIView):
                 user.is_verified = True
                 user.is_active = True
                 user.save()
-            logging.debug('user activation successful')
-            return Response({'email': 'Successfully activated'}, status=status.HTTP_200_OK)
+            result = utils.manage_response(status=True, message='Email has been successfully activated',
+                                           data=user.email, log='Email verification has been sucessful',
+                                           logger_obj=logger)
+            return Response(result, status=status.HTTP_200_OK)
         except jwt.ExpiredSignatureError as identifier:
             logging.exception('Exception due to expired signature')
             return Response({'error': 'Activation Expired'}, status=status.HTTP_400_BAD_REQUEST)
@@ -178,17 +195,20 @@ class PasswordResetRequestToEmail(generics.GenericAPIView):
                 email_body = 'Hello, \n Use link below to reset your password  \n' + absurl + "?redirect_url=" + redirect_url
                 data = {'email_body': email_body, 'to_email': user.email, 'email_subject': 'Reset your passsword'}
                 send_email.delay(data)
-            logging.debug('password link sent successfully')
-            return Response({'success': 'We have sent you a link to reset your password'}, status=status.HTTP_200_OK)
+            result = utils.manage_response(status=True, message='A reset password link has been sent successfully',
+                                           data=user.email, log='Password reset link has been sent ', logger_obj=logger)
+            return Response(result, status=status.HTTP_200_OK)
         except ValidationError as e:
             result = utils.manage_response(status=False, message='Please enter proper details for each field',
-                                           log=str(e))
+                                           log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except EmptyFieldError as e:
-            result = utils.manage_response(status=False, message='Please dont leave the field empty', log=str(e))
+            result = utils.manage_response(status=False, message='Please dont leave the field empty', log=str(e),
+                                           logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
-        except Exception:
-            return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            result = utils.manage_response(status=False, message='Something went wrong', log=str(e), logger_obj=logger)
+            return Response(result, status.HTTP_400_BAD_REQUEST)
 
 
 class PasswordTokenCheckAPI(generics.GenericAPIView):
@@ -262,15 +282,19 @@ class SetNewPasswordAPIView(generics.GenericAPIView):
         try:
             serializer = self.serializer_class(data=request.data)
             serializer.is_valid(raise_exception=True)
-            logging.debug('password reset successful')
-            return Response({'success': True, 'message': 'Password reset success'}, status=status.HTTP_200_OK)
+            result = utils.manage_response(status=True, message='Password reset successfully', data=serializer.data,
+                                           log='Password reset has been done ', logger_obj=logger)
+            return Response(result, status=status.HTTP_200_OK)
         except ValidationError as e:
             result = utils.manage_response(status=False, message='Please enter proper details for each field',
-                                           log=str(e))
+                                           log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except EmptyFieldError as e:
-            result = utils.manage_response(status=False, message='Please dont leave the field empty', log=str(e))
+            result = utils.manage_response(status=False, message='Please dont leave the field empty', log=str(e),
+                                           logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
-        except Exception:
-            logging.exception('Exception due to other reasons')
-            return Response(default_error_message, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            result = utils.manage_response(status=False, message='Something went wrong. Please try again later',
+                                           log=str(e),
+                                           logger_obj=logger)
+            return Response(result, status.HTTP_400_BAD_REQUEST)
