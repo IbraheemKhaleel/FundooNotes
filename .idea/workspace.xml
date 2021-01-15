@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/UC-8-MessageQueuesAndListing" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a1e93589-60b6-4f0c-b660-ae5e67d1c36c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1mQbCbdaK1qnPhex6gJH19fAkHh" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/myfundoonote/manage.py" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="fundoonote" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="fundoonote" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.FundooNotesConfig">
+    <configuration name="FundooNotesConfig" type="PythonConfigurationType" factoryName="Python">
+      <module name="fundoonote" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Ibrahim Khaleel\Envs\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/myfundoonote" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/myfundoonote/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="fundoonote" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Ibrahim Khaleel\Envs\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/myfundoonote" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/myfundoonote/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cache" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fundoonote" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Ibrahim Khaleel\Envs\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/myfundoonote" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/myfundoonote/services/cache.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fundoonote" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Ibrahim Khaleel\Envs\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/myfundoonote" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/myfundoonote/myfundooNotes/views.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.FundooNotesConfig" />
+      <item itemvalue="Python.cache" />
+      <item itemvalue="Python.views" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.cache" />
+        <item itemvalue="Python.views" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a1e93589-60b6-4f0c-b660-ae5e67d1c36c" name="Default Changelist" comment="" />
+      <created>1609428640097</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609428640097</updated>
+    </task>
+    <task id="LOCAL-00001" summary="[Ibraheem Khaleel]Added: log file of the operations">
+      <created>1609568933310</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609568933310</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[Ibraheem Khaleel]Refactored: code for managing notes,archived notes, trashed notes and pinned notes">
+      <created>1609570791604</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609570791604</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[Ibraheem Khaleel]Added: code for testing models of notes">
+      <created>1609743776423</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609743776423</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[Ibraheem Khaleel]Refactored: code for searching a value inside notes">
+      <created>1609826969685</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609826969685</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[Ibraheem Khaleel]Refactored: code for searching a value inside notes">
+      <created>1609915516033</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609915516033</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[Ibraheem Khaleel]Added: code for creating class for custom exceptions">
+      <created>1609916026822</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609916026822</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[Ibraheem Khaleel]Refactored: code for deleting a prticular element from cache">
+      <created>1609916078950</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1609916078950</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[Ibraheem Khaleel]Refactored: code for carrying out CRUD operations in labels">
+      <created>1609916340541</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1609916340541</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[Ibraheem Deleted: Unnecessary files have been removed">
+      <created>1609942353525</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1609942353525</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[Ibraheem Khaleel]Refactored: code for sending emails to user">
+      <created>1610002757359</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610002757359</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[Ibraheem Khaleel]Refactored: code for testing login,registration of user and label,note's CRUD operations">
+      <created>1610108602124</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610108602124</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[Ibraheem Khaleel]Added: code for sending emails to user for verification using celery">
+      <created>1610108717949</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1610108717949</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[Ibraheem Khaleel]Refactored: code for sending emails to user for verification using celery">
+      <created>1610108780714</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1610108780714</updated>
+    </task>
+    <task id="LOCAL-00014" summary="[Ibraheem Khaleel]Refactored: code for storing notes in redis cache">
+      <created>1610348410327</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1610348410327</updated>
+    </task>
+    <task id="LOCAL-00015" summary="[Ibraheem Khaleel]Refactored: code for storing notes in redis cache">
+      <created>1610434211833</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1610434211833</updated>
+    </task>
+    <task id="LOCAL-00016" summary="[Ibraheem Khaleel]Refactored: code for sending  emails using message queue for user verification">
+      <created>1610434284568</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1610434284568</updated>
+    </task>
+    <task id="LOCAL-00017" summary="[Ibraheem Khaleel]Added: code for adding celery beat dict for performing scheduled tasks">
+      <created>1610434339977</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1610434339977</updated>
+    </task>
+    <task id="LOCAL-00018" summary="[Ibraheem Khaleel]Refactored: code for creating methods for sending reminder emails">
+      <created>1610434395616</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1610434395616</updated>
+    </task>
+    <task id="LOCAL-00019" summary="[Ibraheem Khaleel]Refactored: required module packages for the working of program">
+      <created>1610434694192</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1610434694192</updated>
+    </task>
+    <task id="LOCAL-00020" summary="[Ibraheem Khaleel]Refactored: code for sending reminder email to users">
+      <created>1610519358326</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1610519358326</updated>
+    </task>
+    <task id="LOCAL-00021" summary="[Ibraheem Khaleel]Added: Readme file has been added">
+      <created>1610600670159</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1610600670159</updated>
+    </task>
+    <task id="LOCAL-00022" summary="[Ibraheem Khaleel]Added: Readme file has been added">
+      <created>1610600770213</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1610600770213</updated>
+    </task>
+    <task id="LOCAL-00023" summary="[Ibraheem Khaleel]Added: coverage file of test cases of notes, labels and user">
+      <created>1610734427621</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1610734427621</updated>
+    </task>
+    <task id="LOCAL-00024" summary="[Ibraheem Khaleel]Added: code for including celery in init file">
+      <created>1610734716396</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1610734716396</updated>
+    </task>
+    <task id="LOCAL-00025" summary="[Ibraheem Khaleel]Refactored: code for adding celery beat method to set reminders at scheduled time">
+      <created>1610734764285</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1610734764285</updated>
+    </task>
+    <task id="LOCAL-00026" summary="[Ibraheem Khaleel]Refactored: files to omit from coverage has been added">
+      <created>1610735032068</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735032068</updated>
+    </task>
+    <task id="LOCAL-00027" summary="[Ibraheem Khaleel]Refactored: code for setting, getting and deleting the files in cache">
+      <created>1610735104301</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735104301</updated>
+    </task>
+    <task id="LOCAL-00028" summary="[Ibraheem Khaleel]Refactored: code for allowing the respected user to access views of notes and labels using token">
+      <created>1610735190294</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735190294</updated>
+    </task>
+    <task id="LOCAL-00029" summary="[Ibraheem Khaleel]Refactored: code for creating custom exceptions">
+      <created>1610735241523</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735241523</updated>
+    </task>
+    <task id="LOCAL-00030" summary="[Ibraheem Khaleel]Refactored: code for including trashed and soft delete the notes">
+      <created>1610735278835</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735278835</updated>
+    </task>
+    <task id="LOCAL-00031" summary="[Ibraheem Khaleel]Refactored: code for serializing and deserializing the data">
+      <created>1610735429826</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735429826</updated>
+    </task>
+    <task id="LOCAL-00032" summary="[Ibraheem Khaleel]Refactored: code for creating coverage file for tests">
+      <created>1610735457588</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735457588</updated>
+    </task>
+    <task id="LOCAL-00033" summary="[Ibraheem Khaleel]Refactored: code for sending reminder email to the user using celery beat and rabbitmq">
+      <created>1610735547656</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735547656</updated>
+    </task>
+    <task id="LOCAL-00034" summary="[Ibraheem Khaleel]Refactored: code for adding test cases for views, models and urls of user management">
+      <created>1610735612124</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735612124</updated>
+    </task>
+    <task id="LOCAL-00035" summary="[Ibraheem Khaleel]Refactored: code for adding test cases for views, models and urls of Notes">
+      <created>1610735679091</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735679091</updated>
+    </task>
+    <task id="LOCAL-00036" summary="[Ibraheem Khaleel]Refactored: code for urls for user management">
+      <created>1610735714526</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735714526</updated>
+    </task>
+    <task id="LOCAL-00037" summary="[Ibraheem Khaleel]Refactored: code for  urls for labels">
+      <created>1610735734083</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735734083</updated>
+    </task>
+    <task id="LOCAL-00038" summary="[Ibraheem Khaleel]Refactored: code for carrying out CRUD operation for labels">
+      <created>1610735793905</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735793905</updated>
+    </task>
+    <task id="LOCAL-00039" summary="[Ibraheem Khaleel]Refactored: code for  urls for user management">
+      <created>1610735823613</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735823613</updated>
+    </task>
+    <task id="LOCAL-00040" summary="[Ibraheem Khaleel]Deleted: Unnecessary files have been removed">
+      <created>1610735919506</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735919506</updated>
+    </task>
+    <task id="LOCAL-00041" summary="[Ibraheem Khaleel]Refactored: code for  adding exceptions and loggers for user management">
+      <created>1610735966322</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735966322</updated>
+    </task>
+    <task id="LOCAL-00042" summary="[Ibraheem Khaleel]Refactored: code for  urls for Notes">
+      <created>1610735983966</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1610735983966</updated>
+    </task>
+    <task id="LOCAL-00043" summary="[Ibraheem Khaleel]Refactored: code for creating manage response methods to give response messages to users.">
+      <created>1610736067582</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1610736067582</updated>
+    </task>
+    <task id="LOCAL-00044" summary="[Ibraheem Khaleel]Added: gitignore file of the program">
+      <created>1610736101682</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1610736101682</updated>
+    </task>
+    <task id="LOCAL-00045" summary="[Ibraheem Khaleel]Refactored: code for searching a note term is introduced">
+      <created>1610736147944</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1610736147944</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/UC-8-MessageQueuesAndListing" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[Ibraheem Khaleel]Added: Readme file has been added" />
+    <MESSAGE value="[Ibraheem Khaleel]Added: coverage file of test cases of notes, labels and user" />
+    <MESSAGE value="[Ibraheem Khaleel]Added: code for including celery in init file" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for adding celery beat method to set reminders at scheduled time" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for including urls for admin, myfundooNotes, Notes and labels applications" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: files to omit from coverage has been added" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for setting, getting and deleting the files in cache" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for allowing the respected user to access views of notes and labels using token" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for creating custom exceptions" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for including trashed and soft delete the notes" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for serializing and deserializing the data" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for creating coverage file for tests" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for sending reminder email to the user using celery beat and rabbitmq" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for adding test cases for views, models and urls of user management" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for adding test cases for views, models and urls of Notes" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for urls for user management" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for  urls for labels" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for carrying out CRUD operation for labels" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for  urls for user management" />
+    <MESSAGE value="[Ibraheem Khaleel]Deleted: Unnecessary files have been removed" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for  adding exceptions and loggers for user management" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for  urls for Notes" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for creating manage response methods to give response messages to users." />
+    <MESSAGE value="[Ibraheem Khaleel]Added: gitignore file of the program" />
+    <MESSAGE value="[Ibraheem Khaleel]Refactored: code for searching a note term is introduced" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Ibraheem Khaleel]Refactored: code for searching a note term is introduced" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="9" width="816" height="729" key="#Intentions" timestamp="1609661250353">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="9" width="816" height="729" key="#Intentions/0.0.1366.738@0.0.1366.738" timestamp="1609661250353" />
+    <state x="389" y="139" key="#Log_Highlighting_(ideolog)" timestamp="1610463529142">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="389" y="139" key="#Log_Highlighting_(ideolog)/0.0.1366.738@0.0.1366.738" timestamp="1610463529142" />
+    <state x="137" y="23" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609591439569">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="137" y="23" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1609591439569" />
+    <state x="442" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610734937593">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="442" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1610734937593" />
+    <state x="413" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1610444022215">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="413" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1610444022215" />
+    <state x="175" y="0" key="CommitChangelistDialog2" timestamp="1610736146479">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="175" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1610736146479" />
+    <state x="131" y="56" key="DiffContextDialog" timestamp="1610736058145">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="131" y="56" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1610736058145" />
+    <state x="550" y="118" key="EnvironmentVariablesDialog" timestamp="1609430060685">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="550" y="118" key="EnvironmentVariablesDialog/0.0.1366.738@0.0.1366.738" timestamp="1609430060685" />
+    <state x="112" y="79" key="FileChooserDialogImpl" timestamp="1609563050609">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="112" y="79" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1609563050609" />
+    <state width="1345" height="225" key="GridCell.Tab.0.bottom" timestamp="1610516095132">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="225" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1610516095132" />
+    <state width="1345" height="225" key="GridCell.Tab.0.center" timestamp="1610516095132">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="225" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1610516095132" />
+    <state width="1345" height="225" key="GridCell.Tab.0.left" timestamp="1610516095132">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="225" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1610516095132" />
+    <state width="1345" height="225" key="GridCell.Tab.0.right" timestamp="1610516095132">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="225" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1610516095132" />
+    <state width="1345" height="172" key="GridCell.Tab.1.bottom" timestamp="1610516095127">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="172" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1610516095127" />
+    <state width="1345" height="172" key="GridCell.Tab.1.center" timestamp="1610516095127">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="172" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1610516095127" />
+    <state width="1345" height="172" key="GridCell.Tab.1.left" timestamp="1610516095127">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="172" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1610516095127" />
+    <state width="1345" height="172" key="GridCell.Tab.1.right" timestamp="1610516095127">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="172" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1610516095127" />
+    <state x="368" y="19" key="SettingsEditor" timestamp="1609855965364">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="368" y="19" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1609855965364" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1610736163212">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1610736163212" />
+    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1609855583397">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="92" y="92" width="1182" height="554" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1609855583397" />
+    <state x="244" y="97" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1609591386564">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="244" y="97" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.738@0.0.1366.738" timestamp="1609591386564" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1610599826027">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1610599826027" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/myfundoonote/myfundooNotes/views.py</url>
+          <line>102</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/myfundoonote/myfundooNotes/views.py</url>
+          <line>104</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/myfundoonote/myfundooNotes/views.py</url>
+          <line>103</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
