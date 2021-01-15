@@ -22,7 +22,6 @@ class Cache:
 
     def delete_cache(self, key):
         """
-
         @param key: The key of the respective note
         @type key: String
         """
