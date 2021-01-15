@@ -3,6 +3,7 @@ Author: Ibraheem Khaleel
 Created on: 15th December 2020 
 """
 import logging
+import os
 
 from django.db.models import Q
 from django.utils.decorators import method_decorator
@@ -25,7 +26,7 @@ logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(levelname)s | %(message)s')
 
-file_handler = logging.FileHandler('log_notes.log')
+file_handler = logging.FileHandler(os.path.abspath("loggers/log_notes.log"))
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
@@ -74,7 +75,7 @@ class ManageNotes(APIView):
         """
 
         try:
-            #current_user = kwargs['userid']
+            current_user = kwargs['userid']
             if kwargs.get('pk'):
                 if cache.get_cache(
                         "NOTE_" + str(kwargs.get('pk')) + "_DETAIL") is not None:  # retrieving notes from cache
@@ -82,13 +83,12 @@ class ManageNotes(APIView):
                     result = utils.manage_response(status=True, message='retrieved successfully', data=note, log=note, logger_obj=logger)
                     return Response(result, status.HTTP_200_OK)
                 else:
-                    raise EmptyFieldError('There is no note field exists')
-                    # note = Note.objects.get(Q(id=kwargs.get('pk')), Q(is_archived=False), Q(is_trashed=False),
-                    #                         Q(user=current_user) | Q(
-                    #                             collaborators=current_user))  # retrieving data from database
-                    # serializer = NoteSerializer(note)
-                    # cache.set_cache("NOTE_" + str(note.id) + "_DETAIL",
-                    #                 str(serializer.data))  # saving notes to redis cache
+                    note = Note.objects.get(Q(id=kwargs.get('pk')), Q(is_archived=False), Q(is_trashed=False),
+                                            Q(user=current_user) | Q(
+                                                collaborators=current_user))  # retrieving data from database
+                    serializer = NoteSerializer(note)
+                    cache.set_cache("NOTE_" + str(note.id) + "_DETAIL",
+                                    str(serializer.data))  # saving notes to redis cache
             else:
                 notes = Note.objects.filter(Q(user=kwargs['userid']) | Q(collaborators=kwargs['userid']), Q(is_archived=False)).exclude(
                     is_trashed=True).distinct()
@@ -96,7 +96,7 @@ class ManageNotes(APIView):
 
             result = utils.manage_response(status=True, message='retrieved successfully', data=serializer.data,
                                            log=serializer.data, logger_obj=logger)
-            return Response(result, status.HTTP_200_OK)
+            return Response(result, status.HTTP_200_OK, content_type='application/json')
         except EmptyFieldError as e:
             result = utils.manage_response(status=False, message='No notes exists', log=str(e),
                                            logger_obj=logger)
@@ -125,7 +125,6 @@ class ManageNotes(APIView):
 
         @param kwargs[userid]: user id of the user decoded from token
         @type kwargs[userid]: int
-
         @return: status, message and status code
         @rtype: status: boolean, message: str
         """
@@ -138,12 +137,9 @@ class ManageNotes(APIView):
                 utils.get_collaborator_list(request)
             if data.get('labels'):
                 utils.get_label_list(request)
-            #TODO:setting redis
             serializer = NoteSerializer(data=request.data)
             if serializer.is_valid(raise_exception=True):  # Return a 400 response if the data was invalid.
                 serializer.save()
-                cache.set_cache(("NOTE_" + str(serializer.data['id'])) + "_DETAIL",str(serializer.data) ) # saving notes to redis cache
-
                 result = utils.manage_response(status=True, message='created successfully', data=serializer.data,
                                                log=serializer.data, logger_obj=logger)
                 return Response(result, status.HTTP_201_CREATED)
@@ -243,10 +239,9 @@ class ManageNotes(APIView):
 
 @method_decorator(user_login_required, name='dispatch')
 class ManageArchivedNote(APIView):
-    """[shows all notes or specific note if pk is passed]
+    """
+    [shows all archived notes or specific note if pk is passed]
 
-    Args:
-        APIView ([type]): [description]
     """
 
     def get(self, request, **kwargs):
@@ -283,7 +278,8 @@ class ManageArchivedNote(APIView):
 
 @method_decorator(user_login_required, name='dispatch')
 class ManagePinnedNotes(APIView):
-    """[shows all pinned notes or specific note if pk is passed]
+    """
+    [shows all pinned notes or specific note if pk is passed]
 
     """
 
@@ -325,10 +321,9 @@ class ManagePinnedNotes(APIView):
 
 @method_decorator(user_login_required, name='dispatch')
 class ManageTrashedNotes(APIView):
-    """[shows all trashed notes or specific note if pk is passed]
-
-    Args:
-        APIView ([type]): [description]
+    """
+    [shows all trashed notes or specific note if pk is passed ]
+    soft deletes the trashed note
     """
 
     def get(self, request, **kwargs):
