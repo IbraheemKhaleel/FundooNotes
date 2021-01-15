@@ -1,1 +1,4 @@
-myfundoonote/.env
+myfundoonote/.env,
+myfundoonote/loggers
+myfundoonote/.env.example
+myfundoonote/pytest.ini
