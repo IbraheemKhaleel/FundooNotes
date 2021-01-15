@@ -7,5 +7,5 @@ pytestmark = pytest.mark.django_db
 
 class TestmyfundooNotes:
     def test_init(self):
-        note_obj = mixer.blend('myfundooNotes.User')
-        assert note_obj.pk == 1, 'Should save an instance'
+        user_obj = mixer.blend('myfundooNotes.User')
+        assert user_obj.pk == 1, 'Should save an instance'
