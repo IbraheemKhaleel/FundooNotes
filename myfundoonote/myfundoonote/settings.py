@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path, os
 from datetime import timedelta
 from decouple import config
+from celery.schedules import crontab
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -153,20 +154,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = 'myfundooNotes.views.login'
 
-from celery.schedules import crontab
+SECONDS_IN_A_DAY = 24 * 60 * 60
+MINUTES_TO_SECOND = 60
+HOUR_TO_MINUTE = 60
 
 CELERY_BROKER_URL = 'amqp://localhost'
-CELERY_RESULT_BACKEND = 'amqp://localhost'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Makassar'
 CELERY_BEAT_SCHEDULE = {
     "scheduled_task": {
-        "task": "myfundooNotes.tasks.reminder_email",
+        "task": "myfundooNotes.tasks.check_reminder",
         'schedule': crontab(minute=0, hour='*/1'),
-        # "schedule": 3.0,
-        #"args": (10, 10),
     }
 }
 
