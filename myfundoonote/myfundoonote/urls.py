@@ -15,27 +15,14 @@ Including another URLconf
 """
 from __future__ import absolute_import
 from django.contrib import admin
-from django.views.decorators.cache import cache_page
 from django.urls import path, include
-from rest_framework import routers
-from myfundooNotes import views
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
 urlpatterns = [
-    path('',include('Label.urls')),
-    path('',include('Notes.urls')),
+    path('', include('labels.urls')),
+    path('', include('Notes.urls')),
+    path('', include('myfundooNotes.urls')),
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),  
-    path('login/', cache_page(40)(views.Login.as_view()), name='login'),
-    path('register/', views.Registration.as_view(), name = 'register'),
-    path('email-verify/', views.EmailVerification.as_view(), name="email-verify"),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('password-reset-request-to-email/', views.PasswordResetRequestToEmail.as_view(),
-        name="request-reset-email"),
-    path('password-reset/<uidb64>/<token>/',
-        views.PasswordTokenCheckAPI.as_view(), name='password-reset-confirm'),
-    path('password-reset-complete/', views.SetNewPasswordAPIView.as_view(),
-        name='password-reset-complete'),
+    path('api-auth/', include('rest_framework.urls')),
+
 ]
