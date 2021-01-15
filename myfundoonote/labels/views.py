@@ -2,7 +2,7 @@
 Author: Ibraheem Khaleel
 Created on: 15th December 20
 """
-
+import os
 import logging
 from django.db.models import Q
 from django.utils.decorators import method_decorator
@@ -20,7 +20,7 @@ logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(asctime)s  %(name)s  %(levelname)s: %(message)s')
 
-file_handler = logging.FileHandler('log_labels.log')
+file_handler = logging.FileHandler(os.path.abspath("loggers/log_labels.log"))
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
@@ -30,13 +30,15 @@ logger.addHandler(file_handler)
 class ManageLabel(APIView):
     """[allows viewing labels for get and creates new label for post]
     Returns:
-        [json]: [list of notes with complete details or creation confirmation and status code]
+        [json]: [list of labels with complete details or creation confirmation and status code]
     """
 
     def get(self, request, **kwargs):
-        """[displays all notes]
+        """[displays specific label and all labels depends on user input]
+        args: kwargs[userid]: user id of the user decoded from token
         Returns:
-            [Response]: [notes result data and status]
+            Response: status , message and data
+            @type: status: Boolean, message:str, data: list
         """
         try:
             current_user = kwargs['userid']
@@ -61,9 +63,16 @@ class ManageLabel(APIView):
             return Response(result, status.HTTP_404_NOT_FOUND)
 
     def post(self, request, **kwargs):
-        """[creates new note]
-        Returns:
-            [Response]: [result data and status]
+        """
+        A method to post labels of the user
+        @param request: name: name for the label
+                        @type:str
+
+        @param kwargs[userid]: user id of the user decoded from token
+        @type kwargs[userid]: int
+
+        @return: status, message and status code
+        @rtype: status: boolean, message: str
         """
         try:
             utils.set_user(request, kwargs['userid'])
@@ -71,7 +80,7 @@ class ManageLabel(APIView):
             if serializer.is_valid(raise_exception=True):  # Return a 400 response if the data was invalid.
                 serializer.save()
                 result = utils.manage_response(status=True, message='created successfully', data=serializer.data,
-                                               log='created new note', logger_obj=logger)
+                                               log='created new label', logger_obj=logger)
                 return Response(result, status.HTTP_201_CREATED)
             else:
 
@@ -80,10 +89,9 @@ class ManageLabel(APIView):
                 return Response(result, status.HTTP_400_BAD_REQUEST)
         except Label.DoesNotExist as e:
 
-            result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
+            result = utils.manage_response(status=False, message='label not found', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
-
             result = utils.manage_response(status=False, message=str(e), log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
@@ -103,7 +111,7 @@ class ManageLabel(APIView):
 
         except Label.DoesNotExist as e:
 
-            result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
+            result = utils.manage_response(status=False, message='label not found', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
 
@@ -112,9 +120,16 @@ class ManageLabel(APIView):
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, pk, **kwargs):
-        """[updates existing note]
-        Returns:
-            [Response]: [updated details and status]
+        """
+        A method to update labels
+        @param request: name: name of label
+                        @type:str
+
+        @param kwargs[userid]: user id of the user decoded from token
+        @type kwargs[userid]: int
+
+        @return: status, message,data and status code
+        @rtype: status: boolean, message: str, data:list
         """
         try:
 
@@ -131,12 +146,12 @@ class ManageLabel(APIView):
                 return Response(result, status.HTTP_400_BAD_REQUEST)
 
             result = utils.manage_response(status=True, message='updated successfully', data=serializer.data,
-                                           log='updated note', logger_obj=logger)
+                                           log='updated label', logger_obj=logger)
             return Response(result, status.HTTP_200_OK)
 
         except Label.DoesNotExist as e:
 
-            result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
+            result = utils.manage_response(status=False, message='label not found', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_404_NOT_FOUND)
         except Exception as e:
 
@@ -145,6 +160,3 @@ class ManageLabel(APIView):
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
 
-from django.shortcuts import render
-
-# Create your views here.
