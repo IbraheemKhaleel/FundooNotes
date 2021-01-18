@@ -161,7 +161,7 @@ class ManageNotes(APIView):
             result = utils.manage_response(status=False, message='Something went wrong. Try again', log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
-    def put(self, request, pk, **kwargs):
+    def patch(self, request, pk, **kwargs):
         """
         A method to post notes of the user
         @param request: title: title of note (mandatory)
