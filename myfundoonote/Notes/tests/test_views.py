@@ -101,7 +101,7 @@ class NotesTest(Data):
         response = client.post(self.note_post_url, self.valid_note_data, HTTP_AUTHORIZATION=headers, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-        response = client.put(self.note_url, self.valid_note_put_data, HTTP_AUTHORIZATION=headers, format='json')
+        response = client.patch(self.note_url, self.valid_note_put_data, HTTP_AUTHORIZATION=headers, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
         response = self.client.get(self.note_url, HTTP_AUTHORIZATION=headers, format='json')
@@ -130,7 +130,7 @@ class NotesTest(Data):
         response = self.client.get(self.note_url, HTTP_AUTHORIZATION=headers, format='json')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
-        response = self.client.put(self.note_url, self.valid_note_put_data, HTTP_AUTHORIZATION=headers, format='json')
+        response = self.client.patch(self.note_url, self.valid_note_put_data, HTTP_AUTHORIZATION=headers, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
         response = self.client.delete(self.note_url, HTTP_AUTHORIZATION=headers, format='json')
