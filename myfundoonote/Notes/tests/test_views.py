@@ -215,7 +215,7 @@ class SearchViewTest(Data):
 
     def test_search_view_for_valid_details(self):
         client = APIClient()
-        self.client.post(self.register_url, self.valid_registration_data, format='json')
+        self.client.post(self.register_url, self.valid_registration_data, format='json ')
         user = User.objects.filter(email=self.valid_registration_data['email']).first()
         user.is_verified = True
         user.is_active = True
