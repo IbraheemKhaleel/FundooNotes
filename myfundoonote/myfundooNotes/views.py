@@ -68,9 +68,11 @@ class Login(generics.GenericAPIView):
             token = Encrypt.encode(user.id)
             cache = Cache()
             cache.set_cache("TOKEN_" + str(user.id) + "_AUTH", token)
-            result = utils.manage_response(status=True, message='Token generated', data=token, log=serializer.data,
+            result = utils.manage_response(status=True, message='Token generated', data=None, log=serializer.data,
                                            logger_obj=logger)
-            return Response(result, status=status.HTTP_200_OK)
+            response = Response(data=result, status=status.HTTP_200_OK)
+            response.__setitem__(header="HTTP_AUTHORIZATION", value=token)
+            return response
         except User.DoesNotExist as e:
             result = utils.manage_response(status=False, message='Account does not exist', log=str(e),
                                            logger_obj=logger)
@@ -79,6 +81,29 @@ class Login(generics.GenericAPIView):
             result = utils.manage_response(status=False, message='Please enter a valid token', log=str(e),
                                            logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            result = utils.manage_response(status=False, message='some other issue.Please try again', log=str(e),
+                                           logger_obj=logger)
+            return Response(result, status.HTTP_400_BAD_REQUEST)
+
+
+class Logout(generics.GenericAPIView):
+    """
+    Created a class to perform loging out of the user, so the token will be flushed out from cache
+    """
+
+    def get(self, request, **kwargs):
+        """
+        @param kwargs: userid of the respective user
+        @type kwargs: integer
+        """
+        try:
+            cache = Cache()
+            cache.delete_cache("TOKEN_" + str(kwargs['pk']) + "_AUTH")
+            result = utils.manage_response(status=True, message='User has been logged out', data=kwargs['pk'],
+                                           log='Token has been deleted',
+                                           logger_obj=logger)
+            return Response(result, status=status.HTTP_200_OK)
         except Exception as e:
             result = utils.manage_response(status=False, message='some other issue.Please try again', log=str(e),
                                            logger_obj=logger)
@@ -116,7 +141,7 @@ class Registration(generics.GenericAPIView):
                     'email_subject': 'Verify your email'}
             send_email.delay(data)
             result = utils.manage_response(status=True, message='An email has been sent for verification',
-                                           data=serializer.data, log='User registration request has been recieved',
+                                           data=serializer.data, log='User registration request has been received',
                                            logger_obj=logger)
             return Response(result, status=status.HTTP_201_CREATED)
         except ValidationError as e:
@@ -223,7 +248,7 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
         Method for generating base64 encoded token
 
         Args:
-            request : It is the rerquest given by user to reset passsword
+            request : It is the request given by user to reset password
             uidb64 : user id encoded in base64
             token ([type]): the generated token for password reset
 
@@ -290,7 +315,7 @@ class SetNewPasswordAPIView(generics.GenericAPIView):
                                            log=str(e), logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except EmptyFieldError as e:
-            result = utils.manage_response(status=False, message='Please dont leave the field empty', log=str(e),
+            result = utils.manage_response(status=False, message='Please do not leave the field empty', log=str(e),
                                            logger_obj=logger)
             return Response(result, status.HTTP_400_BAD_REQUEST)
         except Exception as e:
