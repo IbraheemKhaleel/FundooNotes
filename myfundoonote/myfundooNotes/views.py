@@ -48,7 +48,7 @@ class CustomRedirect(HttpResponsePermanentRedirect):
 
 # defining a general error message if any unknown errors occur
 default_error_message = {'error': 'Something went wrong', 'status': False}
-
+cache = Cache.getInstance()
 
 class Login(generics.GenericAPIView):
     """[allows user login after verification and activation]
@@ -68,7 +68,6 @@ class Login(generics.GenericAPIView):
             serializer.is_valid(raise_exception=True)
             user = User.objects.get(email=serializer.data['email'])
             token = Encrypt.encode(user.id)
-            cache = Cache()
             cache.set_cache("TOKEN_" + str(user.id) + "_AUTH", token)
             result = utils.manage_response(status=True, message='Token generated', data=None, log=serializer.data,
                                            logger_obj=logger)
@@ -101,7 +100,7 @@ class Logout(generics.GenericAPIView):
         @type kwargs: integer
         """
         try:
-            cache = Cache()
+
             cache.delete_cache("TOKEN_" + str(kwargs['userid']) + "_AUTH")
             result = utils.manage_response(status=True, message='User has been logged out', data=kwargs['userid'],
                                            log='Token has been deleted',
