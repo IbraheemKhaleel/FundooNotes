@@ -31,7 +31,7 @@ file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 
-cache = Cache()
+cache = Cache.getInstance()
 
 class NotesOverview(APIView):
     """
@@ -81,7 +81,7 @@ class ManageNotes(APIView):
                         "NOTE_" + str(kwargs.get('pk')) + "_DETAIL") is not None:  # retrieving notes from cache
                     note = cache.get_cache("NOTE_" + str(kwargs.get('pk')) + "_DETAIL")
                     result = utils.manage_response(status=True, message='retrieved successfully', data=note, log=note, logger_obj=logger)
-                    return Response(result, status.HTTP_200_OK)
+                    return Response(result, status.HTTP_200_OK, content_type='application/json')
                 else:
                     note = Note.objects.get(Q(id=kwargs.get('pk')), Q(is_archived=False), Q(is_trashed=False),
                                             Q(user=current_user) | Q(
@@ -100,16 +100,16 @@ class ManageNotes(APIView):
         except EmptyFieldError as e:
             result = utils.manage_response(status=False, message='No notes exists', log=str(e),
                                            logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except TypeError as e:
             result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except Note.DoesNotExist as e:
             result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except Exception as e:
             result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_400_BAD_REQUEST)
+            return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
 
     def post(self, request, **kwargs):
         """
@@ -145,21 +145,21 @@ class ManageNotes(APIView):
                 return Response(result, status.HTTP_201_CREATED)
             else:
                 result = utils.manage_response(status=False, message=serializer.errors, log=serializer.errors, logger_obj=logger)
-                return Response(result, status.HTTP_400_BAD_REQUEST)
+                return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
         except LengthError as e:
             result = utils.manage_response(status=False, message='title length should be between 3 to 50 characters',
                                            log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except ValidationError as e:
             result = utils.manage_response(status=False, message='Please provide valid details',
                                            log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except EmptyFieldError as e:
             result = utils.manage_response(status=False, message='Empty field. Type something', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_400_BAD_REQUEST)
+            return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
         except Exception as e:
             result = utils.manage_response(status=False, message='Something went wrong. Try again', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_400_BAD_REQUEST)
+            return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
 
     def patch(self, request, pk, **kwargs):
         """
@@ -196,25 +196,25 @@ class ManageNotes(APIView):
                 cache.set_cache("NOTE_" + str(note.id) + "_DETAIL", str(serializer.data))
             else:
                 result = utils.manage_response(status=False, message=serializer.errors, log=serializer.errors, logger_obj=logger)
-                return Response(result, status.HTTP_400_BAD_REQUEST)
+                return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
 
             result = utils.manage_response(status=True, message='updated successfully', data=serializer.data,
                                            log=serializer.data, logger_obj=logger)
             return Response(result, status.HTTP_200_OK)
         except ValidationError as e:
             result = utils.manage_response(status=False, message='Please enter proper details for each field', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except TypeError as e:
             result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except Note.DoesNotExist as e:
             print(e)
             result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except Exception as e:
 
             result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_400_BAD_REQUEST)
+            return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
 
     def delete(self, request, pk, **kwargs):
         """[trash deletes existing note]
@@ -231,10 +231,10 @@ class ManageNotes(APIView):
 
         except Note.DoesNotExist as e:
             result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except Exception as e:
             result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_400_BAD_REQUEST)
+            return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
 
 
 @method_decorator(user_login_required, name='dispatch')
@@ -267,13 +267,13 @@ class ManageArchivedNote(APIView):
             return Response(result, status.HTTP_200_OK)
         except Note.DoesNotExist as e:
             result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except TypeError as e:
             result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except Exception as e:
             result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_400_BAD_REQUEST)
+            return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
 
 
 @method_decorator(user_login_required, name='dispatch')
@@ -310,13 +310,13 @@ class ManagePinnedNotes(APIView):
             return Response(result, status.HTTP_200_OK)
         except Note.DoesNotExist as e:
             result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except TypeError as e:
             result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except Exception as e:
             result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_400_BAD_REQUEST)
+            return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
 
 
 @method_decorator(user_login_required, name='dispatch')
@@ -348,13 +348,13 @@ class ManageTrashedNotes(APIView):
             return Response(result, status.HTTP_200_OK)
         except TypeError as e:
             result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except Note.DoesNotExist as e:
             result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except Exception as e:
             result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_400_BAD_REQUEST)
+            return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
 
     def delete(self, request, pk, **kwargs):
         """[soft deletes trashed note]
@@ -370,14 +370,14 @@ class ManageTrashedNotes(APIView):
             return Response(result, status.HTTP_204_NO_CONTENT)
         except TypeError as e:
             result = utils.manage_response(status=False, message='Please enter an integer', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
 
         except Note.DoesNotExist as e:
             result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except Exception as e:
             result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_400_BAD_REQUEST)
+            return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
 
 
 @method_decorator(user_login_required, name='dispatch')
@@ -417,10 +417,10 @@ class SearchNote(APIView):
         except NoSearchFoundError as e:
             result = utils.manage_response(status=False, message='Your searched note is nowhere in the notes',
                                            log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_400_BAD_REQUEST)
+            return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
         except Note.DoesNotExist as e:
             result = utils.manage_response(status=False, message='note not found', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_404_NOT_FOUND)
+            return Response(result, status.HTTP_404_NOT_FOUND, content_type='application/json')
         except Exception as e:
             result = utils.manage_response(status=False, message='Something went wrong.Please try again.', log=str(e), logger_obj=logger)
-            return Response(result, status.HTTP_400_BAD_REQUEST)
+            return Response(result, status.HTTP_400_BAD_REQUEST, content_type='application/json')
