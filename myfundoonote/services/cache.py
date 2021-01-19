@@ -3,26 +3,53 @@ from decouple import config
 
 
 class Cache:
+    """
+    Instantiates cache object and returns same instance for further operations using getInstance()
+    """
 
-    def __init__(self):
-        self.r = redis.StrictRedis(host=config('REDIS_HOST'), port=config('REDIS_PORT'))
+    __shared_instance = None
+
+    @staticmethod
+    def getInstance():
+        """[returns initialised cache instance to calling view]
+        :return: cache instance stored in __shared_instance
+        """
+
+        if Cache.__shared_instance is None:
+            Cache.__shared_instance = Cache(config('REDIS_HOST'), config('REDIS_PORT'))
+        return Cache.__shared_instance
+
+    def __init__(self, host, port):
+        """
+        Constructor to initialize the host and port of redis server
+       @param host: host of the port
+       @type host: string
+       @param port: Number of the port
+       @type port: Int
+       """
+
+        self.cache = redis.StrictRedis(host=host, port=port)
 
     def set_cache(self, key, value):
         """
-        takes key[id] and value[token] value as inputs and stores it in redis server and has expiration time of 60 seconds
+
+        @param key: key value of the respective value
+        @type key: string
+        @param value: value of the element we storing in cache
+        @type value: string
         """
-        self.r.set(key, value)
-        self.r.expire(key, time=8000)
+        self.cache.set(key, value)
+        self.cache.expire(key, time=60000)
 
     def get_cache(self, key):
+        """[gets value for existing key in cache]
+        :param key: [mandatory]:[string]:the key to be used for existing token/note record
+        :return: value stored against key
         """
-        it takes key as input and returns value stored with that key
-        """
-        return self.r.get(key)
+        return self.cache.get(key)
 
     def delete_cache(self, key):
+        """[deletes cache record for existing key in cache]
+        :param key: :[string]:the key to be used for existing token/note record
         """
-        @param key: The key of the respective note
-        @type key: String
-        """
-        self.r.delete(key)
+        self.cache.delete(key)
