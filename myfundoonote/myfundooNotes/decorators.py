@@ -26,19 +26,21 @@ def user_login_required(view_func):
         try:
             token = request.META['HTTP_AUTHORIZATION']
             decoded_token = Encrypt.decode(token)
-            cache = Cache()
+            cache = Cache.getInstance()
             if cache.get_cache("TOKEN_" + str(decoded_token['id']) + "_AUTH") is not None:
                 kwargs['userid'] = decoded_token['id']
                 return view_func(request, *args, **kwargs)
-            return HttpResponse('Unauthorized access is detected', status.HTTP_403_FORBIDDEN)
+            return HttpResponse('Unauthorized access is detected', status.HTTP_401_UNAUTHORIZED)
         except jwt.ExpiredSignatureError as e:
             result['message'] = 'Activation Expired'
-            logging.exception('{} exception = {}, status_code = {}'.format(result, str(e), status.HTTP_400_BAD_REQUEST))
+            logging.exception('{} exception = {}, status_code = {}'.format(result, str(e), status.HTTP_401_UNAUTHORIZED))
+            HttpResponse.status_code = status.HTTP_401_UNAUTHORIZED
             return HttpResponse(json.dumps(result), status.HTTP_400_BAD_REQUEST)
         except jwt.exceptions.DecodeError as e:
             result['message'] = 'Invalid Token'
             logging.exception(
                 '{}, exception = {}, status_code = {}'.format(result, str(e), status.HTTP_400_BAD_REQUEST))
+            HttpResponse.status_code = status.HTTP_400_BAD_REQUEST
             return HttpResponse(json.dumps(result), status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             result['message'] = 'some other issue please try after some time'
