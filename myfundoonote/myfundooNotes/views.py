@@ -7,6 +7,7 @@ Created :  25 November 2020
 import os, jwt, logging
 
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.utils.decorators import method_decorator
 from django.utils.encoding import smart_str, force_str, smart_bytes, DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.contrib.sites.shortcuts import get_current_site
@@ -14,6 +15,7 @@ from django.urls import reverse
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
 
+from .decorators import user_login_required
 from .tasks import send_email
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import generics, status, views
@@ -87,6 +89,7 @@ class Login(generics.GenericAPIView):
             return Response(result, status.HTTP_400_BAD_REQUEST)
 
 
+@method_decorator(user_login_required, name='dispatch')
 class Logout(generics.GenericAPIView):
     """
     Created a class to perform loging out of the user, so the token will be flushed out from cache
@@ -99,8 +102,8 @@ class Logout(generics.GenericAPIView):
         """
         try:
             cache = Cache()
-            cache.delete_cache("TOKEN_" + str(kwargs['pk']) + "_AUTH")
-            result = utils.manage_response(status=True, message='User has been logged out', data=kwargs['pk'],
+            cache.delete_cache("TOKEN_" + str(kwargs['userid']) + "_AUTH")
+            result = utils.manage_response(status=True, message='User has been logged out', data=kwargs['userid'],
                                            log='Token has been deleted',
                                            logger_obj=logger)
             return Response(result, status=status.HTTP_200_OK)
